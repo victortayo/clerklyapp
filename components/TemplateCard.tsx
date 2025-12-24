@@ -9,7 +9,7 @@ interface TemplateCardProps {
 }
 
 const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy }) => {
-  const snippet = template.content.slice(0, 150) + (template.content.length > 150 ? '...' : '');
+  const snippet = template.content.slice(0, 100) + (template.content.length > 100 ? '...' : '');
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col h-full overflow-hidden">
@@ -28,7 +28,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
         <p className="text-xs text-slate-500 italic mb-3">
           {template.subSpecialty}
         </p>
-        <div className="text-sm text-slate-600 mb-4 whitespace-pre-wrap leading-relaxed font-mono">
+        <div className="text-[11px] text-slate-600 mb-4 whitespace-pre-wrap leading-relaxed font-mono bg-slate-50 p-3 rounded-lg border border-slate-100">
           {snippet}
         </div>
         <div className="flex flex-wrap gap-1 mt-auto">
@@ -43,18 +43,18 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
         </div>
       </div>
       <div className="px-5 py-3 border-t border-slate-100 flex gap-2">
-        <button 
+        <button
           onClick={() => onView(template)}
           className="flex-1 py-2 text-xs font-semibold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors border border-transparent hover:border-blue-100"
         >
-          View Full
+          Open Template
         </button>
-        <button 
+        <button
           onClick={() => onCopy(template.content)}
-          className="flex-1 py-2 text-xs font-semibold bg-slate-900 text-white hover:bg-slate-800 rounded-lg transition-all active:scale-95 flex items-center justify-center gap-1.5"
+          className="w-10 h-9 flex items-center justify-center bg-slate-900 text-white hover:bg-slate-800 rounded-lg transition-all active:scale-95 shadow-sm"
+          title="Copy Template"
         >
-          <i className="fa-solid fa-copy text-[10px]"></i>
-          Copy
+          <i className="fa-solid fa-copy text-xs"></i>
         </button>
       </div>
     </div>
