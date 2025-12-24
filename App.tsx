@@ -180,12 +180,6 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      {/* Full Template Modal */}
-      <TemplateModal
-        template={selectedTemplate}
-        onClose={() => setSelectedTemplate(null)}
-        onCopy={handleCopy}
-      />
     </div>
   );
 };
