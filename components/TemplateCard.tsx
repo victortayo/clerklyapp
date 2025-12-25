@@ -28,12 +28,12 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
         <p className="text-xs text-slate-500 italic mb-3">
           {template.subSpecialty}
         </p>
-        <div className="text-[11px] text-slate-600 mb-4 whitespace-pre-wrap leading-relaxed font-mono bg-slate-50 p-3 rounded-lg border border-slate-100">
+        <div className="text-[10px] text-slate-600 mb-4 whitespace-pre-wrap leading-relaxed font-mono bg-slate-50 p-3 rounded-lg border border-slate-100">
           {snippet}
         </div>
         <div className="flex flex-wrap gap-1 mt-auto">
           {template.symptoms.slice(0, 3).map((s, idx) => (
-            <span key={idx} className="bg-slate-50 text-slate-500 px-2 py-0.5 rounded text-[10px] border border-slate-100">
+            <span key={idx} className="bg-slate-50 text-slate-500 px-1.5 py-0.5 rounded text-[9px] border border-slate-100">
               {s}
             </span>
           ))}

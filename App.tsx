@@ -29,7 +29,7 @@ const App: React.FC = () => {
 
   const handleCopy = (content: string) => {
     navigator.clipboard.writeText(content).then(() => {
-      setCopyFeedback("Copied to clipboard!");
+      setCopyFeedback("Copied");
       setTimeout(() => setCopyFeedback(null), 2000);
     });
   };
