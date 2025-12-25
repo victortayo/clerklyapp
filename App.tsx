@@ -12,6 +12,17 @@ const App: React.FC = () => {
   });
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isDropdownOpen && !(event.target as Element).closest('.specialty-dropdown')) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDropdownOpen]);
 
   const filteredTemplates = useMemo(() => {
     return CLERKING_TEMPLATES.filter(t => {
@@ -34,8 +45,13 @@ const App: React.FC = () => {
     });
   };
 
-  const clearFilters = () => {
+  const goHome = () => {
+    setSelectedTemplate(null);
     setFilters({ query: '', specialty: Specialty.All });
+  };
+
+  const clearFilters = () => {
+    setFilters(prev => ({ ...prev, query: '', specialty: Specialty.All }));
   };
 
   return (
@@ -51,12 +67,15 @@ const App: React.FC = () => {
       {/* Header */}
       <header className="sticky top-0 z-40 w-full glass-morphism border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer group" onClick={clearFilters}>
-            <div className="w-8 h-8 bg-indigo-950 rounded-lg flex items-center justify-center group-hover:bg-black transition-colors">
+          <button
+            onClick={goHome}
+            className="flex items-center gap-2 group p-1.5 -ml-1.5 rounded-xl hover:bg-slate-50 transition-all"
+            title="Go to Homepage"
+          >
+            <div className="w-8 h-8 bg-indigo-950 rounded-lg flex items-center justify-center group-hover:bg-black transition-colors shadow-lg shadow-indigo-100">
               <i className="fa-solid fa-file-medical text-white text-lg"></i>
             </div>
-            <span className="text-xl font-bold tracking-tighter text-indigo-950 font-brand">clerkly</span>
-          </div>
+          </button>
           <nav className="hidden md:flex gap-6">
             <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Documentation</a>
             <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Contribute</a>
@@ -88,15 +107,36 @@ const App: React.FC = () => {
                     onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value }))}
                   />
                 </div>
-                <select
-                  className="px-4 py-3 bg-slate-100 text-slate-700 rounded-xl font-medium focus:outline-none cursor-pointer text-sm"
-                  value={filters.specialty}
-                  onChange={(e) => setFilters(prev => ({ ...prev, specialty: e.target.value as Specialty }))}
-                >
-                  {Object.values(Specialty).map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
+                <div className="relative specialty-dropdown">
+                  <button
+                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    className="w-full sm:w-48 px-4 py-3 bg-slate-100 text-indigo-950 rounded-xl font-bold focus:outline-none flex items-center justify-between gap-2 hover:bg-slate-200 transition-colors text-sm"
+                  >
+                    <span className="truncate">{filters.specialty}</span>
+                    <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}></i>
+                  </button>
+
+                  {isDropdownOpen && (
+                    <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-200">
+                      {Object.values(Specialty).map(s => (
+                        <button
+                          key={s}
+                          onClick={() => {
+                            setFilters(prev => ({ ...prev, specialty: s }));
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${filters.specialty === s
+                              ? 'bg-indigo-50 text-indigo-950'
+                              : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-950'
+                            }`}
+                        >
+                          {s}
+                          {filters.specialty === s && <i className="fa-solid fa-check text-[10px]"></i>}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
