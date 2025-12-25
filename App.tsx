@@ -209,13 +209,11 @@ const App: React.FC = () => {
           </div>
           <p className="text-sm max-w-md mx-auto mb-8 leading-relaxed">
             Repository for clinical clerking templates.           </p>
-          <div className="flex justify-center gap-8 mb-8">
-            {/* <a href="#" className="hover:text-white transition-colors">Privacy</a> */}
-            {/* <a href="#" className="hover:text-white transition-colors">Terms</a> */}
+          <div className="flex justify-center gap-8 mb-4">
             <a href="#" className="hover:text-white transition-colors">Contact</a>
           </div>
-          <div className="text-xs border-t border-slate-800 pt-8">
-            &copy; {new Date().getFullYear()} Clerkly. All rights reserved. For educational purposes.
+          <div className="text-xs border-t border-slate-800 pt-2">
+            &copy; {new Date().getFullYear()} Clerkly. All rights reserved. <br /> For educational purposes.
           </div>
         </div>
       </footer>
