@@ -9,20 +9,28 @@ interface TemplateCardProps {
 }
 
 const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy }) => {
+  const [copied, setCopied] = React.useState(false);
   const snippet = template.content.slice(0, 100) + (template.content.length > 100 ? '...' : '');
+
+  const handleLocalCopy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onCopy(template.content);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all group flex flex-col h-full overflow-hidden">
       <div className="p-5 flex-1 cursor-pointer" onClick={() => onView(template)}>
         <div className="flex justify-between items-start mb-2">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500 bg-blue-50 px-2 py-0.5 rounded">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-900 bg-indigo-50 px-2 py-0.5 rounded">
             {template.specialty}
           </span>
           <span className="text-[10px] text-slate-400">
             {template.lastModified}
           </span>
         </div>
-        <h3 className="text-lg font-bold text-slate-800 mb-1 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-lg font-bold text-slate-800 mb-1 group-hover:text-indigo-950 transition-colors font-brand">
           {template.title}
         </h3>
         <p className="text-xs text-slate-500 italic mb-3">
@@ -50,11 +58,11 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
           Open Template
         </button>
         <button
-          onClick={() => onCopy(template.content)}
-          className="w-10 h-9 flex items-center justify-center bg-slate-900 text-white hover:bg-slate-800 rounded-lg transition-all active:scale-95 shadow-sm"
-          title="Copy Template"
+          onClick={handleLocalCopy}
+          className={`w-10 h-9 flex items-center justify-center rounded-lg transition-all active:scale-95 shadow-sm ${copied ? 'bg-emerald-600 text-white' : 'bg-indigo-950 text-white hover:bg-black'}`}
+          title={copied ? "Copied" : "Copy Template"}
         >
-          <i className="fa-solid fa-copy text-xs"></i>
+          <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'} text-xs`}></i>
         </button>
       </div>
     </div>

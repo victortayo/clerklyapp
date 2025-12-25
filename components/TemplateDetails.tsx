@@ -33,15 +33,15 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
           <i className="fa-solid fa-arrow-left text-lg group-hover:-translate-x-1 transition-transform"></i>
         </button>
         <div>
-          <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">{template.title}</h2>
+          <h2 className="text-3xl font-bold text-indigo-950 tracking-tight font-brand">{template.title}</h2>
           <div className="flex flex-wrap gap-4 text-xs text-slate-500 mt-2 items-center">
             <span className="flex items-center gap-1.5">
-              <i className="fa-solid fa-user-doctor text-blue-500"></i> {template.contributor}
+              <i className="fa-solid fa-user-doctor text-indigo-900"></i> {template.contributor}
             </span>
             <span className="flex items-center gap-1.5">
               <i className="fa-solid fa-clock text-slate-400"></i> {template.lastModified}
             </span>
-            <span className="bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full font-semibold border border-blue-100">
+            <span className="bg-indigo-50 text-indigo-900 px-2.5 py-1 rounded-full font-semibold border border-indigo-100">
               {template.specialty}
             </span>
           </div>
@@ -56,7 +56,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
           </div>
           <button
             onClick={handleLocalCopy}
-            className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${copied ? 'bg-green-600 text-white shadow-green-100' : 'bg-blue-600 text-white shadow-blue-200'} shadow-lg active:scale-95`}
+            className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${copied ? 'bg-emerald-600 text-white shadow-emerald-100' : 'bg-indigo-950 text-white shadow-indigo-200'} shadow-lg active:scale-95`}
             title={copied ? "Copied" : "Copy Template"}
           >
             <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
@@ -88,7 +88,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
         </button>
         <button
           onClick={handleLocalCopy}
-          className={`px-8 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto ${copied ? 'bg-green-600 text-white' : 'bg-slate-900 text-white hover:bg-black'}`}
+          className={`px-8 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto ${copied ? 'bg-emerald-600 text-white' : 'bg-indigo-950 text-white hover:bg-black'}`}
         >
           <i className={`fa-solid ${copied ? 'fa-check text-xs' : 'fa-copy text-sm'}`}></i>
           {copied ? 'Copied' : 'Copy'}

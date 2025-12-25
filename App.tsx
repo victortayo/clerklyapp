@@ -42,8 +42,8 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       {/* Feedback Toast */}
       {copyFeedback && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl animate-bounce flex items-center gap-2">
-          <i className="fa-solid fa-circle-check text-green-400"></i>
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-indigo-950 text-white px-6 py-3 rounded-full shadow-2xl animate-bounce flex items-center gap-2">
+          <i className="fa-solid fa-circle-check text-emerald-400"></i>
           <span className="font-medium text-sm">{copyFeedback}</span>
         </div>
       )}
@@ -51,28 +51,29 @@ const App: React.FC = () => {
       {/* Header */}
       <header className="sticky top-0 z-40 w-full glass-morphism border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={clearFilters}>
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-2 cursor-pointer group" onClick={clearFilters}>
+            <div className="w-8 h-8 bg-indigo-950 rounded-lg flex items-center justify-center group-hover:bg-black transition-colors">
               <i className="fa-solid fa-file-medical text-white text-lg"></i>
             </div>
+            <span className="text-xl font-bold tracking-tighter text-indigo-950 font-brand">clerkly</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Documentation</a>
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Contribute</a>
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Help</a>
+            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Documentation</a>
+            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Contribute</a>
+            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Help</a>
           </nav>
         </div>
       </header>
 
       {/* Hero Section - Only show when no template selected */}
       {!selectedTemplate && (
-        <section className="bg-white border-b border-slate-100 py-16 sm:py-24">
+        <section className="bg-white border-b border-slate-100 py-20 sm:py-32">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-5xl sm:text-7xl font-extrabold text-slate-900 mb-4 tracking-tighter">
+            <h2 className="text-6xl sm:text-8xl font-bold text-indigo-950 mb-2 tracking-tighter font-brand">
               clerkly
             </h2>
-            <p className="text-xl sm:text-2xl text-slate-500 font-light tracking-wide mb-12">
-              patients' notes
+            <p className="text-sm sm:text-base text-slate-400 font-medium tracking-[0.2em] uppercase mb-12">
+              patients notes
             </p>
 
             <div className="max-w-2xl mx-auto">
@@ -116,7 +117,7 @@ const App: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-between items-center mb-10 gap-4">
               <h3 className="text-lg font-semibold text-slate-800">
                 {filters.query || filters.specialty !== Specialty.All ? (
-                  <span>Found <span className="text-blue-600">{filteredTemplates.length}</span> results</span>
+                  <span>Found <span className="text-indigo-950">{filteredTemplates.length}</span> results</span>
                 ) : (
                   <span>Explore all templates</span>
                 )}
@@ -124,7 +125,7 @@ const App: React.FC = () => {
               {(filters.query || filters.specialty !== Specialty.All) && (
                 <button
                   onClick={clearFilters}
-                  className="text-sm font-medium text-blue-600 hover:text-blue-700 px-4 py-1.5 rounded-full hover:bg-blue-50 transition-colors"
+                  className="text-sm font-medium text-indigo-950 hover:text-black px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
                 >
                   Clear filters
                 </button>
@@ -158,13 +159,13 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-12 mt-20">
+      <footer className="bg-indigo-950 text-slate-400 py-16 mt-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+            <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
               <i className="fa-solid fa-file-medical text-white text-xs"></i>
             </div>
-            <span className="text-white font-bold tracking-tight text-lg">clerkly</span>
+            <span className="text-white font-bold tracking-tight text-xl font-brand">clerkly</span>
           </div>
           <p className="text-sm max-w-md mx-auto mb-8 leading-relaxed">
             The standard repository for clinical clerking templates. Designed by clinicians, for clinicians.
