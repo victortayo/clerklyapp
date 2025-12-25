@@ -126,8 +126,8 @@ const App: React.FC = () => {
                             setIsDropdownOpen(false);
                           }}
                           className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${filters.specialty === s
-                              ? 'bg-indigo-50 text-indigo-950'
-                              : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-950'
+                            ? 'bg-indigo-50 text-indigo-950'
+                            : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-950'
                             }`}
                         >
                           {s}
@@ -208,15 +208,14 @@ const App: React.FC = () => {
             <span className="text-white font-bold tracking-tight text-xl font-brand">clerkly</span>
           </div>
           <p className="text-sm max-w-md mx-auto mb-8 leading-relaxed">
-            The standard repository for clinical clerking templates. Designed by clinicians, for clinicians.
-          </p>
+            Repository for clinical clerking templates.           </p>
           <div className="flex justify-center gap-8 mb-8">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            {/* <a href="#" className="hover:text-white transition-colors">Privacy</a> */}
+            {/* <a href="#" className="hover:text-white transition-colors">Terms</a> */}
             <a href="#" className="hover:text-white transition-colors">Contact</a>
           </div>
           <div className="text-xs border-t border-slate-800 pt-8">
-            &copy; {new Date().getFullYear()} Clerkly. All rights reserved. Built for medical education and reference.
+            &copy; {new Date().getFullYear()} Clerkly. All rights reserved. For educational purposes.
           </div>
         </div>
       </footer>
