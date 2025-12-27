@@ -220,15 +220,19 @@ Review with investigation results.`
     specialty: Specialty.Pediatrics,
     subSpecialty: 'Otolaryngology / Pediatrics',
     condition: 'Acute Tonsillitis',
-    symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Sleep disturbance', 'Hyperemic tonsils'],
+    symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Hyperemic tonsils'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
     content: `Patient Seen
 2-year-old male residing with Muslim Yoruba parents at Harmony
+
 Informant: Father
+
 PC:
+
 Fever × 3 days
 Noisy breathing × 2 days
+
 HPC:
 Patient was well until 3 days ago when he developed high-grade, intermittent fever, temporarily relieved by medications. Noisy breathing started 1 day ago, insidious in onset, described as snoring, worse during sleep, disturbing sleep.
 He was initially seen at a private facility where investigations were done, IV fluids and oral medications were given, and he was discharged. Due to persistent symptoms, he was brought here for further care.
@@ -236,28 +240,39 @@ No history of asthma, seizure disorder, or sickle cell disease. No prior hospita
 No cough or chest pain
 No bluish discoloration of lips or limbs
 No vomiting, diarrhea, dysuria, or passage of dark/frothy urine
+
 O/E:
 Well-nourished, acutely ill-looking, febrile (37.8°C), not pale, icteric, cyanosed, or dehydrated. Bilateral submandibular lymph node enlargement. No pedal edema. No digital clubbing.
+
 Weight: 16 kg
+
 Respiratory:
 Not dyspneic
 RR 32 cpm
 BS vesicular
 SpO₂ 99% in room air
+
 ENT:
 Tonsils hyperemic, not enlarged, no exudates
 No tragal or pinnal tenderness
+
 CVS:
 PR 132 bpm, full volume, regular
 HS S1 S2 heard
+
 Abdomen:
 Full, MWR, soft, non-tender, 
 No organomegaly
 
 CNS: Grossly intact
+
 MSS: NAD
+
 mRDT: Negative
-Diagnosis: Acute tonsillitis with postnasal obstruction
+
+Diagnosis: 
+Acute tonsillitis with postnasal obstruction
+
 Plan:
 CRP
 Steam inhalation
@@ -284,18 +299,25 @@ Continue other supportive management`
     lastModified: '2025-12-27',
     content: `Patient seen 
 51-year-old man presented with 
+
 Chest pain × 2 days.
+
 He was in his usual state of health until 2 days prior to presentation when he developed central, sudden-onset, crushing chest pain, non-radiating, graded 10/10, starting a few minutes after an altercation with his son. No known aggravating or relieving factors.
 Four days before chest pain onset, patient had a febrile illness treated at a private hospital with antimalarials and antibiotics. No previous history of similar symptoms. No cough, sweating, calf swelling or pain, palpitations, orthopnea, PND, vomiting, or abdominal pain.
+
 Patient is a known hypertensive for 5 years, on Tab Vasoprin, Amlodipine, Bondomet, and Lisinopril with fair compliance. 
 No diabetes, seizure disorder, or asthma. 
 Does not smoke or consume alcohol.
+
 At onset, patient presented to a referring facility where he was managed for Plasmodiasis. On presentation at our facility, ECG showed Acute STEMI, Sinus Tachycardia, Anterolateral ST Elevation, suggestive of acute infarct.
+
 Admitting vitals:
 BP 177/123 mmHg
 PR 112 bpm
+
 O/E:
 Middle-aged man, in moderate painful distress, anicteric, acyanosed, afebrile, no pedal edema
+
 CVS:
 PR 112 bpm, 
 LCB+, 
@@ -320,6 +342,7 @@ GCS 15/15,
 No meningeal signs, 
 Normal tone, 
 Full power in all limbs
+
 Assessment:
 Acute coronary syndrome, likely ST Elevation Myocardial Infarction (STEMI)
 
@@ -662,6 +685,79 @@ Tab Vitamin C 200 mg daily
 See Gynae clinic on Wednesday
 See Cardiology clinic
 Review PCV result before discharge`
+  },
+  {
+    id: 'ob-5',
+    title: 'Fibroid Degeneration in Pregnancy',
+    specialty: Specialty.OBGYN,
+    subSpecialty: 'Gynae Emergency',
+    condition: 'Fibroid Degeneration',
+    symptoms: ['Lower abdominal pain', 'Retching', 'Low back ache', 'Abdominopelvic mass', 'Tenderness', 'Serum pregnancy test positive'],
+    contributor: 'Admin',
+    lastModified: '2025-12-28',
+    content: `GYNAE EMERGENCY 
+
+36-year-old married Christian Yoruba female, G3P0+2, primary school teacher, resides in a Ede, Osun State.
+
+LMP: 15/09/2025
+EDD: 22/06/2026
+EGA: 6 weeks 3 days
+PC: Lower abdominal pain × 1 day
+HPC:
+She was apparently well until 1 day ago when she developed lower abdominal pain localised to the lower abdomen, more in the centre of the lower abdomen, and also felt in the right and left lower abdomen. Pain is colicky, waxing and waning, no particular aggravating or relieving factor. She also gave history of retching though not vomiting. No fever, though she gave history of chills. No headache. No urinary symptoms. She also gave history of low back ache which has been recurrent. No diarrhea. No bleeding or spotting per vaginam, no blurring of vision, no dizziness, no fainting attack. No other complaint. Patient has done a USS in the past which discovered uterine fibroids, though the scan was not presented. She presented this morning on account of worsening symptoms. Patient also did a serum pregnancy test 1 week ago which was positive. She has however not localised the pregnancy with USS nor booked the pregnancy.
+
+
+She attained menarche at the age of 18 years, menstruates for 3-5 days in a regular 28 day cycle. 
+No heavy menstrual bleeding, intermenstrual or postcoital bleeding. 
+No dysmenorrhea or dyspareunia. 
+She has history of 2 VTOPs which were surgically evacuated by dilatation and curettage. No postabortal sequelae. 
+She is aware of family planning methods. 
+
+She is not a known hypertensive, diabetic, asthmatic, or seizure disorder patient. 
+She has no history of blood transfusion or surgery. 
+
+She is married in a monogamous setting to a business man. 
+She does not smoke cigarette nor take alcoholic drinks. 
+
+She has no drug or food allergy. 
+
+Review of system is not contributory.
+
+O/E:
+A young woman, conscious, alert, oriented in time, place and person, in moderate painful distress, not in respiratory distress, afebrile T is 36.1 C, not pale, anicteric, acyanosed, not dehydrated, no pedal edema
+
+RS:
+RR 22 cpm
+SpO2 in room air is 99 %
+
+CVS:
+PR 96 bpm, full volume and regular
+BP 156/108 mmHg
+
+ABDOMEN:
+Full, moves with respiration
+Moderate generalised tenderness, more in suprapubic region and right and left iliac fossa
+Abdominopelvic mass about 26 weeks size, relatively mobile, irregular, tender, firm, moves freely under the overlying skin
+LoSoKo
+
+VE:
+Normal female external genitalia
+SPECULUM revealed healthy looking closed cervix, no bleeding or spotting per vaginam
+DIGITAL revealed posterior, firm, uneffaced, closed cervix, pouch of Douglas not full, no adnexal tenderness bilaterally
+
+Assessment:
+Suspected fibroid degeneration in pregnancy in an unbooked G3P0+2 at 6 weeks 3 days EGA
+
+Plan:
+Counsel patient on findings, diagnosis, and management plan
+Admit to Gynae Emergency
+Urgent labs: FBC (PCV), blood film for malaria parasite, urinalysis, blood group, serum pregnancy test, HBsAg, HCV, RVS, RBS
+Abdominopelvic USS / Transvaginal USS
+Pain management: IM Pentazocine 30 mg stat, IV Paracetamol 1 g q6h
+IVF: 0.9% N/S 1 L stat, then 500 mL q4h
+Close monitoring of vital signs
+Review with USS results
+Inform consultant on call`
   },
 
   // Surgery
