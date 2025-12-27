@@ -113,7 +113,7 @@ Reassess after completion of nebulisation`
     lastModified: '2025-12-27',
     content: `DOB: 04/10/25
 TOB: 11:48 am
-Date of delivery: EMCS
+Mode of delivery: EMCS
 Indication: 2 previous caesarean sections in labour
 EGA: 40 weeks
 Tribe: Yoruba
@@ -291,7 +291,7 @@ MANAGEMENT:
     lastModified: '2025-12-27',
     content: `ANC BOOKING
 
-    LMP: 20/07/2025
+LMP: 20/07/2025
 EGA: 21 weeks + 3 days
 EDD: 27/04/2026
 
@@ -352,6 +352,64 @@ Plan:
 3. RVS
 4. Continue Pregnacare
 5. Follow-up in 4 weeks.`
+  },
+
+  {
+    id: 'ob-3',
+    title: 'Antenatal Clinic',
+    specialty: Specialty.OBGYN,
+    subSpecialty: 'Antenatal Clinic',
+    condition: 'Antenatal Care',
+    symptoms: ['G2P0+1', 'Antenatal booking', 'Pregnancy assessment', 'Routine ANC'],
+    contributor: 'Admin',
+    lastModified: '2025-12-27',
+    content: `ANTENATAL CLINIC
+
+Patient seen.
+A 28-year-old G2P0+1, housewife, residing at Kemta, Abeokuta, Christian, Yoruba.
+LMP: 26/08/23
+EGA: 27 weeks + 6 days 
+EDD: 1/06/24
+
+She presented today for antenatal booking. Pregnancy has been uneventful. No lower abdominal pain, no vaginal bleeding, no discharge, no headaches, visual disturbance or swelling. She is yet to donate blood.
+Has had one dose of TT in this pregnancy, yet to commence IPT.
+
+Booking investigations:
+HIV: Negative
+Others not yet done
+
+Index pregnancy was spontaneously conceived, planned and desired. Suspected following a period of amenorrhoea, confirmed via urine PT, and later localized with an early ultrasound scan.
+
+Attained menarche at 15 years. Menses lasts 4 days in a 28-day cycle. No dysmenorrhoea, intermenstrual bleeding, menorrhagia, dyspareunia or postcoital bleeding. She is aware of contraceptives but does not use any. She is not aware of Pap smear and has never done one.
+
+She is not a known hypertensive, diabetic, asthmatic or PUD patient. Not epileptic. No previous blood transfusion. No known drug or food allergies.
+
+Social history:
+Married in a monogamous setting to a 32-year-old commercial motorcyclist. She does not smoke nor take alcohol.
+
+O/E: 
+Young woman, in NAD, not pale, anicteric, acyanosed, not dehydrated, no pedal oedema.
+RR: 20 cpm 
+PR: 76 bpm
+BP: 112/69 mmHg
+
+ABDOMEN
+Gravidly enlarged, moves with respiration. Nil area of tenderness.
+SFH: 27 cm
+FHR: 154 bpm
+
+ASS: 
+Ongoing cyesis in a booked 28-year-old G2P0+1 at EGA 27 weeks + 6 days.
+
+PLAN
+To do required booking investigations
+Tabs Fansidar iii stat
+Tabs Ferrous Sulphate 200 mg daily
+Tabs Folic Acid 5 mg daily
+Tabs B complex 1 daily
+Tabs Vitamin C 200 mg tds
+Encourage patient to ensure ANC blood donation
+See in 2/52.`
   },
 
   // Surgery
