@@ -324,27 +324,27 @@ ASS:
 Chronic hypertension with superimposed severe pre-eclampsia at EGA 28 weeks + 5 days in an unbooked 39-year-old G5P3+1 (3A)
 
 PLAN:
-1. Counsel patient on diagnosis and management
-2. Admit to ANW, secure incubator space
-3. BPP without NST
-4. Urgent urinalysis (3+ protein, SG 1.020, pH 6.5)
-5. Daily urinalysis
-6. FBC + platelet count
-7. EUCr
-8. Liver function tests
-9. RVS
-10. HBsAg, HCV, VDRL
-11. Blood group and genotype
-12. Group and crossmatch 2 units of blood
-13. IM Dexamethasone 12 mg 12-hourly × 2 doses
-14. IV Labetalol 20 mg stat
-15. Tab Labetalol 200 mg bd
-16. Tab Nifedipine XL 30 mg bd
-17. Catheterize and monitor urine output
-18. IV MgSO₄ as per Zuspan regimen
-19. To commence FKC starting tomorrow
-20. Close monitoring of blood pressure
-21. Consult to the medical team on call for blood pressure control.`
+Counsel patient on diagnosis and management
+Admit to ANW, secure incubator space
+BPP without NST
+Urgent urinalysis (3+ protein, SG 1.020, pH 6.5)
+Daily urinalysis
+FBC + platelet count
+EUCr
+Liver function tests
+RVS
+HBsAg, HCV, VDRL
+Blood group and genotype
+Group and crossmatch 2 units of blood
+IM Dexamethasone 12 mg 12-hourly × 2 doses
+IV Labetalol 20 mg stat
+Tab Labetalol 200 mg bd
+Tab Nifedipine XL 30 mg bd
+Catheterize and monitor urine output
+IV MgSO₄ as per Zuspan regimen
+To commence FKC starting tomorrow
+Close monitoring of blood pressure
+Consult to the medical team on call for blood pressure control.`
   },
   {
     id: 'ob-2',
@@ -476,6 +476,86 @@ Tabs B complex 1 daily
 Tabs Vitamin C 200 mg tds
 Encourage patient to ensure ANC blood donation
 See in 2/52.`
+  },
+
+  {
+    id: 'ob-4',
+    title: 'Gynae Clinic - Uterine Fibroid',
+    specialty: Specialty.OBGYN,
+    subSpecialty: 'Gynae Clinic',
+    condition: 'Abnormal Uterine Bleeding',
+    symptoms: ['Lower abdominal pain', 'Heavy menstrual bleeding', 'Abdominal swelling', 'Dysmenorrhea', 'Uterine fibroid'],
+    contributor: 'Admin',
+    lastModified: '2025-12-27',
+    content: `GYNAE CLINIC
+
+Patient Seen
+A 45-year-old P4+0 (3A) married food seller, Ede, Osun State, Christian, Yoruba, with HLE: Primary.
+
+LMP: 06/09/2025
+
+PC:
+Recurrent lower abdominal pain × 5 years
+Heavy menstrual bleeding × 2 weeks
+
+HPC:
+History dates back 5 years when she noted recurrent lower abdominal pain described as dull, intermittent, insidious, sometimes radiating to the back, no aggravating factors, pain severity 5–7/10, severe enough to affect daily activities.
+Associated abdominal swelling started 2 years ago, non-progressive, mildly tender, worse with periods.
+
+Heavy menstrual bleeding started about 2 weeks ago at onset of period, described as dark, foul-smelling blood with passage of clots, but no change in number of pads used per day. Associated dizziness noted, no fainting, weakness, or seizures. No abnormal vaginal discharge. Positive family history of uterine fibroid.
+
+Menarche at 15 years. First pregnancy at 17 years. No history of swelling elsewhere, weight loss, urinary symptoms, or prior abortions. Positive history of dysmenorrhea and dyspareunia. Patient not aware of Pap smear but was counseled. Aware of contraception but does not use any.
+
+Obstetric history:
+1st confinement – 1998, booked, term male via SVD, BW 3.5 kg, uneventful puerperium
+2nd confinement – 2000, booked, term male/female via SVD, BW 3.7 kg, uneventful puerperium
+3rd confinement – 2002, booked, term female via SVD, BW 3.0 kg, uneventful puerperium
+4th confinement – 2005, booked, term male via SVD, BW 3.4 kg, uneventful puerperium; child died at 7 years from RTA
+All other children alive and well
+
+Past Medical History:
+Known hypertensive diagnosed 1 year ago at a local hospital, defaulted treatment, irregular on antihypertensives. Daily use of Ibuprofen and other NSAIDs. Not known diabetic, asthmatic, seizure disorder, or sickle cell disease. No prior hospital admissions, blood transfusions, or surgeries.
+
+Social History:
+Married in a monogamous family with 3 children. Spouse 60 years old, security guard, HLE: secondary. No smoking or alcohol use. Family history of twinning in brother. No known drug or food allergy.
+
+O/E:
+Middle-aged woman, afebrile (36.1°C), mildly pale, anicteric, not cyanosed, not dehydrated, mild bilateral pitting pedal edema up to shin.
+
+CVS:
+PR 73 bpm
+BP 160/102 mmHg
+
+Chest:
+RR 22 cpm
+SpO₂ 98% room air
+Breath sounds vesicular
+
+ABD:
+Obese, moves with respiration
+Mild suprapubic tenderness
+Uterus 12-week size, L0S0K0
+
+Speculum:
+Normal vulva and vagina
+Cervix smeared with altered blood, os closed, no active bleeding
+
+VE:
+Cervix posterior, firm, 2 cm long, os closed, examining finger stained with altered blood
+
+ASS:
+Abnormal uterine bleeding, ?secondary to uterine fibroid
+
+PLAN:
+Pelvic USS
+Urgent PCV
+EUCr
+Tab Nifedipine 30 mg bd
+Tab Ferrous 200 mg daily
+Tab Vitamin C 200 mg daily
+See Gynae clinic on Wednesday
+See Cardiology clinic
+Review PCV result before discharge`
   },
 
   // Surgery
