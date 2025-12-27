@@ -12,8 +12,7 @@ export const CLERKING_TEMPLATES: Template[] = [
     symptoms: ['Nasal discharge', 'Cough', 'Difficulty in breathing', 'Fast breathing', 'Chest in-drawing', 'Wheezing'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
-    content: `Acute exacerbation of asthma
-2-year-old female toddler who resides with her Christian Igbo parents at Ijebu-Ode, Ogun State
+    content: `2-year-old female toddler who resides with her Christian Igbo parents at Ijebu-Ode, Ogun State
 
 PC:
 Nasal discharge x 4/7
@@ -41,7 +40,7 @@ She received 2 doses of TT and IPT. No history of hypertension or diabetes in pr
 Delivery was preterm at an EGA of 31 weeks via EMCS at a tertiary facility due to PROM.
 She cried spontaneously at birth. Birth weight was 1.6 kg.
 No history of neonatal jaundice or other adverse neonatal events.
-Commenced preterm formula shortly after birth and expressed breast milk after 5 days post-delivery.
+Commenced AFM shortly after birth and expressed breast milk after 5 days post-delivery.
 She was on breast milk and formula for the first 6 months of life.
 Family diet has since been introduced.
 
@@ -107,34 +106,111 @@ Reassess after completion of nebulisation`
     specialty: Specialty.Pediatrics,
     subSpecialty: 'Neonatology',
     condition: 'Hyperbilirubinemia',
-    symptoms: ['Yellowish discoloration', 'Poor feeding', 'Lethargy'],
+    symptoms: ['Yellowness of the eyes', 'Yellow body', 'EMCS delivery'],
     contributor: 'Admin',
-    lastModified: '2023-10-20',
-    content: `MATERNAL HISTORY:
-- Blood group & Rhesus status.
-- Infections (TORCHES).
-- Medication history.
+    lastModified: '2025-12-27',
+    content: `DOB: 04/10/25
+TOB: 11:48 am
+Date of delivery: EMCS
+Indication: 2 previous caesarean sections in labour
+EGA: 40 weeks
+Tribe: Yoruba
+Religion: Islam
 
-BIRTH HISTORY:
-- Gestational age.
-- Mode of delivery (instrumental? cephalhematoma?).
-- Apgar scores.
+A 48-hour-old term female neonate
 
-NEONATAL HISTORY:
-- Age of onset (hours/days of life).
-- Feeding (breast/formula, frequency, volume).
-- Stool and urine (color of stool).
+PC:
+Yellowness of the eyes × 1 day PTP
 
-EXAMINATION:
-- Kramer's staging.
-- Hydration status.
-- Hepatomegaly/Splenomegaly.
-- Neurological exam (Moro reflex, tone).
+HPI:
+She was apparently well until about a day prior to presentation when she was noticed to have yellowness of the eyes and body while by the mother’s side during postnatal ward round.
+Mother’s blood group: O positive
+No history of use of icterogenic substances.
+No poor suck or refusal of feeds.
+Mother was unbooked and registered for ANC at a federal neuropsychiatric facility in Ogun State.
+She received 2 doses of IM TT during pregnancy and 2 doses of IPT for malaria.
+No history of peripartum fever or rash.
+No symptoms suggestive of UTI, abnormal vaginal discharge, APH or PROM.
+Baby was delivered at term via EMCS.
+Birth weight: 3.8 kg
+Cried spontaneously at birth.
+APGAR score: 9 @ 1 min, 10 @ 5 mins.
 
-INVESTIGATIONS:
-- TSB, SBR (Direct/Indirect).
-- FBC, Blood film (hemolysis?).
-- G6PD status.`
+Feeding History:
+Exclusively breastfed.
+Mother reports good lactation.
+Baby feeds for about 30 minutes per feed and sleeps thereafter.
+No excessive sweating, difficulty in breathing or prolonged suck–rest–suck cycle.
+
+Social History:
+Mother is a 36-year-old patent medicine vendor.
+Father is a 36-year-old aluminium fabricator with HLE: HND, supportive of care.
+Patient is the 4th of 4 children in a monogamous setting.
+1st: 13-year-old female, alive and well
+2nd: 6-year-old male, alive and well
+3rd: 4-year-old male, alive and well
+No history of neonatal jaundice requiring admission in siblings.
+They reside in a well-ventilated, netted 2-bedroom apartment.
+
+ROS:
+No fever
+No seizures or loss of consciousness
+No cough, difficulty in breathing or bluish discoloration of lips or limbs
+No vomiting, loose stools or refusal of feeds
+No bleeding from any orifice
+No rash
+
+O/E:
+Conscious, average-sized neonate, not in respiratory distress
+Not pale, icteric, not cyanosed
+Afebrile (T: 36.4°C)
+Weight: 2.8 kg
+Length: 50 cm
+OFC: 36 cm
+
+CNS:
+Conscious with good activity
+AF, PF: patent, normotensive
+Grasp reflex: firm
+Moro reflex: complete
+Suck reflex: sustained
+Tone: normal
+
+CVS:
+PR: 130 bpm, full volume, regular
+HS: Normal S1 and S2
+
+Respiratory:
+Not dyspnoeic
+RR: 36 cpm
+BS: Vesicular
+SpO₂: 97% in room air
+
+Digestive System:
+Mouth: NAD
+Abdomen: full, moves with respiration, soft
+No tenderness
+No palpable organomegaly
+
+UGS:
+Normal female external genitalia
+Kidneys not ballotable
+
+Investigations:
+RBS: 84 mg/dL
+PCV: 44%
+
+Diagnosis:
+Neonatal jaundice ? cause
+
+Plan:
+Admit into NNU
+Blood group, serum bilirubin, reticulocyte count, DCT, CRP
+Commence intensive phototherapy
+Feed as tolerated
+Monitor T, PR, RR, SpO₂ 4-hourly
+Counsel mother on diagnosis, prognosis and line of management
+Review with investigation results.`
   },
 
   // Internal Medicine
