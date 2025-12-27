@@ -252,33 +252,99 @@ PLAN:
   // OBGYN
   {
     id: 'ob-1',
-    title: 'Pre-eclampsia Assessment',
+    title: 'Severe Pre-eclampsia',
     specialty: Specialty.OBGYN,
-    subSpecialty: 'Antenatal Clinic',
+    subSpecialty: 'Gynae Emergency',
     condition: 'Pre-eclampsia',
-    symptoms: ['Headache', 'Visual disturbances', 'Epigastric pain', 'Edema'],
+    symptoms: ['High blood pressure', 'Proteinuria', 'Chronic hypertension', 'G5P3+1'],
     contributor: 'Admin',
-    lastModified: '2023-11-05',
-    content: `OBSTETRIC HISTORY:
-- Gravidity/Parity.
-- Current gestational age (LMP/USS).
+    lastModified: '2025-12-27',
+    content: `GYNAE EMERGENCY
 
-SYMPTOMS OF SEVERITY:
-- Severe headache not relieved by simple analgesics.
-- Visual blurring/flashing lights.
-- Right upper quadrant/Epigastric pain.
-- Sudden increase in facial/hand edema.
+An unbooked 39-year-old G5P3+1 (3A), chronic hypertensive, at EGA of 28 weeks + 5 days, a businesswoman, Christian, Yoruba, with HLE: SSCE, residing at Ilesa, Osun State.
 
-EXAMINATION:
-- BP (Serial measurements).
-- Urinalysis (Proteinuria).
-- Hyperreflexia / Clonus.
-- Fundal height, Fetal Heart Rate.
+LMP: 23/08/2024
+EDD: 30/05/2025
+EGA: 28 weeks + 5 days
 
-MANAGEMENT:
-- Admission if BP > 140/90 and proteinuria.
-- Labetalol/Nifedipine if severe.
-- Magnesium Sulfate for eclampsia prophylaxis.`
+She was referred from Unity Specialist Hospital on account of elevated blood pressure (200/100 mmHg) and proteinuria 2+ for expert care and logistic reasons. She is a known hypertensive diagnosed 2 years ago, on antihypertensive therapy but not regular with drugs.
+
+Index pregnancy was spontaneously conceived, planned, desired. Pregnancy was suspected with a missed period and confirmed by early scan.
+Booked at a secondary hospital at EGA of 25 weeks.
+She has not yet commenced TT and IPT in this pregnancy.
+Currently on oral hematinics.
+
+Past obstetric history:
+2009 – VTOP at EGA 4 weeks; no PAC; no complications.
+2012 – 1st confinement: term SVD, male alive and well, delivered at a PHC in Osun State; uneventful puerperium.
+2014 – 2nd confinement: term SVD, female alive and well, delivered at a PHC in Osun State; uneventful puerperium.
+2022 – 3rd confinement: term SVD, male alive and well, delivered at Royal Haven Hospital, Osun State; uneventful puerperium.
+
+Menstrual history:
+Menarche at 16 years.
+Cycle: 28 days, 5-day duration, with dysmenorrhea.
+No menorrhagia, dyspareunia.
+Patient not aware of Pap smear.
+Aware of contraception but never used any.
+
+Medical history:
+Diagnosed hypertensive 2 years ago, currently on Nifedipine 30 mg daily.
+No history of diabetes, asthma, seizure disorder, or sickle cell disease.
+No previous hospital admissions, blood transfusions, or surgeries.
+No known drug or food allergies.
+
+Social history:
+Married to a 50-year-old truck driver, HLE: ND, second wife in a polygamous setting, with 3 children. Supportive of care.
+Does not smoke or take alcohol.
+
+O/E:
+Young woman, not in obvious distress, afebrile, not pale, anicteric, not cyanosed, not dehydrated, no peripheral lymphadenopathy, no finger clubbing, no pitting edema up to knees.
+
+RS:
+RR 20 cpm
+SpO₂ 96% in room air
+Breath sounds vesicular
+
+CVS:
+PR 94 bpm
+BP 180/100 mmHg
+S1 S2 heard
+
+ABD:
+Gravidly enlarged, moves with respiration
+SFH 31 cm
+Singleton fetus, longitudinal lie, cephalic presentation
+FHR 144 bpm
+
+VE:
+Normal vulva and vagina
+Cervix posterior, medium, uneffaced, os closed
+
+ASS:
+Chronic hypertension with superimposed severe pre-eclampsia at EGA 28 weeks + 5 days in an unbooked 39-year-old G5P3+1 (3A)
+
+PLAN:
+1. Counsel patient on diagnosis and management
+2. Admit to ANW, secure incubator space
+3. BPP without NST
+4. Urgent urinalysis (3+ protein, SG 1.020, pH 6.5)
+5. Daily urinalysis
+6. FBC + platelet count
+7. EUCr
+8. Liver function tests
+9. RVS
+10. HBsAg, HCV, VDRL
+11. Blood group and genotype
+12. Group and crossmatch 2 units of blood
+13. IM Dexamethasone 12 mg 12-hourly × 2 doses
+14. IV Labetalol 20 mg stat
+15. Tab Labetalol 200 mg bd
+16. Tab Nifedipine XL 30 mg bd
+17. Catheterize and monitor urine output
+18. IV MgSO₄ as per Zuspan regimen
+19. To commence FKC starting tomorrow
+20. Close monitoring of blood pressure
+21. Consult to the medical team on call for blood pressure control.`
   },
   {
     id: 'ob-2',
