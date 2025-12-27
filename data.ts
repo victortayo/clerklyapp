@@ -22,12 +22,14 @@ Difficulty in breathing x 1/7
 She was apparently well until 4 days PTP when she developed nasal discharge described as clear to whitish, associated with nasal blockage.
 For which mother administered Otrivin nasal drops 1 drop bd, Broncholyte 5 mls and Sinufed 5 mls.
 Cough started about 3 days into onset of illness, insidious in onset, non-barky, non-paroxysmal, worse at night, with no post-tussive vomiting. No identifiable trigger.
-About the same time, she was noted to have difficulty in breathing evidenced by fast breathing and chest in-drawing. Symptoms were gradual in onset and progressively worsened.
-No associated bluish discoloration of lips or skin. Mother continued Broncholyte and Sinufed.
-However, due to persistence and worsening of symptoms, she presented for expert care.
 
-She has been admitted in the past at about 4 months of age at a tertiary hospital in South-East Nigeria for similar symptoms, during which she received IV medications and nebulisation (names not known).
-Has also had repeated hospital visitations for similar episodes, during which she was nebulised, with symptomatic improvement.
+About the same time, she was noted to have difficulty in breathing evidenced by fast breathing and chest in-drawing. Symptoms were gradual in onset and progressively worsened.
+No associated bluish discoloration of lips or skin. 
+Since the onst of symptoms, mother has been giving Broncholyte and Sinufed.
+However, due to persistence and worsening of symptoms, she presented here for expert care.
+
+She was first admitted at about 4 months of age for similar symptoms, during which she received IV medications (names not known) and nebulisation.
+Has since had repeated hospital visitations for similar episodes.
 
 No history of blood transfusion.
 No prior history of surgery.
@@ -277,6 +279,79 @@ MANAGEMENT:
 - Admission if BP > 140/90 and proteinuria.
 - Labetalol/Nifedipine if severe.
 - Magnesium Sulfate for eclampsia prophylaxis.`
+  },
+  {
+    id: 'ob-2',
+    title: 'ANC Booking',
+    specialty: Specialty.OBGYN,
+    subSpecialty: 'Antenatal Clinic',
+    condition: 'Antenatal Care',
+    symptoms: ['Advanced maternal age', 'Previous CS scar', 'Previous perinatal loss', 'History of hypertensive disorder of pregnancy'],
+    contributor: 'Admin',
+    lastModified: '2025-12-27',
+    content: `ANC BOOKING
+
+    LMP: 20/07/2025
+EGA: 21 weeks + 3 days
+EDD: 27/04/2026
+
+A 36-year-old G3P2+0 (1A), with one previous CS scar, a civil servant, Christian, Yoruba, residing at Ifo, Ogun State.
+
+Index pregnancy was planned for, desired and naturally conceived. Pregnancy was suspected using urine pregnancy test and confirmed with USS at EGA of 10 weeks 5 days. Pregnancy has been uneventful so far. Currently on Pregnacare.
+
+Obstetric history:
+– 20/07/2015: Delivered a live female baby at term via EMCS at a private hospital in Ogun State on account of suspected severe pre-eclampsia. Puerperium was uneventful. Child is alive and well.
+– 10/04/2025: Had SVD of a live male baby who died immediately after birth at a secondary health facility in Ogun State.
+
+Menstrual history:
+Menarche at 17 years.
+Cycle: 3–4/28 days.
+No dysmenorrhoea or menorrhagia.
+No history of contraceptive use.
+
+Gynaecological history:
+Aware of Pap smear and had one done last year in this facility, reported to be normal.
+
+Past medical history:
+Mother is hypertensive.
+Patient is not a known hypertensive, diabetic, asthmatic or sickle cell disease patient.
+No history of blood transfusion.
+No known drug or food allergies.
+
+Social history:
+Married to a 40-year-old civil servant in a monogamous setting.
+Occasional alcohol intake.
+Does not smoke cigarettes.
+
+Available investigations:
+1. Blood group – O positive
+2. HBsAg – Negative
+3. HCV – Negative
+4. VDRL – Non-reactive
+
+O/E
+A young woman, anxious, afebrile, not pale, no pedal oedema.
+Weight: 102.5 kg
+PR: 112 bpm
+BP: 123/81 mmHg
+
+ABD
+Gravidly enlarged abdomen, moves with respiration
+Pfannenstiel scar, healed by primary intention
+SFH: 21 cm (corresponds with gestational age)
+
+Risk stratification:
+Advanced maternal age, previous caesarean section, history of hypertensive disorder of pregnancy, previous perinatal loss.
+
+Assessment:
+Ongoing pregnancy in a 36-year-old G3P2+0 (1A) at EGA of 21 weeks + 3 days, with one previous caesarean section scar.
+
+Plan:
+1. FBS
+2. PCV, urinalysis
+3. RVS
+4. Continue Pregnacare
+5. Follow-up in 4 weeks.`
   },
 
   // Surgery
