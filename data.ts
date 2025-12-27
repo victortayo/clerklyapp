@@ -214,6 +214,63 @@ Monitor T, PR, RR, SpO₂ 4-hourly
 Counsel mother on diagnosis, prognosis and line of management
 Review with investigation results.`
   },
+  {
+    id: 'peds-3',
+    title: 'Acute Tonsillitis',
+    specialty: Specialty.Pediatrics,
+    subSpecialty: 'Otolaryngology / Pediatrics',
+    condition: 'Acute Tonsillitis',
+    symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Sleep disturbance', 'Hyperemic tonsils'],
+    contributor: 'Admin',
+    lastModified: '2025-12-28',
+    content: `Patient Seen
+2-year-old male residing with Muslim Yoruba parents at Harmony
+Informant: Father
+PC:
+Fever × 3 days
+Noisy breathing × 2 days
+HPC:
+Patient was well until 3 days ago when he developed high-grade, intermittent fever, temporarily relieved by medications. Noisy breathing started 1 day ago, insidious in onset, described as snoring, worse during sleep, disturbing sleep.
+He was initially seen at a private facility where investigations were done, IV fluids and oral medications were given, and he was discharged. Due to persistent symptoms, he was brought here for further care.
+No history of asthma, seizure disorder, or sickle cell disease. No prior hospital admissions, surgeries, or blood transfusions. Genotype unknown; no history suggestive of hemoglobinopathy.
+No cough or chest pain
+No bluish discoloration of lips or limbs
+No vomiting, diarrhea, dysuria, or passage of dark/frothy urine
+O/E:
+Well-nourished, acutely ill-looking, febrile (37.8°C), not pale, icteric, cyanosed, or dehydrated. Bilateral submandibular lymph node enlargement. No pedal edema. No digital clubbing.
+Weight: 16 kg
+Respiratory:
+Not dyspneic
+RR 32 cpm
+BS vesicular
+SpO₂ 99% in room air
+ENT:
+Tonsils hyperemic, not enlarged, no exudates
+No tragal or pinnal tenderness
+CVS:
+PR 132 bpm, full volume, regular
+HS S1 S2 heard
+Abdomen:
+Full, MWR, soft, non-tender, 
+No organomegaly
+
+CNS: Grossly intact
+MSS: NAD
+mRDT: Negative
+Diagnosis: Acute tonsillitis with postnasal obstruction
+Plan:
+CRP
+Steam inhalation
+X-ray of postnasal spaces (already done, shows obliteration of nasopharyngeal air column)
+Oral PCM 10 mg/kg = 160 mg 6 hourly
+Oral Ibuprofen 9 mg/kg = 150 mg 8 hourly
+Oral Amoxiclav 30 mg/kg = 480 mg 12 hourly
+Commence Aristobet-N nasal drops
+Commence oral Cetrizine 2.5 mg daily
+Commence oral Actifed 1 mg 6 hourly
+See in ENT clinic
+Continue other supportive management`
+  },
 
   // Internal Medicine
   {
