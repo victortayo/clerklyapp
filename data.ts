@@ -218,35 +218,72 @@ Review with investigation results.`
   // Internal Medicine
   {
     id: 'im-1',
-    title: 'Acute Coronary Syndrome (ACS)',
+    title: 'Acute STEMI',
     specialty: Specialty.InternalMedicine,
     subSpecialty: 'Cardiology Clinic',
-    condition: 'Myocardial Infarction',
-    symptoms: ['Chest pain', 'Diaphoresis', 'Nausea', 'Radiation to jaw'],
+    condition: 'ST Elevation Myocardial Infarction',
+    symptoms: ['Chest pain', 'Crushing chest pain', 'Sudden-onset chest pain', 'Febrile illness', 'Tachycardia'],
     contributor: 'Admin',
-    lastModified: '2023-11-01',
-    content: `CHIEF COMPLAINT:
-- Central crushing chest pain radiating to left arm/jaw.
+    lastModified: '2025-12-27',
+    content: `Patient seen 
+51-year-old man presented with 
+Chest pain × 2 days.
+He was in his usual state of health until 2 days prior to presentation when he developed central, sudden-onset, crushing chest pain, non-radiating, graded 10/10, starting a few minutes after an altercation with his son. No known aggravating or relieving factors.
+Four days before chest pain onset, patient had a febrile illness treated at a private hospital with antimalarials and antibiotics. No previous history of similar symptoms. No cough, sweating, calf swelling or pain, palpitations, orthopnea, PND, vomiting, or abdominal pain.
+Patient is a known hypertensive for 5 years, on Tab Vasoprin, Amlodipine, Bondomet, and Lisinopril with fair compliance. 
+No diabetes, seizure disorder, or asthma. 
+Does not smoke or consume alcohol.
+At onset, patient presented to a referring facility where he was managed for Plasmodiasis. On presentation at our facility, ECG showed Acute STEMI, Sinus Tachycardia, Anterolateral ST Elevation, suggestive of acute infarct.
+Admitting vitals:
+BP 177/123 mmHg
+PR 112 bpm
+O/E:
+Middle-aged man, in moderate painful distress, anicteric, acyanosed, afebrile, no pedal edema
+CVS:
+PR 112 bpm, 
+LCB+, 
+BP 150/80 mmHg, 
+HS S1 & S2 heard
 
-PRESENT HISTORY:
-- Duration and intensity.
-- Relieving/Aggravating factors (GTN use).
-- Associated symptoms: Nausea, Vomiting, Sweating.
+Chest:
+RR 26 cpm, 
+SpO₂ 98% room air, 
+Vesicular breath sounds
 
-RISK FACTORS:
-- HTN, DM, Dyslipidemia, Smoking.
-- Family history of premature CAD.
+ABD:
+Full, MWR, 
+No tenderness, 
+No organomegaly, 
+L0S0K0
 
-EXAMINATION:
-- Vitals: BP (both arms), Pulse rate, regularity.
-- Cardiac: Murmurs, S3/S4.
-- Pulmonary: Basal crepitations (Heart Failure).
+CNS:
+Conscious, 
+OTPP, 
+GCS 15/15, 
+No meningeal signs, 
+Normal tone, 
+Full power in all limbs
+Assessment:
+Acute coronary syndrome, likely ST Elevation Myocardial Infarction (STEMI)
 
-PLAN:
-- 12-lead ECG (immediately).
-- Cardiac enzymes (Troponin T/I).
-- Aspirin 300mg + Clopidogrel 300mg.
-- Referral to cardiology for PCI/Thrombolysis.`
+Plan:
+For ICU admission for cardiac monitoring
+FBC, EUCr, FLP, LFT, urinalysis, urine MCS, HbA1C
+Troponin I and T, CXR, abdominopelvic USS, repeat ECG in 12 hours, ECHO
+Tab Vastarel 35 mg bd
+Tab Aspirin 300 mg stat, then 75 mg daily
+Tab Atorvastatin 20 mg nocte
+Syrup Morphine 10 ml tds
+Commence INO₂ if SpO₂ <94%
+IV Rabeprazole 20 mg bd
+Withhold Lisinopril for now
+SC Clexane 40 mg bd
+Tab Telmisartan 80 mg daily
+Tab Bisoprolol 5 mg daily
+Strict input/output monitoring
+Patient may benefit from interventional radiology
+Dietary counselling
+Counsel on diagnosis and management plan`
   },
 
   // OBGYN
