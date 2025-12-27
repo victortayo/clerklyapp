@@ -9,30 +9,97 @@ export const CLERKING_TEMPLATES: Template[] = [
     specialty: Specialty.Pediatrics,
     subSpecialty: 'Children Emergencies',
     condition: 'Asthma',
-    symptoms: ['Wheezing', 'Shortness of breath', 'Cough', 'Tachypnea'],
+    symptoms: ['Nasal discharge', 'Cough', 'Difficulty in breathing', 'Fast breathing', 'Chest in-drawing', 'Wheezing'],
     contributor: 'Admin',
-    lastModified: '2023-10-25',
-    content: `HISTORY OF PRESENTING COMPLAINT:
-- Onset and duration of wheezing/shortness of breath.
-- Triggers (URTI, allergens, exercise).
-- Home management (Inhaler frequency, dosage).
-- Associated symptoms: fever, runny nose, nocturnal cough.
+    lastModified: '2025-12-27',
+    content: `Acute exacerbation of asthma
+2-year-old female toddler who resides with her Christian Igbo parents at Ijebu-Ode, Ogun State
 
-PAST MEDICAL HISTORY:
-- Previous admissions (especially ICU/High Dependency).
-- Oral steroid courses in last 12 months.
-- Eczema/Allergic Rhinitis (Atopy history).
+PC:
+Nasal discharge x 4/7
+Cough x 1/7
+Difficulty in breathing x 1/7
 
-EXAMINATION:
-- General: Respiratory distress, use of accessory muscles, cyanosis.
-- Vitals: HR, RR, SpO2, Temperature.
-- Respiratory: Air entry, wheeze (expiratory/inspiratory), focal signs.
+She was apparently well until 4 days PTP when she developed nasal discharge described as clear to whitish, associated with nasal blockage.
+For which mother administered Otrivin nasal drops 1 drop bd, Broncholyte 5 mls and Sinufed 5 mls.
+Cough started about 3 days into onset of illness, insidious in onset, non-barky, non-paroxysmal, worse at night, with no post-tussive vomiting. No identifiable trigger.
+About the same time, she was noted to have difficulty in breathing evidenced by fast breathing and chest in-drawing. Symptoms were gradual in onset and progressively worsened.
+No associated bluish discoloration of lips or skin. Mother continued Broncholyte and Sinufed.
+However, due to persistence and worsening of symptoms, she presented for expert care.
 
-PLAN:
-- Oxygen if SpO2 < 94%.
-- Salbutamol/Ipratropium nebulizers.
-- Corticosteroids (Prednisolone).
-- CXR if focal signs or first presentation.`
+She has been admitted in the past at about 4 months of age at a tertiary hospital in South-East Nigeria for similar symptoms, during which she received IV medications and nebulisation (names not known).
+Has also had repeated hospital visitations for similar episodes, during which she was nebulised, with symptomatic improvement.
+
+No history of blood transfusion.
+No prior history of surgery.
+Not a known sickle cell disease patient.
+No history of seizure disorder.
+No previous formal diagnosis of asthma.
+
+Pregnancy was supervised at a private hospital. No history of fever or rash during pregnancy. 
+She received 2 doses of TT and IPT. No history of hypertension or diabetes in pregnancy.
+Delivery was preterm at an EGA of 31 weeks via EMCS at a tertiary facility due to PROM.
+She cried spontaneously at birth. Birth weight was 1.6 kg.
+No history of neonatal jaundice or other adverse neonatal events.
+Commenced preterm formula shortly after birth and expressed breast milk after 5 days post-delivery.
+She was on breast milk and formula for the first 6 months of life.
+Family diet has since been introduced.
+
+Fully immunized for age according to the NPI schedule.
+
+Attained developmental milestones as at when due.
+
+First child in a monogamous family setting.
+Mother is a 34-year-old businesswoman (HLE: ND).
+Father is a 35-year-old businessman (HLE: BSc).
+They live in a well-ventilated 3-bedroom apartment with netted windows.
+Does not routinely sleep under an ITN.
+
+Source of drinking water: sachet water.
+Sewage disposal: WC system.
+Refuse disposal: municipal system.
+Cooking fuel: gas.
+No history of parental smoking.
+
+No family history of asthma; however, mother complains of allergic symptoms when exposed to perfumes.
+No pets in the home.
+No rugs or carpets used.
+Child does not attend daycare.
+
+MRDT: Negative
+
+O/E
+Well-nourished child, acutely ill-looking, in obvious respiratory distress.
+Not pale, not icteric, not cyanosed, afebrile (36.8°C), not dehydrated, no pedal oedema.
+
+Weight: 10 kg
+
+RS
+RR: 38 cpm, dyspnoeic with intercostal recession
+Chest movement symmetrical
+Equal air entry bilaterally
+Breath sounds vesicular with widespread rhonchi in the upper and middle lung zones bilaterally
+SpO₂: 98% in room air
+
+CVS
+PR: 130 bpm, full volume, regular
+S1 and S2 normal, no murmurs
+DS
+
+Abdomen: NAD
+
+CNS
+Conscious and alert
+
+
+Diagnosis:
+Acute exacerbation of asthma (probable viral-triggered)
+
+Plan
+Nebulise with Salbutamol nebules 2.5 mg × 3 doses (15 mins nebulisation with 5 mins rest interval, over one hour)
+Oral Prednisolone 10 mg daily for 3 days
+Monitor respiratory rate, work of breathing, and SpO₂
+Reassess after completion of nebulisation`
   },
   {
     id: 'peds-2',
