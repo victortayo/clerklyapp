@@ -480,7 +480,7 @@ See in 2/52.`
 
   {
     id: 'ob-4',
-    title: 'Gynae Clinic - Uterine Fibroid',
+    title: 'Symptomatic Uterine Fibroid',
     specialty: Specialty.OBGYN,
     subSpecialty: 'Gynae Clinic',
     condition: 'Abnormal Uterine Bleeding',
@@ -499,12 +499,16 @@ Recurrent lower abdominal pain × 5 years
 Heavy menstrual bleeding × 2 weeks
 
 HPC:
-History dates back 5 years when she noted recurrent lower abdominal pain described as dull, intermittent, insidious, sometimes radiating to the back, no aggravating factors, pain severity 5–7/10, severe enough to affect daily activities.
-Associated abdominal swelling started 2 years ago, non-progressive, mildly tender, worse with periods.
+She was in her usual state of health until about 5 years when she noted recurrent lower abdominal pain described as dull, intermittent, insidious, sometimes radiating to the back, no aggravating factors, pain severity 5–7/10, severe enough to affect daily activities.
+There is an associated abdominal swelling first noticed 2 years ago, non-progressive, mildly tender, worse with periods.
 
 Heavy menstrual bleeding started about 2 weeks ago at onset of period, described as dark, foul-smelling blood with passage of clots, but no change in number of pads used per day. Associated dizziness noted, no fainting, weakness, or seizures. No abnormal vaginal discharge. Positive family history of uterine fibroid.
 
-Menarche at 15 years. First pregnancy at 17 years. No history of swelling elsewhere, weight loss, urinary symptoms, or prior abortions. Positive history of dysmenorrhea and dyspareunia. Patient not aware of Pap smear but was counseled. Aware of contraception but does not use any.
+She attained menarche at 15 years. First pregnancy at 17 years. 
+No history of swelling elsewhere, weight loss, urinary symptoms, or prior abortions. 
+There is a positive history of dysmenorrhea and dyspareunia. 
+Patient is not aware of Pap smear but was counseled. 
+Aware of contraception but does not use any.
 
 Obstetric history:
 1st confinement – 1998, booked, term male via SVD, BW 3.5 kg, uneventful puerperium
@@ -514,10 +518,18 @@ Obstetric history:
 All other children alive and well
 
 Past Medical History:
-Known hypertensive diagnosed 1 year ago at a local hospital, defaulted treatment, irregular on antihypertensives. Daily use of Ibuprofen and other NSAIDs. Not known diabetic, asthmatic, seizure disorder, or sickle cell disease. No prior hospital admissions, blood transfusions, or surgeries.
+She is a known hypertensive diagnosed 1 year ago at a local hospital, defaulted treatment, irregular on antihypertensives. 
+She uses Ibuprofen and other NSAIDs regularly. 
+Not known diabetic, asthmatic, seizure disorder, or sickle cell disease. 
+No prior hospital admissions, blood transfusions, or surgeries.
 
 Social History:
-Married in a monogamous family with 3 children. Spouse 60 years old, security guard, HLE: secondary. No smoking or alcohol use. Family history of twinning in brother. No known drug or food allergy.
+Married in a monogamous family with 3 children. 
+Spouse 60 years old, security guard, HLE: secondary. 
+No smoking or alcohol use. 
+
+Family history of twinning in brother.
+No known drug or food allergy.
 
 O/E:
 Middle-aged woman, afebrile (36.1°C), mildly pale, anicteric, not cyanosed, not dehydrated, mild bilateral pitting pedal edema up to shin.
