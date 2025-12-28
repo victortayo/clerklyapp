@@ -392,11 +392,11 @@ Review with investigation results`
 
   {
     id: 'peds-5',
-    title: 'Severe Malaria with Cryptorchidism',
+    title: 'Severe Malaria with Hyperglycemia',
     specialty: Specialty.Pediatrics,
     subSpecialty: 'Emergency Pediatrics',
     condition: 'Severe Malaria',
-    symptoms: ['Fever', 'Pale eyes and feet', 'Respiratory distress', 'Severe pallor', 'Bounding pulse', 'Hepatomegaly', 'Cryptorchidism'],
+    symptoms: ['Fever', 'Pale eyes and feet', 'Respiratory distress', 'Severe pallor', 'Bounding pulse', 'Hepatomegaly', 'Hyperglycemia'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
     content: `5 year old male pre-schooler, with Christian TIV parents, resides at Akure, Ondo State.
@@ -419,7 +419,8 @@ No hx of blood transfusion or surgery.
 
 Pregnancy, Birth and Perinatal Hx:
 Pregnancy was planned, spontaneously concieved, booked and delivered at a private hospital.
-No hx of febrile illness, no hx of HTN, DM, positive hx of symptoms suggestive of UTI during pregnancy.
+No hx of febrile illness, no hx of HTN, DM, or symptoms suggestive of UTI during pregnancy.
+
 He is the 2nd of a set of twin delivered at about 33weeks EGA, cried spontaneously at birth, BW could not be ascertained; mother described he was average in size.
 Child was put to breast within 1 hour of delivery; however, mother was not lactating well and had to be given baby food.
 No adverse event during the perinatal period.
@@ -520,7 +521,8 @@ IV Artesunate 3mg/kg = 48mg @ 0, 12, 24 hours (Commence oral ACT 40/240 mg 0, 8,
 IV Furosemide 1mg/kg = 16mg 8 hourly
 Urgent transfusion with 20mL/kg = 320mL group-specific uncrossmatched blood
 Monitor T, PR, RR, SpO2 4 hourly
-Monitor RBS hourly till 3 normal values then 4 hourly`
+Monitor RBS hourly till 3 normal values then 4 hourly
+Invite the pediatric surgical team for his cryptorchidism`
   },
 
   // Internal Medicine
