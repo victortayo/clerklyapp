@@ -767,31 +767,73 @@ Inform consultant on call`
     specialty: Specialty.Surgery,
     subSpecialty: 'Surgical Emergencies',
     condition: 'Appendicitis',
-    symptoms: ['Migratory RIF pain', 'Anorexia', 'Nausea', 'Fever'],
+    symptoms: ['Abdominal pain', 'Anorexia', 'Vomiting', 'Low-grade fever', 'Right lower quadrant pain'],
     contributor: 'Admin',
-    lastModified: '2023-11-10',
-    content: `HISTORY:
-- Pain: Periumbilical onset, migrating to Right Iliac Fossa.
-- Associated: Anorexia (classic), nausea, vomiting.
-- Bowel habits: Last bowel motion, flatus.
+    lastModified: '2025-12-28',
+    content: `Patient seen
 
-EXAMINATION:
-- General: Febrile, flushed.
-- Abdominal:
-  - Tenderness at McBurney's point.
-  - Rebound tenderness, Guarding.
-  - Rovsing's sign, Psoas sign, Obturator sign.
+A 22 year old male, Christian Yoruba, residing at Oke-Igbo, Abeokuta, student.
 
-INVESTIGATIONS:
-- FBC (Leukocytosis).
-- CRP.
-- Urine HCG (in females).
-- Ultrasound Abdomen/Pelvis.
+Informant: Self
+
+PC: Abdominal pain × 2 days
+
+HPC:
+Patient was apparently well until 2 days ago when he developed generalized abdominal pain, insidious in onset, progressively worsening, and now localised to the right lower quadrant. Pain is constant, sharp in nature, aggravated by movement, and associated with anorexia. 
+He also had 2 episodes of vomiting, and low-grade fever. 
+No history of diarrhea, constipation, or urinary symptoms. 
+No prior similar episode. 
+No history of trauma. 
+No known drug allergy.
+
+Past Medical History:
+Not a known hypertensive, diabetic, asthmatic, or seizure disorder patient.
+No prior hospital admissions, surgeries, or blood transfusions.
+
+Family History:
+Non-contributory
+
+Social History:
+Lives with parents, non-smoker, does not drink alcohol.
+
+O/E:
+A young male, in moderate painful distress, febrile (T: 38.2°C), not pale, anicteric, not cyanosed, mildly dehydrated.
+
+Abdomen:
+Tenderness maximal at the right iliac fossa (McBurney’s point), 
+positive rebound tenderness and guarding. 
+Rovsing’s sign positive. 
+Bowel sounds present. 
+No hepatosplenomegaly
+No other palpable masses
+
+RS:
+RR 20 cpm
+SpO2 98% in room air
+
+CVS:
+PR 94 bpm, full volume, regular
+BP 118/72 mmHg
+S1 S2 heard
+
+CNS:
+Conscious, alert, oriented, no neurological deficit
+
+ASSESSMENT:
+Acute appendicitis 
 
 PLAN:
-- NPO (Nil per os).
-- IV Fluids.
-- Analgesia.
-- Surgical consultation for Appendectomy.`
+Counsel patient and relatives on diagnosis and need for surgical intervention
+Admit to surgical emergency
+FBC, PCV, Blood film for MP, Urinalysis
+Serum electrolytes, urea, creatinine
+Abdominal ultrasound
+Nil per oral (NPO)
+0.9% N/S 1 liter stat then 125 mL/hr
+Ceftriaxone 1 g stat then 1 g daily, IV Metronidazole 500 mg 8 hourly
+IV Paracetamol 1 g 6 hourly, IM Pentazocine 30 mg stat as needed
+Prepare for emergency appendicectomy
+Monitor vital signs closely
+Review by the surgical team`
   }
 ];
