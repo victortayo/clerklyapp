@@ -20,12 +20,13 @@ Cough x 1/7
 Difficulty in breathing x 1/7
 
 She was apparently well until 4 days PTP when she developed nasal discharge described as clear to whitish, associated with nasal blockage.
-For which mother administered Otrivin nasal drops 1 drop bd, Broncholyte 5 mls and Sinufed 5 mls.
+
 Cough started about 3 days into onset of illness, insidious in onset, non-barky, non-paroxysmal, worse at night, with no post-tussive vomiting. No identifiable trigger.
 
 About the same time, she was noted to have difficulty in breathing evidenced by fast breathing and chest in-drawing. Symptoms were gradual in onset and progressively worsened.
 No associated bluish discoloration of lips or skin. 
-Since the onst of symptoms, mother has been giving Broncholyte and Sinufed.
+
+Since the onst of symptoms, mother has given Otrivin nasal drops 1 drop bd, Broncholyte 5 mls and Sinufed 5 mls.
 However, due to persistence and worsening of symptoms, she presented here for expert care.
 
 She was first admitted at about 4 months of age for similar symptoms, during which she received IV medications (names not known) and nebulisation.
@@ -285,6 +286,241 @@ Commence oral Cetrizine 2.5 mg daily
 Commence oral Actifed 1 mg 6 hourly
 See in ENT clinic
 Continue other supportive management`
+  },
+
+  {
+    id: 'peds-4',
+    title: 'Severe Malaria with Severe Anemia',
+    specialty: Specialty.Pediatrics,
+    subSpecialty: 'Emergency Pediatrics',
+    condition: 'Severe Malaria',
+    symptoms: ['Fever', 'Difficulty in breathing', 'Fast breathing', 'Pallor', 'Gallop rhythm', 'Hepatomegaly'],
+    contributor: 'Admin',
+    lastModified: '2025-12-28',
+    content: `2-year-old female child of Christian, Yoruba parents.
+Informant: mother.
+
+PC:
+Fever x 3 days
+Difficulty in breathing x 4 hrs PTP
+
+HPC:
+She was apparently well until 3 days PTP when she developed high-grade, intermittent fever temporarily relieved with PCM. 
+4 hrs PTP, she developed difficulty in breathing, evidenced by fast breathing. 
+Since the onset of symptoms, mother has given her 3 doses of 5 mls syrup amoxicillin without resolution of symptoms necessitating her presentation to a private facility.
+At the private hospital, she was noted to be pale and was advised on the need for a blood transfusion, hence the referral to this facility.
+
+PMH:
+No history of previous hospitalization, blood transfusion, or surgery. Genotype unknown.
+
+Pregnancy, Birth, and Neonatal Hx:
+Pregnancy, delivery, and neonatal period were not adversely eventful.
+
+Nutritional Hx:
+Exclusively breastfed for 6 months, currently on family diet.
+
+Immunization Hx:
+Fully immunized for age according to the NPI schedule.
+
+Developmental Hx:
+Attained developmental milestones as and when due.
+
+Family & Social Hx:
+Third of three children.
+1st child: 7-year-old male, alive and well
+2nd child: 5-year-old male, alive and well
+Mother, 29 years, tailor, HLE: FSLC
+Father, 40 years, self-employed, HLE: SSCE
+Family lives in a single-room dwelling.
+
+ROS:
+One episode of vomiting with passage of loose stool
+Nil cough
+Nil reduction in urine output
+Nil convulsion or loss of consciousness
+
+O/E:
+Not pale, anicteric, not cyanosed, febrile, not dehydrated, nil pedal edema
+Anthropometry:
+Weight: 10 kg
+Length: 70 cm
+MUAC: 14 cm
+OFC: 45 cm
+
+CVS:
+PR 156 bpm, full volume, regular
+S1 and S2 with gallop rhythm
+
+RS:
+RR 30 cpm, dyspneic with flaring of alar nasi
+BS vesicular
+SpO₂ 93% in room air
+
+Digestive:
+Mouth: NAD
+Abdomen full, soft, MWR
+Liver soft, 3 cm below RCM, tender
+Nil splenomegaly
+
+CNS:
+Conscious
+Tone normal globally
+Power full in all limbs
+
+Investigations:
+mRDT: positive
+PCV: 15%
+RBS: 147 mg/dL
+Urinalysis: within normal limits
+
+Diagnosis:
+Severe malaria with severe anemia 
+Hyperglycemia
+
+Plan:
+Admit
+MP for microscopy
+FBC, Hb phenotype
+Group-specific uncrossmatched blood
+Transfuse with settle cell 15 mL/kg = 150 mL over 2 hours
+IV Artesunate 3 mg/kg = 30 mg at 0 hr, 12 hr, and 24 hr (Commence oral ACT Artemether-Lumefantrine 20/120 at 0, 8, 12 hrs x3/7 after completion of IV Artesunate)
+IV Furosemide 1 mg/kg = 10 mg 12 hourly x24 hrs
+IVF 5% dextrose in half saline 1000 mL over 24 hrs via fluid giving set
+Monitor vital signs (PR, RR, Temp, SpO₂) 4 hourly
+Review with investigation results`
+  },
+
+  {
+    id: 'peds-5',
+    title: 'Severe Malaria with Cryptorchidism',
+    specialty: Specialty.Pediatrics,
+    subSpecialty: 'Emergency Pediatrics',
+    condition: 'Severe Malaria',
+    symptoms: ['Fever', 'Pale eyes and feet', 'Respiratory distress', 'Severe pallor', 'Bounding pulse', 'Hepatomegaly', 'Cryptorchidism'],
+    contributor: 'Admin',
+    lastModified: '2025-12-28',
+    content: `5 year old male pre-schooler, with Christian TIV parents, resides at Akure, Ondo State.
+Informant is the paternal aunt and mother. 
+
+PC:
+Fever x5/7
+Pale eyes and feet x2/7
+
+HPC:
+He was in his usual state of health until 5 days ago when he developed fever, fever was said to be high grade, intermittent, worse in the evening. It was temporarily relieved with tepid sponging.
+About 3 days after onset of fever, he was noticed to be pale which was described that the hands, feet and eyes were white in colour.
+Since onset of symptoms, step mother had called an auxiliary who administered blood tonic and an intramuscular injection which could not be ascertained.
+However symptoms persisted and the paternal aunt was called which necessitated presentation to this facility for expert care.
+
+PMH:
+No hx of similar symptoms in the past.
+No hx of previous hospital admission could not be ascertained.
+No hx of blood transfusion or surgery.
+
+Pregnancy, Birth and Perinatal Hx:
+Pregnancy was planned, spontaneously concieved, booked and delivered at a private hospital.
+No hx of febrile illness, no hx of HTN, DM, positive hx of symptoms suggestive of UTI during pregnancy.
+He is the 2nd of a set of twin delivered at about 33weeks EGA, cried spontaneously at birth, BW could not be ascertained; mother described he was average in size.
+Child was put to breast within 1 hour of delivery; however, mother was not lactating well and had to be given baby food.
+No adverse event during the perinatal period.
+
+Immunization hx:
+Immunized for age according to NPI schedule.
+
+Developmental hx:
+Attained developmental milestones as at when due.
+
+Nutritional Hx:
+Child was not exclusively breast fed, and was on AFM. Currently on family diet.
+
+Family & Social HX:
+He is the 2nd of a set of twin born in a polygamous family setting with 2 wives.
+Mother is the 1st wife; however, is separated from father and does not reside with them. Mother has 4 children for the father.
+Mother is a 26 year old farmer with no formal education. Genotype is unknown. Average income of mother is about N50,000 monthly.
+Father is ?age, farmer with HLE as First School Leaving Certificate. Average income of father could not be ascertained.
+Eldest sibling is a 9 year old male, not in school, alive and well, no hx of similar symptoms.
+2nd sibling is a 7 year old male, not in school, alive and well, no hx of similar symptoms.
+1st set of twin is a 5 year old female, not in school, alive and well, no hx of similar symptoms.
+Child lives with father and step mother along with siblings in a mud house.
+
+ROS:
+No loss of consciousness, no convulsion, no bluish discoloration of any part of the body. Positive hx of generalized body weakness.
+No vomiting, no passage of loose stool.
+No rash, hx of change in colour or decrease in urine output could not be ascertained.
+
+O/E:
+Acutely ill-looking, in respiratory distress, severely pale, not icteric, febrile (T: 37.8C), not cyanosed, not dehydrated, no finger clubbing, no PLNE, no pedal edema.
+Weight: 16kg
+WFA at 15th centile
+Length 102cm
+LFA between -1 & -2 z-score
+WFL at 0 z-score
+MUAC 15cm
+MUAC for age between -1 & -2 z-score
+OFC 50cm
+OFC for age at 0 z-score
+
+Respiratory:
+Dyspneic with IC, SC recession
+RR 68cpm
+BS Vesicular
+SpO2 88-92% on INO2
+
+CVS:
+PR 156bpm, bounding, regular
+BP 88/40mmHg
+SBP <50th centile
+DBP <50th centile
+HS S1S2
+
+Digestive:
+Abdomen full, MWR, soft
+? Vague generalised tenderness
+Liver 5cm below RCM, soft, ?tender
+Spleen not palpably enlarged
+
+CNS:
+Conscious
+Pupils round, equal, reactive to light bilaterally
+No neck stiffness
+Kernig negative
+Brudzinski negative
+Tone normal globally
+
+UGS:
+Testes not palpable within scrotal sac
+
+Investigations:
+PCV 8%
+mRDT Positive
+RBS 206mg/dL
+RVS Non-reactive
+Urinalysis:
+Glucose: negative
+Bilirubin: negative
+Ketone: Trace
+SG: 1.030
+Blood: negative
+pH: 6.5
+Protein: negative
+Urobilinogen: Normal
+Nitrite: Negative
+Leucocyte: Negative
+
+Diagnosis:
+Severe malaria in anemic heart failure
+Hyperglycemia
+Cryptorchidism
+
+PLAN:
+Admit 
+Commence INO2
+MP Microscopy, FBC, EUCr, Hb phenotype
+IV Artesunate 3mg/kg = 48mg @ 0, 12, 24 hours (Commence oral ACT 40/240 mg 0, 8, 12 hrs x 3/7 after completion of IV Artesunate)
+IV Furosemide 1mg/kg = 16mg 8 hourly
+Urgent transfusion with 20mL/kg = 320mL group-specific uncrossmatched blood
+Monitor T, PR, RR, SpO2 4 hourly
+Monitor RBS hourly till 3 normal values then 4 hourly`
   },
 
   // Internal Medicine
