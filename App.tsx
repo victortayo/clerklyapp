@@ -6,6 +6,7 @@ import TemplateCard from './components/TemplateCard';
 import TemplateDetails from './components/TemplateDetails';
 import Pagination from './components/Pagination';
 import TemplateListView from './components/TemplateListView';
+import Modal from './components/Modal';
 
 const App: React.FC = () => {
   const [filters, setFilters] = useState<SearchFilters>({
@@ -17,6 +18,7 @@ const App: React.FC = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
+  const [activeModal, setActiveModal] = useState<'docs' | 'contribute' | 'help' | null>(null);
   const ITEMS_PER_PAGE = 10;
 
   // Sync state with URL on initial load and popstate
@@ -127,11 +129,7 @@ const App: React.FC = () => {
               <i className="fa-solid fa-file-medical text-white text-lg"></i>
             </div>
           </button>
-          <nav className="hidden md:flex gap-6">
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Documentation</a>
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Contribute</a>
-            <a href="#" className="text-sm font-medium text-slate-600 hover:text-indigo-950 transition-colors">Help</a>
-          </nav>
+
         </div>
       </header>
 
@@ -301,13 +299,98 @@ const App: React.FC = () => {
           <p className="text-sm max-w-md mx-auto mb-8 leading-relaxed">
             Repository for clinical clerking templates.           </p>
           <div className="flex justify-center gap-8 mb-4">
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <button
+              onClick={() => setActiveModal('docs')}
+              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+            >
+              Documentation
+            </button>
+            <button
+              onClick={() => setActiveModal('contribute')}
+              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+            >
+              Contribute
+            </button>
+            <button
+              onClick={() => setActiveModal('help')}
+              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+            >
+              Help
+            </button>
           </div>
           <div className="text-xs border-t border-slate-800 pt-2">
             &copy; {new Date().getFullYear()} Clerkly. All rights reserved. <br /> For educational purposes.
           </div>
         </div>
       </footer>
+
+      {/* Modals */}
+      <Modal
+        isOpen={activeModal === 'docs'}
+        onClose={() => setActiveModal(null)}
+        title="Documentation"
+      >
+        <div className="space-y-4 text-slate-600">
+          <p>
+            Welcome to Clerkly! This tool helps you quickly generate and manage clinical notes.
+          </p>
+          <div>
+            <h4 className="font-bold text-slate-800 mb-1">Search Guide</h4>
+            <p className="text-sm">Use keywords like 'asthma', 'fever', or 'pediatrics' to filter results instantly.</p>
+          </div>
+          <div>
+            <h4 className="font-bold text-slate-800 mb-1">Template Structure</h4>
+            <p className="text-sm">Standard format includes: Title, Specialty, Condition, History, Examination, and Plan.</p>
+          </div>
+          <div>
+            <h4 className="font-bold text-slate-800 mb-1">Copying</h4>
+            <p className="text-sm">Click the copy icon <i className="fa-solid fa-copy text-xs"></i> to copy the template text to your clipboard for use in your EMR.</p>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={activeModal === 'contribute'}
+        onClose={() => setActiveModal(null)}
+        title="Contribute"
+      >
+        <div className="space-y-4 text-slate-600">
+          <p>
+            Help us build the largest repository of clinical templates!
+          </p>
+          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+            <h4 className="font-bold text-indigo-900 mb-2">Submission Guidelines</h4>
+            <ul className="list-disc list-inside text-sm space-y-1">
+              <li>Ensure <strong>NO patient identifiable information (PII)</strong> is included.</li>
+              <li>Follow the standard format (History, Exam, Plan).</li>
+              <li>Verify medical accuracy before submitting.</li>
+            </ul>
+          </div>
+          <p className="text-sm">
+            You can submit new templates by opening an issue on our GitHub repository or contacting the admin team.
+          </p>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={activeModal === 'help'}
+        onClose={() => setActiveModal(null)}
+        title="Help & Support"
+      >
+        <div className="space-y-4 text-slate-600">
+          <div>
+            <h4 className="font-bold text-slate-800 mb-1">Frequently Asked Questions</h4>
+            <div className="space-y-2 text-sm">
+              <p><strong>Q: Why can't I find a template?</strong><br />A: Try using broader search terms or checking the 'All Specialties' filter.</p>
+              <p><strong>Q: Is this medical advice?</strong><br />A: No, these are templates for documentation purposes only. Always use clinical judgment.</p>
+            </div>
+          </div>
+          <div className="pt-4 border-t border-slate-100">
+            <h4 className="font-bold text-slate-800 mb-1">Contact Support</h4>
+            <p className="text-sm">Found a bug? Email us at <a href="#" className="text-indigo-600 hover:underline">support@clerkly.app</a></p>
+          </div>
+        </div>
+      </Modal>
 
     </div>
   );
