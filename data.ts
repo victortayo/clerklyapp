@@ -851,6 +851,7 @@ See in 2/52.`
     symptoms: ['Lower abdominal pain', 'Heavy menstrual bleeding', 'Abdominal swelling', 'Dysmenorrhea', 'Uterine fibroid'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '45-year-old P4+0 with symptomatic uterine fibroids presenting with lower abdominal pain and heavy menstrual bleeding.',
     content: `GYNAE CLINIC
 
 Patient Seen
@@ -942,6 +943,7 @@ Review PCV result before discharge`
     symptoms: ['Lower abdominal pain', 'Retching', 'Low back ache', 'Abdominopelvic mass', 'Tenderness', 'Serum pregnancy test positive'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
+    summary: '36-year-old G3P0+2 at 6 weeks 3 days with lower abdominal pain and tender abdominopelvic mass. Suspected fibroid degeneration.',
     content: `GYNAE EMERGENCY 
 
 36-year-old married Christian Yoruba female, G3P0+2, primary school teacher, resides in a Ede, Osun State.
@@ -1017,6 +1019,7 @@ Inform consultant on call`
     symptoms: ['Abdominal pain', 'Anorexia', 'Vomiting', 'Low-grade fever', 'Right lower quadrant pain'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
+    summary: '22-year-old male with 2-day history of migratory RIF pain, vomiting, and anorexia. Signs of peritoneal irritation present.',
     content: `Patient seen
 
 A 22 year old male, Christian Yoruba, residing at Oke-Igbo, Abeokuta, student.
