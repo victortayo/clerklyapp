@@ -4,6 +4,8 @@ import { Specialty, Template, SearchFilters } from './types';
 import { CLERKING_TEMPLATES } from './data';
 import TemplateCard from './components/TemplateCard';
 import TemplateDetails from './components/TemplateDetails';
+import Pagination from './components/Pagination';
+import TemplateListView from './components/TemplateListView';
 
 const App: React.FC = () => {
   const [filters, setFilters] = useState<SearchFilters>({
@@ -13,6 +15,9 @@ const App: React.FC = () => {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 10;
 
   // Sync state with URL on initial load and popstate
   useEffect(() => {
@@ -72,6 +77,17 @@ const App: React.FC = () => {
       return matchesQuery && matchesSpecialty;
     });
   }, [filters]);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters]);
+
+  const totalPages = Math.ceil(filteredTemplates.length / ITEMS_PER_PAGE);
+  const currentTemplates = filteredTemplates.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   const handleCopy = (content: string) => {
     navigator.clipboard.writeText(content).then(() => {
@@ -189,7 +205,7 @@ const App: React.FC = () => {
         ) : (
           <>
             {/* Statistics & Quick Filter Info */}
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-10 gap-4">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
               <h3 className="text-lg font-semibold text-slate-800">
                 {filters.query || filters.specialty !== Specialty.All ? (
                   <span>Found <span className="text-indigo-950">{filteredTemplates.length}</span> results</span>
@@ -197,27 +213,67 @@ const App: React.FC = () => {
                   <span>Explore all templates</span>
                 )}
               </h3>
-              {(filters.query || filters.specialty !== Specialty.All) && (
-                <button
-                  onClick={clearFilters}
-                  className="text-sm font-medium text-indigo-950 hover:text-black px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
-                >
-                  Clear filters
-                </button>
-              )}
+
+              <div className="flex items-center gap-4">
+                <div className="flex bg-slate-100 p-1 rounded-xl">
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`nav-btn px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'grid'
+                      ? 'bg-white text-indigo-950 shadow-sm'
+                      : 'text-slate-500 hover:text-indigo-900'
+                      }`}
+                  >
+                    <i className="fa-solid fa-grid-2"></i> Grid
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`nav-btn px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'list'
+                      ? 'bg-white text-indigo-950 shadow-sm'
+                      : 'text-slate-500 hover:text-indigo-900'
+                      }`}
+                  >
+                    <i className="fa-solid fa-list"></i> List
+                  </button>
+                </div>
+
+                {(filters.query || filters.specialty !== Specialty.All) && (
+                  <button
+                    onClick={clearFilters}
+                    className="text-sm font-medium text-indigo-950 hover:text-black px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
+                  >
+                    Clear filters
+                  </button>
+                )}
+              </div>
             </div>
 
-            {filteredTemplates.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                {filteredTemplates.map(template => (
-                  <TemplateCard
-                    key={template.id}
-                    template={template}
+            {currentTemplates.length > 0 ? (
+              <>
+                {viewMode === 'grid' ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    {currentTemplates.map(template => (
+                      <TemplateCard
+                        key={template.id}
+                        template={template}
+                        onView={handleTemplateSelect}
+                        onCopy={handleCopy}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <TemplateListView
+                    templates={currentTemplates}
                     onView={handleTemplateSelect}
                     onCopy={handleCopy}
                   />
-                ))}
-              </div>
+                )}
+
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
+                />
+              </>
             ) : (
               <div className="text-center py-24 bg-white rounded-3xl border-2 border-dashed border-slate-100">
                 <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
