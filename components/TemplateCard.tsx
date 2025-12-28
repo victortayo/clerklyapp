@@ -10,7 +10,6 @@ interface TemplateCardProps {
 
 const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy }) => {
   const [copied, setCopied] = React.useState(false);
-  const snippet = template.content.slice(0, 100) + (template.content.length > 100 ? '...' : '');
 
   const handleLocalCopy = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -36,8 +35,8 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
         <p className="text-xs text-slate-500 italic mb-3">
           {template.subSpecialty}
         </p>
-        <div className="text-[10px] text-slate-600 mb-4 whitespace-pre-wrap leading-relaxed font-mono bg-slate-50 p-3 rounded-lg border border-slate-100">
-          {snippet}
+        <div className="text-[11px] text-slate-600 mb-4 leading-relaxed font-sans bg-slate-50 p-3 rounded-lg border border-slate-100">
+          {template.summary}
         </div>
         <div className="flex flex-wrap gap-1 mt-auto">
           {template.symptoms.slice(0, 3).map((s, idx) => (

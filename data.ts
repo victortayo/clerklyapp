@@ -12,6 +12,7 @@ export const CLERKING_TEMPLATES: Template[] = [
     symptoms: ['Nasal discharge', 'Cough', 'Difficulty in breathing', 'Fast breathing', 'Chest in-drawing', 'Wheezing'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '2-year-old female with acute asthma exacerbation (probable viral-triggered) on background of previous similar episodes.',
     content: `2-year-old female toddler who resides with her Christian Igbo parents at Ijebu-Ode, Ogun State
 
 PC:
@@ -112,6 +113,7 @@ Reassess after completion of nebulisation`
     symptoms: ['Yellowness of the eyes', 'Yellow body', 'EMCS delivery'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '48-hour-old term female neonate presenting with jaundice on day 1 of life. Delivered via EMCS.',
     content: `DOB: 04/10/25
 TOB: 11:48 am
 Mode of delivery: EMCS
@@ -224,6 +226,7 @@ Review with investigation results.`
     symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Hyperemic tonsils'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
+    summary: '2-year-old male with 3-day history of high-grade fever and noisy breathing (snoring). Hyperemic tonsils on examination.',
     content: `Patient Seen
 2-year-old male residing with Muslim Yoruba parents at Harmony
 
@@ -297,6 +300,7 @@ Continue other supportive management`
     symptoms: ['Fever', 'Difficulty in breathing', 'Fast breathing', 'Pallor', 'Gallop rhythm', 'Hepatomegaly'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
+    summary: '2-year-old female presenting with high-grade fever and respiratory distress. Found to have severe anemia (PCV 15%) and gallop rhythm.',
     content: `2-year-old female child of Christian, Yoruba parents.
 Informant: mother.
 
@@ -399,6 +403,7 @@ Review with investigation results`
     symptoms: ['Fever', 'Pale eyes and feet', 'Respiratory distress', 'Severe pallor', 'Bounding pulse', 'Hepatomegaly', 'Hyperglycemia'],
     contributor: 'Admin',
     lastModified: '2025-12-28',
+    summary: '5-year-old male with severe anemia (PCV 8%), respiratory distress, and hyperglycemia (RBS 206 mg/dL). Twin gestation.',
     content: `5 year old male pre-schooler, with Christian TIV parents, resides at Akure, Ondo State.
 Informant is the paternal aunt and mother. 
 
@@ -535,6 +540,7 @@ Invite the pediatric surgical team for his cryptorchidism`
     symptoms: ['Chest pain', 'Crushing chest pain', 'Sudden-onset chest pain', 'Febrile illness', 'Tachycardia'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '51-year-old male with sudden-onset crushing chest pain and history of hypertension. ECG shows Anterolateral STEMI.',
     content: `Patient seen 
 51-year-old man presented with 
 
@@ -614,6 +620,7 @@ Counsel on diagnosis and management plan`
     symptoms: ['High blood pressure', 'Proteinuria', 'Chronic hypertension', 'G5P3+1'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '39-year-old G5P3+1 with chronic hypertension and superimposed severe pre-eclampsia at 28 weeks + 5 days.',
     content: `GYNAE EMERGENCY
 
 An unbooked 39-year-old G5P3+1 (3A), chronic hypertensive, at EGA of 28 weeks + 5 days, a businesswoman, Christian, Yoruba, with HLE: SSCE, residing at Ilesa, Osun State.
@@ -710,6 +717,7 @@ Consult to the medical team on call for blood pressure control.`
     symptoms: ['Advanced maternal age', 'Previous CS scar', 'Previous perinatal loss', 'History of hypertensive disorder of pregnancy'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '36-year-old G3P2+0 (1A) at 21 weeks + 3 days. Previous CS scar and perinatal loss.',
     content: `ANC BOOKING
 
 LMP: 20/07/2025
@@ -784,6 +792,7 @@ Plan:
     symptoms: ['G2P0+1', 'Antenatal booking', 'Pregnancy assessment', 'Routine ANC'],
     contributor: 'Admin',
     lastModified: '2025-12-27',
+    summary: '28-year-old G2P0+1 at 27 weeks + 6 days for routine booking. Uneventful pregnancy.',
     content: `ANTENATAL CLINIC
 
 Patient seen.

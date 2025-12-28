@@ -17,6 +17,7 @@ export interface Template {
   symptoms: string[];
   contributor: string;
   lastModified: string;
+  summary: string;
 }
 
 export interface SearchFilters {

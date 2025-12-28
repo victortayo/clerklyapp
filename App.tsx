@@ -14,6 +14,37 @@ const App: React.FC = () => {
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // Sync state with URL on initial load and popstate
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const templateId = params.get('template');
+      if (templateId) {
+        const found = CLERKING_TEMPLATES.find(t => t.id === templateId);
+        if (found) setSelectedTemplate(found);
+      } else {
+        setSelectedTemplate(null);
+      }
+    };
+
+    handleUrlChange(); // Check on mount
+    window.addEventListener('popstate', handleUrlChange); // Listen for back/forward
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
+
+  const handleTemplateSelect = (template: Template | null) => {
+    setSelectedTemplate(template);
+    if (template) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('template', template.id);
+      window.history.pushState({}, '', url);
+    } else {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('template');
+      window.history.pushState({}, '', url);
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (isDropdownOpen && !(event.target as Element).closest('.specialty-dropdown')) {
@@ -26,11 +57,15 @@ const App: React.FC = () => {
 
   const filteredTemplates = useMemo(() => {
     return CLERKING_TEMPLATES.filter(t => {
-      const matchesQuery = !filters.query ||
-        t.title.toLowerCase().includes(filters.query.toLowerCase()) ||
-        t.condition.toLowerCase().includes(filters.query.toLowerCase()) ||
-        t.subSpecialty.toLowerCase().includes(filters.query.toLowerCase()) ||
-        t.symptoms.some(s => s.toLowerCase().includes(filters.query.toLowerCase()));
+      // Split query by comma or space and filter out empty strings
+      const searchTerms = filters.query.toLowerCase().split(/[\s,]+/).filter(term => term.length > 0);
+
+      const matchesQuery = searchTerms.length === 0 || searchTerms.every(term =>
+        t.title.toLowerCase().includes(term) ||
+        t.condition.toLowerCase().includes(term) ||
+        t.subSpecialty.toLowerCase().includes(term) ||
+        t.symptoms.some(s => s.toLowerCase().includes(term))
+      );
 
       const matchesSpecialty = filters.specialty === Specialty.All || t.specialty === filters.specialty;
 
@@ -46,7 +81,7 @@ const App: React.FC = () => {
   };
 
   const goHome = () => {
-    setSelectedTemplate(null);
+    handleTemplateSelect(null);
     setFilters({ query: '', specialty: Specialty.All });
   };
 
@@ -178,7 +213,7 @@ const App: React.FC = () => {
                   <TemplateCard
                     key={template.id}
                     template={template}
-                    onView={setSelectedTemplate}
+                    onView={handleTemplateSelect}
                     onCopy={handleCopy}
                   />
                 ))}
