@@ -300,6 +300,12 @@ const App: React.FC = () => {
             Repository for clinical clerking templates.           </p>
           <div className="flex justify-center gap-8 mb-4">
             <button
+              onClick={() => setActiveModal('help')}
+              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+            >
+              Help
+            </button>
+            <button
               onClick={() => setActiveModal('docs')}
               className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
             >
@@ -310,12 +316,6 @@ const App: React.FC = () => {
               className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
             >
               Contribute
-            </button>
-            <button
-              onClick={() => setActiveModal('help')}
-              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
-            >
-              Help
             </button>
           </div>
           <div className="text-xs border-t border-slate-800 pt-2">
