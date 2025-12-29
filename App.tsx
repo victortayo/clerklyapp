@@ -349,34 +349,49 @@ const App: React.FC = () => {
         onClose={() => setActiveModal(null)}
         title="Contribute"
       >
-        <div className="space-y-6 text-slate-600">
-          <p className="text-sm font-medium">
+        <div className="space-y-6">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
             Help us build a robust repository of relevant clinical templates.
           </p>
 
-          <section className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
-            <h4 className="font-bold text-indigo-900 mb-2">Submission Guidelines</h4>
-            <p className="text-sm text-indigo-800 mb-2">There are no strict guidelines for now. Simply send in your templates.</p>
-            <ul className="list-disc list-inside text-sm space-y-1 text-indigo-800">
-              <li>Patient-identifiable information will be removed</li>
-              <li>Templates will be reformatted if necessary</li>
-              <li>Priority is given to detail, clarity, and medical accuracy</li>
-            </ul>
-          </section>
+          <div className="bg-gradient-to-br from-indigo-50 to-white p-4 rounded-2xl border border-indigo-100">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
+                <i className="fa-solid fa-lightbulb text-indigo-600 text-[10px]"></i>
+              </div>
+              <h4 className="text-xs font-bold text-indigo-950 uppercase tracking-wider">Submission Guidelines</h4>
+            </div>
 
-          <section>
-            <p className="text-sm italic text-slate-500 mb-3">
+            <p className="text-xs text-indigo-900/70 mb-3">There are no strict guidelines for now. Simply send in your templates.</p>
+
+            <ul className="space-y-2.5">
+              {[
+                "Patient-identifiable information will be removed",
+                "Templates will be reformatted if necessary",
+                "Priority is given to detail, clarity, and medical accuracy"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-indigo-900">
+                  <i className="fa-solid fa-check text-indigo-500 mt-0.5 text-[10px]"></i>
+                  <span className="leading-tight">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-[10px] sm:text-xs italic text-slate-400 text-center mb-3 font-medium">
               You already have those templates on your phone, chief 🤲
             </p>
             <a
               href="https://forms.gle/ExampleLink"
               target="_blank"
               rel="noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+              className="group w-full flex items-center justify-center gap-2 bg-indigo-950 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-900 transition-all shadow-lg shadow-indigo-200 active:scale-[0.98]"
             >
-              Submit via Google Form <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              <span className="text-xs sm:text-sm">Submit via Google Form</span>
+              <i className="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
             </a>
-          </section>
+          </div>
         </div>
       </Modal>
 
@@ -385,42 +400,57 @@ const App: React.FC = () => {
         onClose={() => setActiveModal(null)}
         title="Help"
       >
-        <div className="space-y-6 text-slate-600">
+        <div className="space-y-6">
           <section>
-            <h4 className="font-bold text-slate-800 mb-2">How do I find what I’m looking for?</h4>
-            <p className="text-sm mb-2">You can search using:</p>
-            <ul className="list-disc list-inside text-sm space-y-1 ml-1">
-              <li>Conditions/diagnoses (e.g. appendicitis)</li>
-              <li>Symptoms (e.g. cough, fever)</li>
-              <li>Specialty clinics (e.g. antenatal clinic)</li>
-            </ul>
+            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Find what you're looking for</h4>
+            <div className="grid gap-2">
+              {[
+                { label: 'Conditions', ex: 'e.g. appendicitis', icon: 'fa-stethoscope' },
+                { label: 'Symptoms', ex: 'e.g. cough, fever', icon: 'fa-temperature-half' },
+                { label: 'Specialty Clinics', ex: 'e.g. antenatal clinic', icon: 'fa-hospital' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-indigo-500">
+                    <i className={`fa-solid ${item.icon} text-xs`}></i>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-bold text-slate-700">{item.label}</p>
+                    <p className="text-[10px] text-slate-400">{item.ex}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </section>
 
           <section>
-            <h4 className="font-bold text-slate-800 mb-2">Is this medical advice?</h4>
-            <p className="text-sm font-bold mb-1">No.</p>
-            <p className="text-sm mb-2">
-              These templates are adapted from real clinical cases and are intended primarily for educational purposes. They may also help make documentation faster, clearer, and more structured.
-            </p>
-            <p className="text-sm text-amber-700 bg-amber-50 p-2 rounded-lg border border-amber-100">
-              <i className="fa-solid fa-triangle-exclamation mr-2"></i>
-              If you choose to use them clinically, always apply your own clinical judgement and verify critical information using appropriate and trusted sources.
-            </p>
+            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Disclaimer</h4>
+            <div className="bg-amber-50 p-3 rounded-xl border border-amber-100/50">
+              <div className="flex gap-2">
+                <i className="fa-solid fa-circle-info text-amber-500 text-xs mt-0.5"></i>
+                <div className="space-y-2">
+                  <p className="text-xs font-bold text-amber-900">Not Medical Advice</p>
+                  <p className="text-[10px] sm:text-xs text-amber-800/80 leading-relaxed">
+                    These templates are adapted from real clinical cases for educational purposes.
+                    <span className="font-semibold"> Always apply your own clinical judgement.</span>
+                  </p>
+                </div>
+              </div>
+            </div>
           </section>
 
-          <section>
-            <h4 className="font-bold text-slate-800 mb-2">Contact</h4>
-            <p className="text-sm mb-2">
-              If you come across a significant error (the kind that feels like an insult to your clinical intelligence 😅), please let us know.
+          <section className="pt-2 border-t border-slate-100">
+            <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Contact & Support</h4>
+            <p className="text-[10px] sm:text-xs text-slate-500 mb-3 leading-relaxed">
+              Found a significant error? The kind that feels like an insult to your intelligence? 😅 Let us know.
             </p>
             <a
               href="https://wa.me/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-4 py-2 rounded-xl transition-colors"
+              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-4 py-2.5 rounded-xl hover:bg-emerald-100 transition-colors border border-emerald-100"
             >
-              <i className="fa-brands fa-whatsapp text-lg"></i>
-              Send a message via WhatsApp
+              <i className="fa-brands fa-whatsapp text-sm"></i>
+              Message on WhatsApp
             </a>
           </section>
         </div>
