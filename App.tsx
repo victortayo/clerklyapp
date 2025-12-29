@@ -19,7 +19,20 @@ const App: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
   const [activeModal, setActiveModal] = useState<'docs' | 'contribute' | 'help' | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const ITEMS_PER_PAGE = 10;
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   // Sync state with URL on initial load and popstate
   useEffect(() => {
@@ -111,47 +124,56 @@ const App: React.FC = () => {
     <div className="min-h-screen flex flex-col">
       {/* Feedback Toast */}
       {copyFeedback && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-indigo-950 text-white px-6 py-3 rounded-full shadow-2xl animate-bounce flex items-center gap-2">
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-indigo-950 dark:bg-indigo-900 text-white px-6 py-3 rounded-full shadow-2xl animate-bounce flex items-center gap-2">
           <i className="fa-solid fa-circle-check text-emerald-400"></i>
           <span className="font-medium text-sm">{copyFeedback}</span>
         </div>
       )}
 
       {/* Header */}
-      <header className="sticky top-0 z-40 w-full glass-morphism border-b border-slate-200">
+      <header className="sticky top-0 z-40 w-full glass-morphism dark:bg-slate-900/80 dark:border-slate-800 border-b border-slate-200 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <button
             onClick={goHome}
             className="flex items-center gap-2 group p-1.5 -ml-1.5 rounded-xl hover:bg-slate-50 transition-all"
             title="Go to Homepage"
           >
-            <div className="w-8 h-8 bg-indigo-950 rounded-lg flex items-center justify-center group-hover:bg-black transition-colors shadow-lg shadow-indigo-100">
-              <i className="fa-solid fa-file-medical text-white text-lg"></i>
+            <div className="w-8 h-8 bg-indigo-950 dark:bg-white rounded-lg flex items-center justify-center group-hover:bg-black dark:group-hover:bg-indigo-200 transition-colors shadow-lg shadow-indigo-100 dark:shadow-none">
+              <i className="fa-solid fa-file-medical text-white dark:text-indigo-950 text-lg"></i>
             </div>
           </button>
 
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-xl text-slate-400 hover:text-indigo-900 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors"
+              title={theme === 'dark' ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
+            </button>
+          </div>
         </div>
       </header>
 
       {/* Hero Section - Only show when no template selected */}
       {!selectedTemplate && (
-        <section className="bg-white border-b border-slate-100 py-20 sm:py-32">
+        <section className="bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 py-20 sm:py-32 transition-colors duration-300">
           <div className="max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-6xl sm:text-8xl font-bold text-indigo-950 mb-2 tracking-tighter font-brand">
+            <h2 className="text-6xl sm:text-8xl font-bold text-indigo-950 dark:text-indigo-100 mb-2 tracking-tighter font-brand transition-colors">
               clerkly
             </h2>
-            <p className="text-sm sm:text-base text-slate-400 font-medium tracking-[0.2em] uppercase mb-12">
+            <p className="text-sm sm:text-base text-slate-400 dark:text-slate-500 font-medium tracking-[0.2em] uppercase mb-12">
               patients notes
             </p>
 
             <div className="max-w-2xl mx-auto">
-              <div className="flex flex-col sm:flex-row gap-3 bg-white p-2 rounded-2xl shadow-xl border border-slate-100">
-                <div className="flex-1 flex items-center px-4 bg-slate-50 rounded-xl">
+              <div className="flex flex-col sm:flex-row gap-3 bg-white dark:bg-slate-800 p-2 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 transition-colors">
+                <div className="flex-1 flex items-center px-4 bg-slate-50 dark:bg-slate-900 rounded-xl transition-colors">
                   <i className="fa-solid fa-magnifying-glass text-slate-400 mr-3"></i>
                   <input
                     type="text"
                     placeholder="Search condition, symptom, or clinic..."
-                    className="w-full py-3 bg-transparent text-slate-700 focus:outline-none text-sm sm:text-base"
+                    className="w-full py-3 bg-transparent text-slate-700 dark:text-slate-200 focus:outline-none text-sm sm:text-base placeholder-slate-400"
                     value={filters.query}
                     onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value }))}
                   />
@@ -159,14 +181,14 @@ const App: React.FC = () => {
                 <div className="relative specialty-dropdown">
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="w-full sm:w-48 px-4 py-3 bg-slate-100 text-indigo-950 rounded-xl font-bold focus:outline-none flex items-center justify-between gap-2 hover:bg-slate-200 transition-colors text-sm"
+                    className="w-full sm:w-48 px-4 py-3 bg-slate-100 dark:bg-slate-700 text-indigo-950 dark:text-indigo-100 rounded-xl font-bold focus:outline-none flex items-center justify-between gap-2 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors text-sm"
                   >
                     <span className="truncate">{filters.specialty}</span>
                     <i className={`fa-solid fa-chevron-down text-[10px] transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}></i>
                   </button>
 
                   {isDropdownOpen && (
-                    <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 py-2 z-50 animate-in fade-in zoom-in-95 duration-200">
+                    <div className="absolute top-full right-0 mt-2 w-full sm:w-64 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-700 py-2 z-50 animate-in fade-in zoom-in-95 duration-200">
                       {Object.values(Specialty).map(s => (
                         <button
                           key={s}
@@ -175,8 +197,8 @@ const App: React.FC = () => {
                             setIsDropdownOpen(false);
                           }}
                           className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors flex items-center justify-between ${filters.specialty === s
-                            ? 'bg-indigo-50 text-indigo-950'
-                            : 'text-slate-600 hover:bg-slate-50 hover:text-indigo-950'
+                            ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-950 dark:text-indigo-200'
+                            : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-indigo-950 dark:hover:text-indigo-200'
                             }`}
                         >
                           {s}
@@ -204,21 +226,21 @@ const App: React.FC = () => {
           <>
             {/* Statistics & Quick Filter Info */}
             <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-              <h3 className="text-lg font-semibold text-slate-800">
+              <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200">
                 {filters.query || filters.specialty !== Specialty.All ? (
-                  <span>Found <span className="text-indigo-950">{filteredTemplates.length}</span> results</span>
+                  <span>Found <span className="text-indigo-950 dark:text-indigo-300">{filteredTemplates.length}</span> results</span>
                 ) : (
                   <span>Explore all templates</span>
                 )}
               </h3>
 
               <div className="flex items-center gap-4">
-                <div className="flex bg-slate-100 p-1 rounded-xl">
+                <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl transition-colors">
                   <button
                     onClick={() => setViewMode('grid')}
                     className={`nav-btn px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'grid'
-                      ? 'bg-white text-indigo-950 shadow-sm'
-                      : 'text-slate-500 hover:text-indigo-900'
+                      ? 'bg-white dark:bg-slate-700 text-indigo-950 dark:text-indigo-100 shadow-sm'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-200'
                       }`}
                   >
                     <i className="fa-solid fa-grid-2"></i> Grid
@@ -226,8 +248,8 @@ const App: React.FC = () => {
                   <button
                     onClick={() => setViewMode('list')}
                     className={`nav-btn px-4 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${viewMode === 'list'
-                      ? 'bg-white text-indigo-950 shadow-sm'
-                      : 'text-slate-500 hover:text-indigo-900'
+                      ? 'bg-white dark:bg-slate-700 text-indigo-950 dark:text-indigo-100 shadow-sm'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-200'
                       }`}
                   >
                     <i className="fa-solid fa-list"></i> List
@@ -237,7 +259,7 @@ const App: React.FC = () => {
                 {(filters.query || filters.specialty !== Specialty.All) && (
                   <button
                     onClick={clearFilters}
-                    className="text-sm font-medium text-indigo-950 hover:text-black px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors"
+                    className="text-sm font-medium text-indigo-950 dark:text-indigo-200 hover:text-black dark:hover:text-white px-4 py-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                   >
                     Clear filters
                   </button>
@@ -273,12 +295,12 @@ const App: React.FC = () => {
                 />
               </>
             ) : (
-              <div className="text-center py-24 bg-white rounded-3xl border-2 border-dashed border-slate-100">
-                <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <i className="fa-solid fa-clipboard-question text-slate-300 text-3xl"></i>
+              <div className="text-center py-24 bg-white dark:bg-slate-800 rounded-3xl border-2 border-dashed border-slate-100 dark:border-slate-700 transition-colors">
+                <div className="w-20 h-20 bg-slate-50 dark:bg-slate-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i className="fa-solid fa-clipboard-question text-slate-300 dark:text-slate-600 text-3xl"></i>
                 </div>
-                <h4 className="text-xl font-bold text-slate-700 mb-2">No templates found</h4>
-                <p className="text-slate-500 max-w-sm mx-auto">
+                <h4 className="text-xl font-bold text-slate-700 dark:text-slate-200 mb-2">No templates found</h4>
+                <p className="text-slate-500 dark:text-slate-400 max-w-sm mx-auto">
                   We couldn't find any templates matching your search criteria. Try a broader keyword or change the specialty.
                 </p>
               </div>
@@ -288,7 +310,7 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-indigo-950 text-slate-400 py-12 mt-16">
+      <footer className="bg-indigo-950 dark:bg-slate-900 text-slate-400 dark:text-slate-500 py-12 mt-16 border-t border-transparent dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
@@ -350,19 +372,19 @@ const App: React.FC = () => {
         title="Contribute"
       >
         <div className="space-y-6">
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
             Help us build a robust repository of relevant clinical templates.
           </p>
 
-          <div className="bg-gradient-to-br from-indigo-50 to-white p-4 rounded-2xl border border-indigo-100">
+          <div className="bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-900 p-4 rounded-2xl border border-indigo-100 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center">
-                <i className="fa-solid fa-lightbulb text-indigo-600 text-[10px]"></i>
+              <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                <i className="fa-solid fa-lightbulb text-indigo-600 dark:text-indigo-300 text-[10px]"></i>
               </div>
-              <h4 className="text-xs font-bold text-indigo-950 uppercase tracking-wider">Submission Guidelines</h4>
+              <h4 className="text-xs font-bold text-indigo-950 dark:text-indigo-200 uppercase tracking-wider">Submission Guidelines</h4>
             </div>
 
-            <p className="text-xs text-indigo-900/70 mb-3">There are no strict guidelines for now. Simply send in your templates.</p>
+            <p className="text-xs text-indigo-900/70 dark:text-indigo-200/60 mb-3">There are no strict guidelines for now. Simply send in your templates.</p>
 
             <ul className="space-y-2.5">
               {[
@@ -370,8 +392,8 @@ const App: React.FC = () => {
                 "Templates will be reformatted if necessary",
                 "Priority is given to detail, clarity, and medical accuracy"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-indigo-900">
-                  <i className="fa-solid fa-check text-indigo-500 mt-0.5 text-[10px]"></i>
+                <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-indigo-900 dark:text-slate-300">
+                  <i className="fa-solid fa-check text-indigo-500 dark:text-indigo-400 mt-0.5 text-[10px]"></i>
                   <span className="leading-tight">{item}</span>
                 </li>
               ))}
@@ -409,13 +431,13 @@ const App: React.FC = () => {
                 { label: 'Symptoms', ex: 'e.g. cough, fever', icon: 'fa-temperature-half' },
                 { label: 'Specialty Clinics', ex: 'e.g. antenatal clinic', icon: 'fa-hospital' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                  <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center shadow-sm text-indigo-500">
+                <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+                  <div className="w-8 h-8 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center shadow-sm text-indigo-500 dark:text-indigo-400">
                     <i className={`fa-solid ${item.icon} text-xs`}></i>
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-bold text-slate-700">{item.label}</p>
-                    <p className="text-[10px] text-slate-400">{item.ex}</p>
+                    <p className="text-xs font-bold text-slate-700 dark:text-slate-200">{item.label}</p>
+                    <p className="text-[10px] text-slate-400 dark:text-slate-400">{item.ex}</p>
                   </div>
                 </div>
               ))}
@@ -424,12 +446,12 @@ const App: React.FC = () => {
 
           <section>
             <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Disclaimer</h4>
-            <div className="bg-amber-50 p-3 rounded-xl border border-amber-100/50">
+            <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-xl border border-amber-100/50 dark:border-amber-900/50">
               <div className="flex gap-2">
                 <i className="fa-solid fa-circle-info text-amber-500 text-xs mt-0.5"></i>
                 <div className="space-y-2">
-                  <p className="text-xs font-bold text-amber-900">Not Medical Advice</p>
-                  <p className="text-[10px] sm:text-xs text-amber-800/80 leading-relaxed">
+                  <p className="text-xs font-bold text-amber-900 dark:text-amber-200">Not Medical Advice</p>
+                  <p className="text-[10px] sm:text-xs text-amber-800/80 dark:text-amber-200/70 leading-relaxed">
                     These templates are adapted from real clinical cases for educational purposes.
                     <span className="font-semibold"> Always apply your own clinical judgement.</span>
                   </p>

@@ -18,27 +18,27 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
     };
 
     return (
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-500 transition-colors">
             <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                     <thead>
-                        <tr className="bg-slate-50 border-b border-slate-100 text-xs text-slate-500 uppercase tracking-wider font-semibold">
+                        <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">
                             <th className="px-6 py-4">Condition Name</th>
                             <th className="px-6 py-4">Specialty</th>
                             <th className="px-6 py-4 hidden sm:table-cell">Last Update</th>
                             <th className="px-6 py-4 text-right">Actions</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
                         {templates.map((template) => (
                             <tr
                                 key={template.id}
                                 onClick={() => onView(template)}
-                                className="hover:bg-indigo-50/50 transition-colors cursor-pointer group"
+                                className="hover:bg-indigo-50/50 dark:hover:bg-slate-700/50 transition-colors cursor-pointer group"
                             >
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col">
-                                        <span className="font-bold text-slate-800 text-sm group-hover:text-indigo-950 font-brand">
+                                        <span className="font-bold text-slate-800 dark:text-slate-200 text-sm group-hover:text-indigo-950 dark:group-hover:text-white font-brand">
                                             {template.title}
                                         </span>
                                         <span className="text-xs text-slate-400 mt-0.5 truncate max-w-[200px] sm:max-w-xs font-sans opacity-70">
@@ -47,11 +47,11 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                                     </div>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-slate-100 text-slate-600 border border-slate-200">
+                                    <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-widest bg-slate-100 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600">
                                         {template.specialty}
                                     </span>
                                 </td>
-                                <td className="px-6 py-4 hidden sm:table-cell text-xs text-slate-500 font-mono">
+                                <td className="px-6 py-4 hidden sm:table-cell text-xs text-slate-500 dark:text-slate-400 font-mono">
                                     {template.lastModified}
                                 </td>
                                 <td className="px-6 py-4 text-right">
@@ -61,7 +61,7 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                                                 e.stopPropagation();
                                                 onView(template);
                                             }}
-                                            className="text-xs font-medium text-slate-500 hover:text-indigo-900 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                                            className="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-300 px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                                         >
                                             View
                                         </button>
@@ -69,7 +69,7 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                                             onClick={(e) => handleCopy(e, template.id, template.content)}
                                             className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all active:scale-95 border ${copiedId === template.id
                                                 ? 'bg-emerald-50 border-emerald-200 text-emerald-600'
-                                                : 'bg-white border-slate-200 text-slate-400 hover:text-indigo-950 hover:border-indigo-200'
+                                                : 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-400 dark:text-slate-300 hover:text-indigo-950 dark:hover:text-white hover:border-indigo-200 dark:hover:border-slate-500'
                                                 }`}
                                             title="Copy Template"
                                         >
