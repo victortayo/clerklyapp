@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [activeModal, setActiveModal] = useState<'docs' | 'contribute' | 'help' | null>(null);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const ITEMS_PER_PAGE = 10;
+  const ITEMS_PER_PAGE = 9;
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -90,7 +90,7 @@ const App: React.FC = () => {
       const matchesSpecialty = filters.specialty === Specialty.All || t.specialty === filters.specialty;
 
       return matchesQuery && matchesSpecialty;
-    });
+    }).sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime());
   }, [filters]);
 
   // Reset to page 1 when filters change
@@ -408,7 +408,7 @@ const App: React.FC = () => {
               href="https://forms.gle/ExampleLink"
               target="_blank"
               rel="noreferrer"
-              className="group w-full flex items-center justify-center gap-2 bg-indigo-950 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-900 transition-all shadow-lg shadow-indigo-200 active:scale-[0.98]"
+              className="group w-full flex items-center justify-center gap-2 bg-indigo-950 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-900 transition-all shadow-lg shadow-indigo-200 dark:shadow-none active:scale-[0.98]"
             >
               <span className="text-xs sm:text-sm">Submit via Google Form</span>
               <i className="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
@@ -469,7 +469,7 @@ const App: React.FC = () => {
               href="https://wa.me/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 px-4 py-2.5 rounded-xl hover:bg-emerald-100 transition-colors border border-emerald-100"
+              className="inline-flex w-full justify-center items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 dark:text-emerald-400 dark:bg-emerald-900/20 px-4 py-2.5 rounded-xl hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors border border-emerald-100 dark:border-emerald-800"
             >
               <i className="fa-brands fa-whatsapp text-sm"></i>
               Message on WhatsApp
