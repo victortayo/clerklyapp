@@ -30,12 +30,12 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200"
+                className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300 ease-out"
                 onClick={onClose}
             ></div>
 
             {/* Modal Content */}
-            <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-lg max-h-[85vh] flex flex-col animate-in zoom-in-95 duration-200 overflow-hidden transition-colors">
+            <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-lg max-h-[85vh] flex flex-col animate-in zoom-in-95 duration-300 ease-out overflow-hidden transition-colors">
                 <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
                     <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 font-brand">{title}</h3>
                     <button

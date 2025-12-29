@@ -50,7 +50,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
             </div>
             <button
               onClick={handleLocalCopy}
-              className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${copied ? 'bg-emerald-600 text-white shadow-emerald-100' : 'bg-indigo-950 dark:bg-indigo-900 text-white shadow-indigo-200 dark:shadow-none'} shadow-lg active:scale-95`}
+              className={`p-2.5 rounded-xl transition-all duration-300 ease-out flex items-center justify-center ${copied ? 'bg-emerald-600 text-white shadow-emerald-100' : 'bg-indigo-950 dark:bg-indigo-900 text-white shadow-indigo-200 dark:shadow-none'} shadow-lg active:scale-95`}
               title={copied ? "Copied" : "Copy Template"}
             >
               <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
@@ -93,7 +93,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
       {/* Floating Back Button */}
       <button
         onClick={onBack}
-        className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-indigo-950 dark:hover:text-white hover:scale-110 active:scale-95 transition-all flex items-center justify-center group"
+        className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-2xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-indigo-950 dark:hover:text-white hover:scale-110 hover:-translate-y-0.5 hover:shadow-xl active:scale-95 transition-all duration-300 flex items-center justify-center group"
         title="Back to templates"
       >
         <i className="fa-solid fa-arrow-left text-sm group-hover:-translate-x-0.5 transition-transform"></i>

@@ -30,11 +30,12 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                        {templates.map((template) => (
+                        {templates.map((template, index) => (
                             <tr
                                 key={template.id}
                                 onClick={() => onView(template)}
-                                className="hover:bg-indigo-50/50 dark:hover:bg-slate-700/50 transition-colors cursor-pointer group"
+                                style={{ animationDelay: `${index * 50}ms` }}
+                                className="animate-in fade-in slide-in-from-bottom-2 duration-500 fill-mode-backwards hover:bg-indigo-50/50 dark:hover:bg-slate-700/50 hover:scale-[1.005] active:scale-[0.995] transition-all cursor-pointer group border-b border-transparent hover:border-indigo-100 dark:hover:border-slate-600 hover:shadow-sm"
                             >
                                 <td className="px-6 py-4">
                                     <div className="flex flex-col">

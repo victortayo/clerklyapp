@@ -19,7 +19,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
   };
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all group flex flex-col h-full overflow-hidden">
+    <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-indigo-200 dark:hover:border-indigo-700/50 transition-all duration-300 ease-out group flex flex-col h-full overflow-hidden">
       <div className="p-5 flex-1 cursor-pointer" onClick={() => onView(template)}>
         <div className="flex justify-between items-start mb-2">
           <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-900 dark:text-indigo-200 bg-indigo-50 dark:bg-indigo-900/40 px-2 py-0.5 rounded">
