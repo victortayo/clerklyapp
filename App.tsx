@@ -288,37 +288,32 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-indigo-950 text-slate-400 py-16 mt-20">
+      <footer className="bg-indigo-950 text-slate-400 py-12 mt-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-6 h-6 bg-white/10 rounded flex items-center justify-center">
               <i className="fa-solid fa-file-medical text-white text-xs"></i>
             </div>
             <span className="text-white font-bold tracking-tight text-xl font-brand">clerkly</span>
           </div>
-          <p className="text-sm max-w-md mx-auto mb-8 leading-relaxed">
-            Repository for clinical clerking templates.           </p>
-          <div className="flex justify-center gap-8 mb-4">
+          <p className="text-xs max-w-md mx-auto mb-6 leading-relaxed">
+            Repository for clinical clerking templates.
+          </p>
+          <div className="flex justify-center gap-6 mb-6">
             <button
               onClick={() => setActiveModal('help')}
-              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+              className="hover:text-white transition-colors text-xs font-semibold bg-transparent border-none cursor-pointer"
             >
               Help
             </button>
             <button
-              onClick={() => setActiveModal('docs')}
-              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
-            >
-              Documentation
-            </button>
-            <button
               onClick={() => setActiveModal('contribute')}
-              className="hover:text-white transition-colors text-sm font-medium bg-transparent border-none cursor-pointer"
+              className="hover:text-white transition-colors text-xs font-semibold bg-transparent border-none cursor-pointer"
             >
               Contribute
             </button>
           </div>
-          <div className="text-xs border-t border-slate-800 pt-2">
+          <div className="text-[10px] border-t border-slate-800 pt-4">
             &copy; {new Date().getFullYear()} Clerkly. All rights reserved. <br /> For educational purposes.
           </div>
         </div>
@@ -354,41 +349,80 @@ const App: React.FC = () => {
         onClose={() => setActiveModal(null)}
         title="Contribute"
       >
-        <div className="space-y-4 text-slate-600">
-          <p>
-            Help us build the largest repository of clinical templates!
+        <div className="space-y-6 text-slate-600">
+          <p className="text-sm font-medium">
+            Help us build a robust repository of relevant clinical templates.
           </p>
-          <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+
+          <section className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
             <h4 className="font-bold text-indigo-900 mb-2">Submission Guidelines</h4>
-            <ul className="list-disc list-inside text-sm space-y-1">
-              <li>Ensure <strong>NO patient identifiable information (PII)</strong> is included.</li>
-              <li>Follow the standard format (History, Exam, Plan).</li>
-              <li>Verify medical accuracy before submitting.</li>
+            <p className="text-sm text-indigo-800 mb-2">There are no strict guidelines for now. Simply send in your templates.</p>
+            <ul className="list-disc list-inside text-sm space-y-1 text-indigo-800">
+              <li>Patient-identifiable information will be removed</li>
+              <li>Templates will be reformatted if necessary</li>
+              <li>Priority is given to detail, clarity, and medical accuracy</li>
             </ul>
-          </div>
-          <p className="text-sm">
-            You can submit new templates by opening an issue on our GitHub repository or contacting the admin team.
-          </p>
+          </section>
+
+          <section>
+            <p className="text-sm italic text-slate-500 mb-3">
+              You already have those templates on your phone, chief 🤲
+            </p>
+            <a
+              href="https://forms.gle/ExampleLink"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-indigo-600 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200"
+            >
+              Submit via Google Form <i className="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </section>
         </div>
       </Modal>
 
       <Modal
         isOpen={activeModal === 'help'}
         onClose={() => setActiveModal(null)}
-        title="Help & Support"
+        title="Help"
       >
-        <div className="space-y-4 text-slate-600">
-          <div>
-            <h4 className="font-bold text-slate-800 mb-1">Frequently Asked Questions</h4>
-            <div className="space-y-2 text-sm">
-              <p><strong>Q: Why can't I find a template?</strong><br />A: Try using broader search terms or checking the 'All Specialties' filter.</p>
-              <p><strong>Q: Is this medical advice?</strong><br />A: No, these are templates for documentation purposes only. Always use clinical judgment.</p>
-            </div>
-          </div>
-          <div className="pt-4 border-t border-slate-100">
-            <h4 className="font-bold text-slate-800 mb-1">Contact Support</h4>
-            <p className="text-sm">Found a bug? Email us at <a href="#" className="text-indigo-600 hover:underline">support@clerkly.app</a></p>
-          </div>
+        <div className="space-y-6 text-slate-600">
+          <section>
+            <h4 className="font-bold text-slate-800 mb-2">How do I find what I’m looking for?</h4>
+            <p className="text-sm mb-2">You can search using:</p>
+            <ul className="list-disc list-inside text-sm space-y-1 ml-1">
+              <li>Conditions/diagnoses (e.g. appendicitis)</li>
+              <li>Symptoms (e.g. cough, fever)</li>
+              <li>Specialty clinics (e.g. antenatal clinic)</li>
+            </ul>
+          </section>
+
+          <section>
+            <h4 className="font-bold text-slate-800 mb-2">Is this medical advice?</h4>
+            <p className="text-sm font-bold mb-1">No.</p>
+            <p className="text-sm mb-2">
+              These templates are adapted from real clinical cases and are intended primarily for educational purposes. They may also help make documentation faster, clearer, and more structured.
+            </p>
+            <p className="text-sm text-amber-700 bg-amber-50 p-2 rounded-lg border border-amber-100">
+              <i className="fa-solid fa-triangle-exclamation mr-2"></i>
+              If you choose to use them clinically, always apply your own clinical judgement and verify critical information using appropriate and trusted sources.
+            </p>
+          </section>
+
+          <section>
+            <h4 className="font-bold text-slate-800 mb-2">Contact</h4>
+            <p className="text-sm mb-2">
+              If you come across a significant error (the kind that feels like an insult to your clinical intelligence 😅), please let us know.
+            </p>
+            <a
+              href="https://wa.me/"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-emerald-600 hover:text-emerald-700 bg-emerald-50 px-4 py-2 rounded-xl transition-colors"
+            >
+              <i className="fa-brands fa-whatsapp text-lg"></i>
+              Send a message via WhatsApp
+            </a>
+          </section>
         </div>
       </Modal>
 
