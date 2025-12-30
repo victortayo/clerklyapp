@@ -405,7 +405,7 @@ const App: React.FC = () => {
               You already have those templates on your phone, chief 🤲
             </p>
             <a
-              href="https://forms.gle/ExampleLink"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfZyY4QMv4KSiIBz9T3RXbIn3Cxt-qelDOf_TpdBL3N3aMhsg/viewform?usp=dialog"
               target="_blank"
               rel="noreferrer"
               className="group w-full flex items-center justify-center gap-2 bg-indigo-950 text-white font-bold py-3 px-4 rounded-xl hover:bg-indigo-900 transition-all shadow-lg shadow-indigo-200 dark:shadow-none active:scale-[0.98]"
@@ -466,7 +466,7 @@ const App: React.FC = () => {
               Found a significant error? The kind that feels like an insult to your intelligence? 😅 Let us know.
             </p>
             <a
-              href="https://wa.me/"
+              href="https://wa.link/b2ht0d"
               target="_blank"
               rel="noreferrer"
               className="inline-flex w-full justify-center items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 dark:text-emerald-400 dark:bg-emerald-900/20 px-4 py-2.5 rounded-xl hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors border border-emerald-100 dark:border-emerald-800"
