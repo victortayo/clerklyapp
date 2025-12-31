@@ -6,9 +6,17 @@ interface TemplateCardProps {
   template: Template;
   onView: (t: Template) => void;
   onCopy: (content: string) => void;
+  isBookmarked: boolean;
+  onToggleBookmark: () => void;
 }
 
-const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy }) => {
+const TemplateCard: React.FC<TemplateCardProps> = ({
+  template,
+  onView,
+  onCopy,
+  isBookmarked,
+  onToggleBookmark
+}) => {
   const [copied, setCopied] = React.useState(false);
 
   const handleLocalCopy = (e: React.MouseEvent) => {
@@ -29,9 +37,18 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ template, onView, onCopy })
             {template.lastModified}
           </span>
         </div>
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-1 group-hover:text-indigo-950 dark:group-hover:text-indigo-300 transition-colors font-brand">
-          {template.title}
-        </h3>
+        <div className="flex justify-between items-start mb-1">
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-950 dark:group-hover:text-indigo-300 transition-colors font-brand">
+            {template.title}
+          </h3>
+          <button
+            onClick={(e) => { e.stopPropagation(); onToggleBookmark(); }}
+            className={`flex items-center gap-1.5 transition-all active:scale-90 ${isBookmarked ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-300 hover:text-slate-400 dark:text-slate-600 dark:hover:text-slate-500'}`}
+          >
+            <span className="text-[10px] font-bold">{template.bookmarkCount || 0}</span>
+            <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark text-sm`}></i>
+          </button>
+        </div>
         <p className="text-xs text-slate-500 dark:text-slate-400 italic mb-3">
           {template.subSpecialty}
         </p>

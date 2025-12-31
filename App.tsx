@@ -7,13 +7,19 @@ import TemplateDetails from './components/TemplateDetails';
 import Pagination from './components/Pagination';
 import TemplateListView from './components/TemplateListView';
 import Modal from './components/Modal';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { subscribeToStats, subscribeToUserBookmarks, toggleBookmark } from './services/bookmarkService';
 
-const App: React.FC = () => {
-  const [filters, setFilters] = useState<SearchFilters>({
+const AppContent: React.FC = () => {
+  const [filters, setFilters] = useState<SearchFilters & { onlyBookmarked: boolean }>({
     query: '',
-    specialty: Specialty.All
+    specialty: Specialty.All,
+    onlyBookmarked: false
   });
+  const { user, login, logout } = useAuth();
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [bookmarkStats, setBookmarkStats] = useState<Record<string, number>>({});
+  const [userBookmarks, setUserBookmarks] = useState<string[]>([]);
   const [copyFeedback, setCopyFeedback] = useState<string | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
@@ -29,6 +35,32 @@ const App: React.FC = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [theme]);
+
+  useEffect(() => {
+    const unsubscribe = subscribeToStats(setBookmarkStats);
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    if (user) {
+      const unsubscribe = subscribeToUserBookmarks(user.uid, setUserBookmarks);
+      return () => unsubscribe();
+    } else {
+      setUserBookmarks([]);
+    }
+  }, [user]);
+
+  const toggleTemplateBookmark = async (templateId: string) => {
+    if (!user) {
+      login();
+      return;
+    }
+    try {
+      await toggleBookmark(user.uid, templateId);
+    } catch (error) {
+      console.error("Failed to toggle bookmark", error);
+    }
+  };
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
@@ -89,9 +121,19 @@ const App: React.FC = () => {
 
       const matchesSpecialty = filters.specialty === Specialty.All || t.specialty === filters.specialty;
 
-      return matchesQuery && matchesSpecialty;
-    }).sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime());
-  }, [filters]);
+      const matchesBookmarks = !filters.onlyBookmarked || userBookmarks.includes(t.id);
+
+      return matchesQuery && matchesSpecialty && matchesBookmarks;
+    }).map(t => ({
+      ...t,
+      bookmarkCount: bookmarkStats[t.id] || 0
+    })).sort((a, b) => {
+      const dateA = new Date(a.lastModified).getTime();
+      const dateB = new Date(b.lastModified).getTime();
+      if (dateB !== dateA) return dateB - dateA;
+      return (b.bookmarkCount || 0) - (a.bookmarkCount || 0);
+    });
+  }, [filters, bookmarkStats]);
 
   // Reset to page 1 when filters change
   useEffect(() => {
@@ -117,7 +159,7 @@ const App: React.FC = () => {
   };
 
   const clearFilters = () => {
-    setFilters(prev => ({ ...prev, query: '', specialty: Specialty.All }));
+    setFilters(prev => ({ ...prev, query: '', specialty: Specialty.All, onlyBookmarked: false }));
   };
 
   return (
@@ -151,6 +193,36 @@ const App: React.FC = () => {
             >
               <i className={`fa-solid ${theme === 'dark' ? 'fa-sun' : 'fa-moon'}`}></i>
             </button>
+
+            {user ? (
+              <div className="flex items-center gap-3">
+                <div className="hidden sm:flex flex-col items-end">
+                  <span className="text-[10px] font-bold text-slate-900 dark:text-white leading-none capitalize">
+                    {user.displayName?.split(' ')[0]}
+                  </span>
+                  <span className="text-[8px] text-slate-400 font-medium">Verified</span>
+                </div>
+                <button
+                  onClick={logout}
+                  className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-all group overflow-hidden"
+                  title="Sign Out"
+                >
+                  {user.photoURL ? (
+                    <img src={user.photoURL} alt="Profile" className="w-full h-full object-cover group-hover:opacity-75" />
+                  ) : (
+                    <i className="fa-solid fa-sign-out-alt text-slate-400 group-hover:text-indigo-600 transition-colors"></i>
+                  )}
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={login}
+                className="flex items-center gap-2 bg-indigo-950 dark:bg-white text-white dark:text-indigo-950 px-4 py-2 rounded-xl text-xs font-bold hover:bg-black dark:hover:bg-slate-100 transition-all shadow-lg active:scale-95"
+              >
+                <i className="fa-brands fa-google text-[10px]"></i>
+                <span>Sign In</span>
+              </button>
+            )}
           </div>
         </div>
       </header>
@@ -209,6 +281,20 @@ const App: React.FC = () => {
                   )}
                 </div>
               </div>
+
+              {user && (
+                <div className="mt-4 flex justify-center">
+                  <button
+                    onClick={() => setFilters(prev => ({ ...prev, onlyBookmarked: !prev.onlyBookmarked }))}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all ${filters.onlyBookmarked
+                      ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 dark:shadow-none'
+                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-300'}`}
+                  >
+                    <i className={`fa-${filters.onlyBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
+                    {filters.onlyBookmarked ? 'Showing Bookmarks' : 'Show Bookmarks Only'}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -221,6 +307,8 @@ const App: React.FC = () => {
             template={selectedTemplate}
             onBack={() => setSelectedTemplate(null)}
             onCopy={handleCopy}
+            isBookmarked={userBookmarks.includes(selectedTemplate.id)}
+            onToggleBookmark={() => toggleTemplateBookmark(selectedTemplate.id)}
           />
         ) : (
           <>
@@ -277,6 +365,8 @@ const App: React.FC = () => {
                         template={template}
                         onView={handleTemplateSelect}
                         onCopy={handleCopy}
+                        isBookmarked={userBookmarks.includes(template.id)}
+                        onToggleBookmark={() => toggleTemplateBookmark(template.id)}
                       />
                     ))}
                   </div>
@@ -479,6 +569,14 @@ const App: React.FC = () => {
       </Modal>
 
     </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 };
 

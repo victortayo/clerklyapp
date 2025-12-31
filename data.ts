@@ -223,32 +223,54 @@ Review with investigation results.`
     specialty: Specialty.Pediatrics,
     subSpecialty: 'Otolaryngology / Pediatrics',
     condition: 'Acute Tonsillitis',
-    symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Hyperemic tonsils'],
+    symptoms: ['Fever', 'Noisy breathing', 'Snoring', 'Erythematous tonsils', 'Upper airway obstruction'],
     contributor: 'Admin',
-    lastModified: '2025-12-28',
-    summary: '2-year-old male with 3-day history of high-grade fever and noisy breathing (snoring). Hyperemic tonsils on examination.',
+    lastModified: '2025-12-31',
+    summary: '2-year-old male with 3-day history of high-grade fever and noisy breathing (snoring). Bilateral erythematous tonsils with mild upper airway obstruction.',
     content: `Patient Seen
-2-year-old male residing with Muslim Yoruba parents at Harmony
+2-year-old male residing with Muslim Yoruba parents at Akure, Ondo state.
 
-Informant: Father
+Informant: Father (reliable)
 
 PC:
 
 Fever × 3 days
-Noisy breathing × 2 days
+Noisy breathing × 1 days
 
 HPC:
-Patient was well until 3 days ago when he developed high-grade, intermittent fever, temporarily relieved by medications. Noisy breathing started 1 day ago, insidious in onset, described as snoring, worse during sleep, disturbing sleep.
-He was initially seen at a private facility where investigations were done, IV fluids and oral medications were given, and he was discharged. Due to persistent symptoms, he was brought here for further care.
-No history of asthma, seizure disorder, or sickle cell disease. No prior hospital admissions, surgeries, or blood transfusions. Genotype unknown; no history suggestive of hemoglobinopathy.
-No cough or chest pain
-No bluish discoloration of lips or limbs
-No vomiting, diarrhea, dysuria, or passage of dark/frothy urine
+Patient was apparently well until 3 days prior to presentation when he developed high-grade intermittent fever, temporarily relieved by antipyretics. There was no associated cough, catarrh, vomiting, diarrhea, or convulsion.
+About 1 day prior to presentation, he developed noisy breathing, described by the caregiver as a snoring sound, more noticeable during sleep and associated with restless sleep. There was no stridor, choking, or witnessed apneic episodes.
+There is no history of difficulty in swallowing, drooling of saliva, voice change, or neck swelling. No history suggestive of foreign body aspiration.
+He was initially seen at a private facility where he received oral medications but symptoms persisted, hence presentation to this facility.
+There is no history of recurrent sore throat.
+He is not a known asthmatic, seizure disorder, or sickle cell disease patient, however, Genotype is unknown.
+No history of previous hospital admissions. 
+No prior surgeries or blood transfusions. 
+
+He is fully immunized for age according to the NPI schedule.
+He lives with his parents
+
+No similar illness in household contacts
+
+ROS
+No cough, chest pain, or fast breathing
+No cyanosis or syncope
+No vomiting or diarrhea
+No dysuria or dark urine
+No seizures or altered consciousness
 
 O/E:
-Well-nourished, acutely ill-looking, febrile (37.8°C), not pale, icteric, cyanosed, or dehydrated. Bilateral submandibular lymph node enlargement. No pedal edema. No digital clubbing.
+Well-nourished toddler, acutely ill-looking, febrile (37.8°C), calm at rest, not pale, anicteric, acyanosed, not dehydrated. No pedal edema or digital clubbing.
 
 Weight: 16 kg
+
+ENT:
+Tonsils: Bilateral erythematous tonsils, mildly enlarged, no exudates
+Posterior pharyngeal wall hyperemic
+Uvula midline
+No peritonsillar bulge
+No drooling of saliva
+Bilateral submandibular lymph nodes: small, tender, mobile
 
 Respiratory:
 Not dyspneic
@@ -256,9 +278,6 @@ RR 32 cpm
 BS vesicular
 SpO₂ 99% in room air
 
-ENT:
-Tonsils hyperemic, not enlarged, no exudates
-No tragal or pinnal tenderness
 
 CVS:
 PR 132 bpm, full volume, regular
@@ -275,20 +294,20 @@ MSS: NAD
 mRDT: Negative
 
 Diagnosis: 
-Acute tonsillitis with postnasal obstruction
+Acute tonsillitis with mild upper airway obstruction (snoring)
 
-Plan:
-CRP
-Steam inhalation
-X-ray of postnasal spaces (already done, shows obliteration of nasopharyngeal air column)
-Oral PCM 10 mg/kg = 160 mg 6 hourly
-Oral Ibuprofen 9 mg/kg = 150 mg 8 hourly
-Oral Amoxiclav 30 mg/kg = 480 mg 12 hourly
-Commence Aristobet-N nasal drops
-Commence oral Cetrizine 2.5 mg daily
-Commence oral Actifed 1 mg 6 hourly
-See in ENT clinic
-Continue other supportive management`
+Plan 
+ Oral Paracetamol 15 mg/kg/dose 6-hourly
+ Oral Ibuprofen 10 mg/kg/dose 8-hourly (if fever persists)
+Oral Amoxicillin-Clavulanate 25–30 mg/kg/day in divided doses for 7 days
+Warm saline gargles / steam inhalation (as tolerated)
+Oral Cetirizine 2.5 mg nocte
+Encourage adequate oral fluid intake
+Counsel caregiver on danger signs:
+-Worsening noisy breathing
+-Difficulty breathing or swallowing
+-Persistent high-grade fever
+Review in ENT clinic or earlier if symptoms worsen.`
   },
 
   {
@@ -528,6 +547,119 @@ Urgent transfusion with 20mL/kg = 320mL group-specific uncrossmatched blood
 Monitor T, PR, RR, SpO2 4 hourly
 Monitor RBS hourly till 3 normal values then 4 hourly
 Invite the pediatric surgical team for his cryptorchidism`
+  },
+  {
+    id: 'peds-6',
+    title: 'Acute Gastroenteritis',
+    specialty: Specialty.Pediatrics,
+    subSpecialty: 'Children Emergencies',
+    condition: 'Acute Gastroenteritis',
+    symptoms: ['Cough', 'Fever', 'Vomiting', 'Loose stools', 'Dehydration'],
+    contributor: 'Admin',
+    lastModified: '2025-12-31',
+    summary: '2-year-old male with acute gastroenteritis and moderate acute malnutrition. Presented with cough, fever, vomiting, and loose stools.',
+    content: `Age: 2 years
+Sex: Male
+Residence: Abeokuta, Ogun State
+Informant: Mother (reliable)
+
+PC
+Cough × 1/7
+Fever × 1/7
+Vomiting × 3/7 (resolved)
+Passage of loose stools × 2/7
+
+HPC
+The patient was apparently well until about one week prior to presentation when he developed a cough, non-paroxysmal and non-barky, associated with whitish nasal discharge. There was no associated difficulty in breathing, chest indrawing, or noisy breathing.
+A few hours after onset of cough, he developed fever, described as high-grade and intermittent, temporarily relieved by tepid sponging. There was no associated convulsion or loss of consciousness.
+Due to persistence of fever, he was taken to a private health facility on the first day of illness, where he received intramuscular paracetamol (dose unknown) and intramuscular artemether, and was managed as an outpatient. Fever however persisted, and he re-presented to the same facility the following day, where he was admitted and continued on daily intramuscular artemether for three days. He was also commenced on intravenous antibiotics (name unknown) for presumed sepsis. No records of investigations were available.
+On the fourth day of illness, while still on admission, he developed vomiting, about 4 episodes per day, non-projectile, non-bilious, containing mainly recently ingested fluids, estimated at ~50 mls per episode. Vomiting resolved by the fifth day of illness.
+Subsequently, he developed loose stools, about 5 episodes per day, watery but mucoid, non-bloody, and not foul-smelling. The last episode of stooling was about 9 hours prior to presentation.
+He was discharged on the sixth day of illness on oral amoxicillin-clavulanate, ibuprofen, and cough syrup. However, on getting home, he was noticed to be weak with reduced appetite, prompting presentation to this facility about 24 hours after discharge.
+There is no history of difficulty in breathing, convulsions, dysuria, or reduced urine output.
+PMH
+No history of any chronic illness
+No previous hospital admissions
+No history of blood transfusion
+Genotype: AA
+
+DRUG HISTORY
+No known drug allergies.
+
+IMMUNIZATION HISTORY
+Up to date for age according to the NPI schedule (cards not seen).
+
+NUTRITIONAL HISTORY
+24-hour dietary recall:
+•	Pap with sugar
+•	Rice and stew
+Appetite has reduced in the past few days.
+
+
+O/E
+Toddler, afebrile (T = 36.3°C), anicteric, not pale, sunken eyes, dry oral mucosa, no peripheral lymphadenopathy, no pedal oedema.
+Anthropometry:
+Weight: 10 kg (~71% of expected)
+Height: 87 cm
+Weight-for-height: between −2 and −3 Z-scores
+MUAC: 12 cm
+OFC: 53 cm
+CVS
+PR: 112 bpm, full volume, regular
+HS: S₁ S₂ only
+RS:
+RR: 26 cpm
+Breath sounds vesicular
+SpO₂: 98% in room air
+ENT:
+Tonsils not enlarged
+Abdomen:
+Full, moves with respiration
+No tenderness
+No palpable organomegaly
+Neurological:
+Conscious, alert
+No neurological deficit
+
+INVESTIGATIONS
+mRDT for malaria: Negative
+Random blood sugar: 108 mg/dL
+PCV: 32%
+Urinalysis: Essentially normal
+
+ASSESSMENT
+1.	Acute gastroenteritis with moderate dehydration
+2.	Moderate acute malnutrition
+
+PLAN
+Admit for observation
+ORS 75 ml/kg over 4 hours (total 750 ml), then reassess
+Tab Zinc 20 mg daily for 10 days
+Monitor intake/output and stool frequency
+Send FBC, EUCR, and CRP
+Review after rehydration
+
+REVIEW (POST-REHYDRATION)
+Child has completed rehydration and appears to have improved clinically.
+O/E:
+Afebrile, not dehydrated
+
+PR: 100 bpm, full volume
+RR: 24 cpm, Chest clear
+
+REVISED ASSESSMENT
+1.	Acute gastroenteritis (resolved dehydration)
+2.	Moderate acute malnutrition
+
+PLAN
+Continue ORS 10 ml/kg per loose stool
+Continue Zinc 20 mg daily to complete 10 days
+Tab Folic acid 5 mg daily
+Syr Afravite 5 ml daily
+Syr Vitamin B-complex 5 ml daily
+Dietary counselling
+Refer to Nutritionist
+See in 3/7 for follow-up.`
   },
 
   // Internal Medicine

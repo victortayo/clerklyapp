@@ -4,11 +4,19 @@ import { Template } from '../types';
 
 interface TemplateDetailsProps {
   template: Template;
-  onBack: () => void;
+  onView?: (t: Template) => void;
   onCopy: (content: string) => void;
+  isBookmarked: boolean;
+  onToggleBookmark: () => void;
 }
 
-const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onCopy }) => {
+const TemplateDetails: React.FC<TemplateDetailsProps> = ({
+  template,
+  onBack,
+  onCopy,
+  isBookmarked,
+  onToggleBookmark
+}) => {
   const [copied, setCopied] = React.useState(false);
 
   useEffect(() => {
@@ -25,7 +33,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
     <>
       <div className="max-w-4xl mx-auto px-2 sm:px-6 lg:px-8 py-6 animate-in fade-in slide-in-from-right-4 duration-500">
         {/* Navigation Header */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <div>
             <h2 className="text-3xl font-bold text-indigo-950 dark:text-indigo-100 tracking-tight font-brand">{template.title}</h2>
             <div className="flex flex-wrap gap-4 text-xs text-slate-500 dark:text-slate-400 mt-2 items-center">
@@ -40,6 +48,13 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
               </span>
             </div>
           </div>
+          <button
+            onClick={onToggleBookmark}
+            className={`flex flex-col items-center gap-1 p-3 rounded-2xl transition-all active:scale-95 ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800' : 'text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300'}`}
+          >
+            <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark text-xl`}></i>
+            <span className="text-[10px] font-bold">{template.bookmarkCount || 0}</span>
+          </button>
         </div>
 
         {/* Main Content Card */}
@@ -79,6 +94,13 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({ template, onBack, onC
             className="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-slate-900 dark:hover:text-white transition-colors"
           >
             Back to templates
+          </button>
+          <button
+            onClick={onToggleBookmark}
+            className={`px-6 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 border w-full sm:w-auto ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+          >
+            <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
+            {isBookmarked ? 'Bookmarked' : 'Bookmark'}
           </button>
           <button
             onClick={handleLocalCopy}

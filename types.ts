@@ -18,6 +18,7 @@ export interface Template {
   contributor: string;
   lastModified: string;
   summary: string;
+  bookmarkCount?: number;
 }
 
 export interface SearchFilters {
