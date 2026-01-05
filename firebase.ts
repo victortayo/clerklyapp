@@ -3,15 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// TODO: Replace with your actual Firebase config
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
-};
+    apiKey: "AIzaSyCSL4ZuVjhhK3hCE7HDXuwupiOGN9BarzM",
+    authDomain: "clerklyapp.firebaseapp.com",
+    projectId: "clerklyapp",
+    storageBucket: "clerklyapp.firebasestorage.app",
+    messagingSenderId: "71838448926",
+    appId: "1:71838448926:web:0d0af4c3b190b722badd0f",
+    measurementId: "G-T3G4M35TVB"
+  };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
