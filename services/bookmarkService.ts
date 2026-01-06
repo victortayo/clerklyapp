@@ -67,20 +67,14 @@ export const subscribeToStats = (callback: (stats: Record<string, number>) => vo
 
 export const initializeStats = async () => {
     console.log("[BookmarkService] Initializing stats...");
+    const batch = writeBatch(db);
+    CLERKING_TEMPLATES.forEach(template => {
+        const statsRef = doc(db, 'stats', template.id);
+        const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+        batch.set(statsRef, { count: initialCount }, { merge: true });
+    });
     try {
-        for (const template of CLERKING_TEMPLATES) {
-            const statsRef = doc(db, 'stats', template.id);
-            const statsDoc = await getDoc(statsRef);
-
-            // Initialize if doc doesn't exist OR if count is 0 (to fix the current issue where they are stuck at 0)
-            const currentCount = statsDoc.exists() ? statsDoc.data()?.count : undefined;
-
-            if (!statsDoc.exists() || currentCount === 0 || currentCount === undefined) {
-                const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
-                console.log(`[BookmarkService] Setting initial count for ${template.id} to ${initialCount}`);
-                await setDoc(statsRef, { count: initialCount }, { merge: true });
-            }
-        }
+        await batch.commit();
         console.log("[BookmarkService] Stats initialization complete.");
     } catch (error) {
         console.error("Error initializing stats:", error);
