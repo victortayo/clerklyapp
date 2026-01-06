@@ -768,6 +768,121 @@ Dietary counselling
 Counsel on diagnosis and management plan`
   },
 
+  {
+    id: 'im-2',
+    title: 'Acute Left Hemispheric Stroke',
+    specialty: Specialty.InternalMedicine,
+    subSpecialty: 'Neurology Unit',
+    condition: 'Stroke',
+    symptoms: ['Irrational talk', 'Slurred speech', 'Right-sided weakness', 'Loss of consciousness', 'Hypertension'],
+    contributor: 'Admin',
+    lastModified: '2026-01-06',
+    summary: '70-year-old male presenting with irrational talk, slurred speech, right-sided weakness, and loss of consciousness. Likely acute left hemispheric stroke.',
+    content: `70-year-old male commercial driver who resides at Itunko, Oke-Aro, Ibadan.
+Presented on account of:
+Irrational talk × 10/7
+Slurred speech × 10 hours
+Right-sided weakness × 10 hours
+Loss of consciousness × 6 hours
+Informant: Daughter (reliable)
+
+HPC
+Patient was apparently well until about 10 days prior to presentation when he was noticed by family members to be talking irrationally and out of context, with inappropriate responses to questions. There was no associated fever, headache, or abnormal movements at onset. 
+
+About 10 hours prior to presentation, patient developed sudden onset weakness of the right side of the body, more marked in the right lower limb than the upper limb, and was unable to stand without support. This was non-progressive. At the same time, he was noticed to have slurred speech, with difficulty articulating words.
+
+Approximately 2–4 hours later, while being conveyed to this facility, patient lapsed into unconsciousness. Duration of unconsciousness was about 6 hours prior to arrival. Activities during the period of unconsciousness could not be ascertained. There was no history of convulsion, tongue biting, or urinary/fecal incontinence.
+
+There was no history of headache, vomiting, photophobia, phonophobia, fever, or neck pain prior to loss of consciousness. No history of head trauma.
+
+No prior history suggestive of stroke or TIA.
+No polyuria, polydipsia, polyphagia.
+No reduction in urine output, frothy urine, or facial puffiness.
+
+Patient was initially taken to a private facility where blood pressure was recorded above 200 mmHg systolic (exact diastolic unknown), following which he was referred.
+
+Not a known hypertensive (however admits to have a poor health-seeking behavior)
+Not a known diabetic
+No history of PUD or asthma
+
+Takes sachet alcohol; quantity not quantifiable
+Does not smoke cigarettes
+Occasional use of herbal concoctions
+No known drug allergies
+
+O/E
+Elderly man, unconscious, lying supine in bed.
+Not pale, acyanosed, anicteric, not dehydrated.
+No peripheral edema.
+
+CNS 
+Unconscious
+GCS: E1 V1 M5 = 7/15
+Pupils: 3 mm bilaterally, sluggishly reactive to light
+Right gaze preference
+Left facial weakness (UMN type)
+Right-sided hemiparesis, power difficult to assess due to reduced level of consciousness
+Tone increased on right side
+Neck stiffness present
+Brudzinski sign positive
+
+CVS
+PR: 86 bpm, full volume, regular
+Peripheral pulses present and symmetrical
+BP: 180/100 mmHg
+Apex beat: 6th left intercostal space, anterior axillary line
+HS: S4, S1, S2, no murmurs
+
+RS
+RR: 20 cpm
+Trachea central
+Vesicular breath sounds bilaterally
+No added sounds
+SpO₂: 97% in room air
+
+ABDOMEN
+Full, moves with respiration
+Mild epigastric tenderness
+Liver palpable 6 cm below RCM, non-tender, smooth
+No ascites
+
+ASSESSMENT
+1.	Acute left hemispheric stroke — likely hemorrhagic KIV ischemic with raised intracranial pressure, in an elderly male with previously undiagnosed hypertension
+2.	Hypertensive emergency
+
+PLAN
+Admit
+Urgent Non-contrast CT scan of the brain
+FBC
+ESR
+Urinalysis
+Urine MCS
+EUCR
+Fasting lipid profile
+HbA1c
+Chest X-ray
+ECG
+Echocardiography
+Abdominopelvic ultrasound
+Nurse patient in 30° head-up position
+Maintain airway; give supplemental oxygen if SpO₂ <94%
+IV Ceftriaxone 1 g 12-hourly
+IV Metronidazole 500 mg 8-hourly
+IV 20% Mannitol 250 ml over 20 minutes 8-hourly, with
+IV Furosemide 20 mg with each infusion
+IV Paracetamol (Febramol) 1 g 8-hourly
+IV Rabeprazole 40 mg 12-hourly
+IV fluids: 0.9% Normal Saline 500 ml alternating with 5% Dextrose 500 ml 4-hourly, monitor input/output strictly
+Pass NGT for medications and feeding
+Insert urethral catheter (Paul’s tube) to monitor urine output
+Apply TED stockings
+Regular turning on bed (2-hourly)
+Monitor vital signs closely
+Invite Physiotherapy
+Invite ICU team for possible transfer
+Commence stroke protocol after neuroimaging.`
+  },
+
   // OBGYN
   {
     id: 'ob-1',
