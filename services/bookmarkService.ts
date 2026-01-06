@@ -10,9 +10,11 @@ import {
     getDocs,
     increment,
     updateDoc,
-    runTransaction
+    runTransaction,
+    getDoc
 } from 'firebase/firestore';
 import { db } from '../firebase';
+import { CLERKING_TEMPLATES } from '../data';
 
 export interface TemplateStats {
     id: string;
@@ -41,14 +43,37 @@ export const toggleBookmark = async (userId: string, templateId: string) => {
     }
 };
 
+
 export const subscribeToStats = (callback: (stats: Record<string, number>) => void) => {
     return onSnapshot(collection(db, 'stats'), (snapshot) => {
         const stats: Record<string, number> = {};
+
+        // Initialize with default values for all templates
+        CLERKING_TEMPLATES.forEach(t => {
+            stats[t.id] = 0;
+        });
+
         snapshot.forEach((doc) => {
             stats[doc.id] = doc.data().count || 0;
         });
         callback(stats);
     });
+};
+
+export const initializeStats = async () => {
+    try {
+        for (const template of CLERKING_TEMPLATES) {
+            const statsRef = doc(db, 'stats', template.id);
+            const statsDoc = await getDoc(statsRef);
+
+            if (!statsDoc.exists()) {
+                const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+                await setDoc(statsRef, { count: initialCount });
+            }
+        }
+    } catch (error) {
+        console.error("Error initializing stats:", error);
+    }
 };
 
 export const subscribeToUserBookmarks = (userId: string, callback: (bookmarkIds: string[]) => void) => {

@@ -5,9 +5,11 @@ interface TemplateListViewProps {
     templates: Template[];
     onView: (template: Template) => void;
     onCopy: (content: string) => void;
+    userBookmarks: string[];
+    onToggleBookmark: (id: string) => void;
 }
 
-const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, onCopy }) => {
+const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, onCopy, userBookmarks, onToggleBookmark }) => {
     const [copiedId, setCopiedId] = useState<string | null>(null);
 
     const handleCopy = (e: React.MouseEvent, id: string, content: string) => {
@@ -25,6 +27,7 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                         <tr className="bg-slate-50 dark:bg-slate-900 border-b border-slate-100 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">
                             <th className="px-6 py-4">Condition Name</th>
                             <th className="px-6 py-4">Specialty</th>
+                            <th className="px-6 py-4 hidden sm:table-cell">Rating</th>
                             <th className="px-6 py-4 hidden sm:table-cell">Last Update</th>
                             <th className="px-6 py-4 text-right">Actions</th>
                         </tr>
@@ -52,6 +55,12 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                                         {template.specialty}
                                     </span>
                                 </td>
+                                <td className="px-6 py-4 hidden sm:table-cell">
+                                    <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+                                        <i className="fa-solid fa-bookmark text-[10px] text-indigo-400"></i>
+                                        <span className="text-xs font-bold">{template.bookmarkCount || 0}</span>
+                                    </div>
+                                </td>
                                 <td className="px-6 py-4 hidden sm:table-cell text-xs text-slate-500 dark:text-slate-400 font-mono">
                                     {template.lastModified}
                                 </td>
@@ -65,6 +74,19 @@ const TemplateListView: React.FC<TemplateListViewProps> = ({ templates, onView, 
                                             className="text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-indigo-900 dark:hover:text-indigo-300 px-3 py-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                                         >
                                             View
+                                        </button>
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                onToggleBookmark(template.id);
+                                            }}
+                                            className={`w-8 h-8 flex items-center justify-center rounded-lg transition-all active:scale-95 border ${userBookmarks.includes(template.id)
+                                                ? 'bg-indigo-50 border-indigo-200 text-indigo-600'
+                                                : 'bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 text-slate-400 dark:text-slate-300 hover:text-indigo-950 dark:hover:text-white hover:border-indigo-200 dark:hover:border-slate-500'
+                                                }`}
+                                            title="Bookmark"
+                                        >
+                                            <i className={`fa-${userBookmarks.includes(template.id) ? 'solid' : 'regular'} fa-bookmark text-xs`}></i>
                                         </button>
                                         <button
                                             onClick={(e) => handleCopy(e, template.id, template.content)}

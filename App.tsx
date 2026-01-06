@@ -8,7 +8,8 @@ import Pagination from './components/Pagination';
 import TemplateListView from './components/TemplateListView';
 import Modal from './components/Modal';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { subscribeToStats, subscribeToUserBookmarks, toggleBookmark } from './services/bookmarkService';
+import { subscribeToStats, subscribeToUserBookmarks, toggleBookmark, initializeStats } from './services/bookmarkService';
+import AuthModal from './components/AuthModal';
 
 const AppContent: React.FC = () => {
   const [filters, setFilters] = useState<SearchFilters & { onlyBookmarked: boolean }>({
@@ -25,6 +26,7 @@ const AppContent: React.FC = () => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [currentPage, setCurrentPage] = useState(1);
   const [activeModal, setActiveModal] = useState<'docs' | 'contribute' | 'help' | null>(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const ITEMS_PER_PAGE = 9;
 
@@ -38,6 +40,7 @@ const AppContent: React.FC = () => {
 
   useEffect(() => {
     const unsubscribe = subscribeToStats(setBookmarkStats);
+    initializeStats(); // Initialize default ratings for missing templates
     return () => unsubscribe();
   }, []);
 
@@ -52,7 +55,7 @@ const AppContent: React.FC = () => {
 
   const toggleTemplateBookmark = async (templateId: string) => {
     if (!user) {
-      login();
+      setIsAuthModalOpen(true);
       return;
     }
     try {
@@ -375,6 +378,8 @@ const AppContent: React.FC = () => {
                     templates={currentTemplates}
                     onView={handleTemplateSelect}
                     onCopy={handleCopy}
+                    userBookmarks={userBookmarks}
+                    onToggleBookmark={toggleTemplateBookmark}
                   />
                 )}
 
@@ -567,6 +572,12 @@ const AppContent: React.FC = () => {
           </section>
         </div>
       </Modal>
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        onLogin={login}
+      />
 
     </div>
   );
