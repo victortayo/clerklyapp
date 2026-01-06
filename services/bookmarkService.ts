@@ -71,10 +71,11 @@ export const initializeStats = async () => {
             const statsRef = doc(db, 'stats', template.id);
             const statsDoc = await getDoc(statsRef);
 
-            if (!statsDoc.exists()) {
+            // Initialize if doc doesn't exist OR if count is 0 (to fix the current issue where they are stuck at 0)
+            if (!statsDoc.exists() || statsDoc.data().count === 0) {
                 const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
                 console.log(`[BookmarkService] Setting initial count for ${template.id} to ${initialCount}`);
-                await setDoc(statsRef, { count: initialCount });
+                await setDoc(statsRef, { count: initialCount }, { merge: true });
             }
         }
         console.log("[BookmarkService] Stats initialization complete.");

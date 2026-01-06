@@ -60,10 +60,37 @@ const AppContent: React.FC = () => {
       setIsAuthModalOpen(true);
       return;
     }
+
+    // Optimistic Update
+    const isCurrentlyBookmarked = userBookmarks.includes(templateId);
+
+    // Update local bookmarks state
+    setUserBookmarks(prev =>
+      isCurrentlyBookmarked
+        ? prev.filter(id => id !== templateId)
+        : [...prev, templateId]
+    );
+
+    // Update local stats state
+    setBookmarkStats(prev => ({
+      ...prev,
+      [templateId]: (prev[templateId] || 0) + (isCurrentlyBookmarked ? -1 : 1)
+    }));
+
     try {
       await toggleBookmark(user.uid, templateId);
     } catch (error) {
       console.error("Failed to toggle bookmark", error);
+      // Revert on error
+      setUserBookmarks(prev =>
+        isCurrentlyBookmarked
+          ? [...prev, templateId]
+          : prev.filter(id => id !== templateId)
+      );
+      setBookmarkStats(prev => ({
+        ...prev,
+        [templateId]: (prev[templateId] || 0) + (isCurrentlyBookmarked ? 1 : -1)
+      }));
     }
   };
 
