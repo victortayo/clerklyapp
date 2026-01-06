@@ -9,9 +9,6 @@ import {
     where,
     getDocs,
     increment,
-    updateDoc,
-    runTransaction,
-    getDoc,
     writeBatch
 } from 'firebase/firestore';
 import { db } from '../firebase';
@@ -52,7 +49,7 @@ export const subscribeToStats = (callback: (stats: Record<string, number>) => vo
     return onSnapshot(collection(db, 'stats'), (snapshot) => {
         const stats: Record<string, number> = {};
 
-        // Initialize with default values for all templates
+        // Initialize with default values for all templates to prevent UI lag
         CLERKING_TEMPLATES.forEach(t => {
             stats[t.id] = 0;
         });
@@ -60,22 +57,43 @@ export const subscribeToStats = (callback: (stats: Record<string, number>) => vo
         snapshot.forEach((doc) => {
             stats[doc.id] = doc.data().count || 0;
         });
-        // console.log("[BookmarkService] Stats updated:", stats); // Optional: verbose logging
+
         callback(stats);
     });
 };
 
 export const initializeStats = async () => {
-    console.log("[BookmarkService] Initializing stats...");
-    const batch = writeBatch(db);
-    CLERKING_TEMPLATES.forEach(template => {
-        const statsRef = doc(db, 'stats', template.id);
-        const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
-        batch.set(statsRef, { count: initialCount }, { merge: true });
-    });
+    console.log("[BookmarkService] Checking and initializing stats...");
+    const statsCollection = collection(db, 'stats');
+    const templateIds = CLERKING_TEMPLATES.map(t => t.id);
+
+    // Firestore limits 'in' queries to 30 items. If you have more, you'll need to batch this.
+    if (templateIds.length === 0) return;
+
     try {
-        await batch.commit();
-        console.log("[BookmarkService] Stats initialization complete.");
+        const existingStatsSnapshot = await getDocs(query(statsCollection, where('__name__', 'in', templateIds)));
+        const existingStats = new Map(existingStatsSnapshot.docs.map(doc => [doc.id, doc.data().count]));
+
+        const batch = writeBatch(db);
+        let hasWrites = false;
+
+        CLERKING_TEMPLATES.forEach(template => {
+            const currentCount = existingStats.get(template.id);
+            if (currentCount === undefined || currentCount === 0) {
+                const statsRef = doc(db, 'stats', template.id);
+                const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+                console.log(`[BookmarkService] Initializing count for ${template.id} to ${initialCount}`);
+                batch.set(statsRef, { count: initialCount }, { merge: true });
+                hasWrites = true;
+            }
+        });
+
+        if (hasWrites) {
+            await batch.commit();
+            console.log("[BookmarkService] Stats initialization complete.");
+        } else {
+            console.log("[BookmarkService] All stats already initialized.");
+        }
     } catch (error) {
         console.error("Error initializing stats:", error);
     }
