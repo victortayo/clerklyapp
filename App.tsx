@@ -43,7 +43,7 @@ const AppContent: React.FC = () => {
     const unsubscribe = subscribeToStats(setBookmarkStats);
     initializeStats(); // Initialize default ratings for missing templates
     return () => unsubscribe();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     if (user) {
