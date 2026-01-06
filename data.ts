@@ -238,11 +238,14 @@ Fever × 3 days
 Noisy breathing × 1 days
 
 HPC:
-Patient was apparently well until 3 days prior to presentation when he developed high-grade intermittent fever, temporarily relieved by antipyretics. There was no associated cough, catarrh, vomiting, diarrhea, or convulsion.
+Patient was apparently well until 3 days prior to presentation when he developed high-grade intermittent fever, temporarily relieved by antipyretics. 
+There was no associated cough, catarrh, vomiting, diarrhea, or convulsion.
 
-About 1 day prior to presentation, he developed noisy breathing, described by the caregiver as a snoring sound, more noticeable during sleep and associated with restless sleep. There was no stridor, choking, or witnessed apneic episodes.
+About 1 day prior to presentation, he developed noisy breathing, described by the caregiver as a snoring sound, more noticeable during sleep and associated with restless sleep. 
+There was no stridor, choking, or witnessed apneic episodes.
 
-There is no history of difficulty in swallowing, drooling of saliva, voice change, or neck swelling. No history suggestive of foreign body aspiration.
+There is no history of difficulty in swallowing, drooling of saliva, voice change, or neck swelling. 
+No history suggestive of foreign body aspiration.
 
 He was initially seen at a private facility where he received oral medications but symptoms persisted, hence presentation to this facility.
 There is no history of recurrent sore throat.
@@ -436,8 +439,11 @@ Pale eyes and feet x2/7
 
 HPC:
 He was in his usual state of health until 5 days ago when he developed fever, fever was said to be high grade, intermittent, worse in the evening. It was temporarily relieved with tepid sponging.
+
 About 3 days after onset of fever, he was noticed to be pale which was described that the hands, feet and eyes were white in colour.
+
 Since onset of symptoms, step mother had called an auxiliary who administered blood tonic and an intramuscular injection which could not be ascertained.
+
 However symptoms persisted and the paternal aunt was called which necessitated presentation to this facility for expert care.
 
 PMH:
@@ -574,14 +580,18 @@ Vomiting × 3/7 (resolved)
 Passage of loose stools × 2/7
 
 HPC
-The patient was apparently well until about one week prior to presentation when he developed a cough, non-paroxysmal and non-barky, associated with whitish nasal discharge. There was no associated difficulty in breathing, chest indrawing, or noisy breathing.
+The patient was apparently well until about one week prior to presentation when he developed a cough, non-paroxysmal and non-barky, associated with whitish nasal discharge. 
+There was no associated difficulty in breathing, chest indrawing, or noisy breathing.
 
-A few hours after onset of cough, he developed fever, described as high-grade and intermittent, temporarily relieved by tepid sponging. There was no associated convulsion or loss of consciousness.
+A few hours after onset of cough, he developed fever, described as high-grade and intermittent, temporarily relieved by tepid sponging. 
+There was no associated convulsion or loss of consciousness.
+
 Due to persistence of fever, he was taken to a private health facility on the first day of illness, where he received intramuscular paracetamol (dose unknown) and intramuscular artemether, and was managed as an outpatient. Fever however persisted, and he re-presented to the same facility the following day, where he was admitted and continued on daily intramuscular artemether for three days. He was also commenced on intravenous antibiotics (name unknown) for presumed sepsis. No records of investigations were available.
 
 On the fourth day of illness, while still on admission, he developed vomiting, about 4 episodes per day, non-projectile, non-bilious, containing mainly recently ingested fluids, estimated at ~50 mls per episode. Vomiting resolved by the fifth day of illness.
 
-Subsequently, he developed loose stools, about 5 episodes per day, watery but mucoid, non-bloody, and not foul-smelling. The last episode of stooling was about 9 hours prior to presentation.
+Subsequently, he developed loose stools, about 5 episodes per day, watery but mucoid, non-bloody, and not foul-smelling. 
+The last episode of stooling was about 9 hours prior to presentation.
 
 He was discharged on the sixth day of illness on oral amoxicillin-clavulanate, ibuprofen, and cough syrup. However, on getting home, he was noticed to be weak with reduced appetite, prompting presentation to this facility about 24 hours after discharge.
 
