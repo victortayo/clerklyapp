@@ -22,6 +22,7 @@ export interface TemplateStats {
 }
 
 export const toggleBookmark = async (userId: string, templateId: string) => {
+    console.log(`[BookmarkService] Toggling bookmark for user ${userId}, template ${templateId}`);
     const bookmarkRef = doc(db, 'users', userId, 'bookmarks', templateId);
     const statsRef = doc(db, 'stats', templateId);
 
@@ -30,9 +31,11 @@ export const toggleBookmark = async (userId: string, templateId: string) => {
             const bookmarkDoc = await transaction.get(bookmarkRef);
 
             if (bookmarkDoc.exists()) {
+                console.log(`[BookmarkService] Removing bookmark for ${templateId}`);
                 transaction.delete(bookmarkRef);
                 transaction.update(statsRef, { count: increment(-1) });
             } else {
+                console.log(`[BookmarkService] Adding bookmark for ${templateId}`);
                 transaction.set(bookmarkRef, { bookmarkedAt: new Date().toISOString() });
                 transaction.set(statsRef, { count: increment(1) }, { merge: true });
             }
@@ -56,11 +59,13 @@ export const subscribeToStats = (callback: (stats: Record<string, number>) => vo
         snapshot.forEach((doc) => {
             stats[doc.id] = doc.data().count || 0;
         });
+        // console.log("[BookmarkService] Stats updated:", stats); // Optional: verbose logging
         callback(stats);
     });
 };
 
 export const initializeStats = async () => {
+    console.log("[BookmarkService] Initializing stats...");
     try {
         for (const template of CLERKING_TEMPLATES) {
             const statsRef = doc(db, 'stats', template.id);
@@ -68,9 +73,11 @@ export const initializeStats = async () => {
 
             if (!statsDoc.exists()) {
                 const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+                console.log(`[BookmarkService] Setting initial count for ${template.id} to ${initialCount}`);
                 await setDoc(statsRef, { count: initialCount });
             }
         }
+        console.log("[BookmarkService] Stats initialization complete.");
     } catch (error) {
         console.error("Error initializing stats:", error);
     }
