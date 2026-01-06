@@ -779,11 +779,14 @@ Counsel on diagnosis and management plan`
     lastModified: '2026-01-06',
     summary: '70-year-old male presenting with irrational talk, slurred speech, right-sided weakness, and loss of consciousness. Likely acute left hemispheric stroke.',
     content: `70-year-old male commercial driver who resides at Itunko, Oke-Aro, Ibadan.
+
 Presented on account of:
+
 Irrational talk × 10/7
 Slurred speech × 10 hours
 Right-sided weakness × 10 hours
 Loss of consciousness × 6 hours
+
 Informant: Daughter (reliable)
 
 HPC
