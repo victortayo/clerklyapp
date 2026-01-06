@@ -43,7 +43,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
           </h3>
           <button
             onClick={(e) => { e.stopPropagation(); onToggleBookmark(); }}
-            className={`flex items-center gap-1.5 transition-all active:scale-90 ${isBookmarked ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-300 hover:text-slate-400 dark:text-slate-600 dark:hover:text-slate-500'}`}
+            className={`flex items-center gap-1.5 transition-all active:scale-90 ${isBookmarked ? 'text-amber-500 dark:text-amber-400' : 'text-slate-300 hover:text-slate-400 dark:text-slate-600 dark:hover:text-slate-500'}`}
           >
             <span className="text-[10px] font-bold">{template.bookmarkCount || 0}</span>
             <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark text-sm`}></i>
@@ -81,7 +81,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
           <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'} text-xs`}></i>
         </button>
       </div>
-    </div>
+    </div >
   );
 };
 

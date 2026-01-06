@@ -11,7 +11,8 @@ import {
     increment,
     updateDoc,
     runTransaction,
-    getDoc
+    getDoc,
+    writeBatch
 } from 'firebase/firestore';
 import { db } from '../firebase';
 import { CLERKING_TEMPLATES } from '../data';
@@ -21,25 +22,25 @@ export interface TemplateStats {
     count: number;
 }
 
-export const toggleBookmark = async (userId: string, templateId: string) => {
-    console.log(`[BookmarkService] Toggling bookmark for user ${userId}, template ${templateId}`);
+export const toggleBookmark = async (userId: string, templateId: string, isBookmarked: boolean) => {
+    console.log(`[BookmarkService] Toggling bookmark for user ${userId}, template ${templateId}. Currently bookmarked: ${isBookmarked}`);
     const bookmarkRef = doc(db, 'users', userId, 'bookmarks', templateId);
     const statsRef = doc(db, 'stats', templateId);
 
-    try {
-        await runTransaction(db, async (transaction) => {
-            const bookmarkDoc = await transaction.get(bookmarkRef);
+    const batch = writeBatch(db);
 
-            if (bookmarkDoc.exists()) {
-                console.log(`[BookmarkService] Removing bookmark for ${templateId}`);
-                transaction.delete(bookmarkRef);
-                transaction.update(statsRef, { count: increment(-1) });
-            } else {
-                console.log(`[BookmarkService] Adding bookmark for ${templateId}`);
-                transaction.set(bookmarkRef, { bookmarkedAt: new Date().toISOString() });
-                transaction.set(statsRef, { count: increment(1) }, { merge: true });
-            }
-        });
+    try {
+        if (isBookmarked) {
+            // Remove bookmark
+            batch.delete(bookmarkRef);
+            batch.update(statsRef, { count: increment(-1) });
+        } else {
+            // Add bookmark
+            batch.set(bookmarkRef, { bookmarkedAt: new Date().toISOString() });
+            batch.set(statsRef, { count: increment(1) }, { merge: true });
+        }
+
+        await batch.commit();
     } catch (error) {
         console.error("Error toggling bookmark:", error);
         throw error;
@@ -72,7 +73,9 @@ export const initializeStats = async () => {
             const statsDoc = await getDoc(statsRef);
 
             // Initialize if doc doesn't exist OR if count is 0 (to fix the current issue where they are stuck at 0)
-            if (!statsDoc.exists() || statsDoc.data().count === 0) {
+            const currentCount = statsDoc.exists() ? statsDoc.data()?.count : undefined;
+
+            if (!statsDoc.exists() || currentCount === 0 || currentCount === undefined) {
                 const initialCount = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
                 console.log(`[BookmarkService] Setting initial count for ${template.id} to ${initialCount}`);
                 await setDoc(statsRef, { count: initialCount }, { merge: true });

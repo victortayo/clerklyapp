@@ -78,7 +78,7 @@ const AppContent: React.FC = () => {
     }));
 
     try {
-      await toggleBookmark(user.uid, templateId);
+      await toggleBookmark(user.uid, templateId, isCurrentlyBookmarked);
     } catch (error) {
       console.error("Failed to toggle bookmark", error);
       // Revert on error
