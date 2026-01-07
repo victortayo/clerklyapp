@@ -1373,6 +1373,7 @@ Review by the surgical team`
     lastModified: '2026-01-07',
     summary: '26-year-old male with decompensated chronic liver disease (likely HBV-related) presenting with loose stools, jaundice, and hepatic encephalopathy.',
     content: `26yr old male carpenter who resides in Akure, Ondo State
+
 PC
 Passage of loose stools x 3/12
 Yellowish discoloration of the eyes x 6/52
@@ -1381,19 +1382,27 @@ Abnormal behaviour/irrational talk x 1/52
 HPC
 The patient was apparently well until about 3 months prior to presentation, when he developed passage of loose stools, occurring multiple times daily (≈8–10 episodes/day). Stools were watery, non-mucoid, non-bloody, though occasionally dark-coloured. There was no associated tenesmus.
 There is an associated history of intermittent right upper abdominal pain, dull in nature, non-radiating, and associated with post-prandial vomiting, which on several occasions was bloody. Vomitus was non-bilious. The last episode of hematemesis was about 2 weeks prior to presentation.
+
 About 6 weeks prior to presentation, he noticed a progressive yellowish discoloration of the eyes, initially mild but worsening over time. There is associated generalized body itching, dark-coloured urine, and progressive weight loss. 
 There was also abdominal swelling, which was associated with early satiety, though the swelling has since reduced.
+
 Approximately 1 week prior to presentation, he developed abnormal behaviour, characterized by irrational talk, disorientation, sleep reversal, and auditory hallucinations. There was no history of fever, seizures or head trauma. Symptoms have partially improved prior to presentation. 
+
 He also complains of intermittent hiccups, generalized weakness, and joint pains. 
+
 There is no history of reduced urine output, hematuria, dysuria, leg swelling, orthopnoea, PND, or palpitations.
+
 Since the onset of symptoms, he has been using over-the-counter medications but symptoms have persisted.
+
 There is a positive history of unprotected sexual intercourse with multiple partners
 Positive history of getting scarification marks
 There is no prior history of peptic ulcer disease or NSAID use 
 No history of intravenous drug use
 No history of swimming in rivers or freshwater exposure
+
 He initially presented to a private hospital in Sango where he received one pint of blood transfusion.
 He was subsequently managed on an outpatient basis and was being evaluated for HBV-associated liver disease. Due to lack of clinical improvement, he was referred to this facility for expert care.
+
 No known history of hypertension, diabetes mellitus, PUD or chronic kidney disease
 No previous surgeries
 History of blood transfusion (1 unit, 2 months ago)
@@ -1413,6 +1422,7 @@ RBS 206mg/dL
 
 O/E
 Young man, conscious, not in obvious painful distress, pale++, icteric+++, not cyanosed, not dehydrated, no palmar erythema, flapping tremors, finger clubbing grade 2, nil pedal edema, no other peripheral stigmata of liver disease.
+
 ABD
 Full, moves with respiration, soft, 
 Mildly tender in the right hypochondrium.
