@@ -18,6 +18,9 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
   onToggleBookmark
 }) => {
   const [copied, setCopied] = React.useState(false);
+  const [explanationModalOpen, setExplanationModalOpen] = React.useState(false);
+  const [explanationLoading, setExplanationLoading] = React.useState(false);
+  const [explanationData, setExplanationData] = React.useState<import('../services/aiService').CaseExplanation | null>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,6 +30,22 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
     onCopy(template.content);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleExplainCase = async () => {
+    setExplanationModalOpen(true);
+    if (!explanationData) {
+      setExplanationLoading(true);
+      try {
+        const { generateCaseExplanation } = await import('../services/aiService');
+        const data = await generateCaseExplanation(template);
+        setExplanationData(data);
+      } catch (error) {
+        console.error("Failed to generate explanation", error);
+      } finally {
+        setExplanationLoading(false);
+      }
+    }
   };
 
   return (
@@ -64,6 +83,14 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
               {template.subSpecialty}
             </div>
             <button
+              onClick={handleExplainCase}
+              className="hidden sm:flex items-center gap-2 px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 rounded-lg text-xs font-bold border border-indigo-100 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-colors"
+              title="Explain this case with AI"
+            >
+              <i className="fa-solid fa-wand-magic-sparkles"></i>
+              Explain Case
+            </button>
+            <button
               onClick={handleLocalCopy}
               className={`p-2.5 rounded-xl transition-all duration-300 ease-out flex items-center justify-center ${copied ? 'bg-emerald-600 text-white shadow-emerald-100' : 'bg-indigo-950 dark:bg-indigo-900 text-white shadow-indigo-200 dark:shadow-none'} shadow-lg active:scale-95`}
               title={copied ? "Copied" : "Copy Template"}
@@ -95,6 +122,14 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
           >
             Back to templates
           </button>
+
+          <button
+            onClick={handleExplainCase}
+            className="sm:hidden px-6 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 border w-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800"
+          >
+            <i className="fa-solid fa-wand-magic-sparkles"></i>
+            Explain Case
+          </button>
           <button
             onClick={onToggleBookmark}
             className={`px-6 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 border w-full sm:w-auto ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
@@ -120,6 +155,105 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
       >
         <i className="fa-solid fa-arrow-left text-sm group-hover:-translate-x-0.5 transition-transform"></i>
       </button>
+
+      {/* AI Explanation Modal */}
+      {explanationModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setExplanationModalOpen(false)}></div>
+          <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col animate-in zoom-in-95 duration-300 overflow-hidden">
+
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                  <i className="fa-solid fa-robot text-lg"></i>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white font-brand">AI Case Analysis</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Powered by Clerkly AI</p>
+                </div>
+              </div>
+              <button onClick={() => setExplanationModalOpen(false)} className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors flex items-center justify-center">
+                <i className="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 overflow-y-auto">
+              {explanationLoading ? (
+                <div className="flex flex-col items-center justify-center py-12 space-y-4">
+                  <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+                  <p className="text-slate-500 dark:text-slate-400 font-medium animate-pulse">Analyzing clinical data...</p>
+                </div>
+              ) : explanationData ? (
+                <div className="space-y-6">
+                  {/* Summary */}
+                  <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800/50">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-indigo-900 dark:text-indigo-300 mb-2 flex items-center gap-2">
+                      <i className="fa-solid fa-stethoscope"></i> Case Summary
+                    </h4>
+                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                      {explanationData.summary}
+                    </p>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    {/* Key Findings */}
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 dark:text-emerald-400 mb-3 flex items-center gap-2">
+                        <i className="fa-solid fa-magnifying-glass"></i> Key Findings
+                      </h4>
+                      <ul className="space-y-2">
+                        {explanationData.keyFindings.map((item, i) => (
+                          <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex gap-2">
+                            <span className="text-emerald-500 mt-0.5">•</span>
+                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-200">$1</strong>') }}></span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Management Rationale */}
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-blue-900 dark:text-blue-400 mb-3 flex items-center gap-2">
+                        <i className="fa-solid fa-user-check"></i> Management
+                      </h4>
+                      <ul className="space-y-2">
+                        {explanationData.managementRationale.map((item, i) => (
+                          <li key={i} className="text-sm text-slate-600 dark:text-slate-400 flex gap-2">
+                            <span className="text-blue-500 mt-0.5">•</span>
+                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-200">$1</strong>') }}></span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Disclaimer */}
+                  <div className="text-[10px] text-slate-400 dark:text-slate-500 text-center pt-4 border-t border-slate-100 dark:border-slate-800 italic">
+                    {explanationData.disclaimer}
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center py-10 text-slate-500">
+                  <p>Failed to load explaination.</p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+              <button
+                onClick={() => setExplanationModalOpen(false)}
+                className="px-4 py-2 bg-indigo-950 dark:bg-indigo-900 text-white text-sm font-bold rounded-lg hover:bg-black transition-colors shadow-lg"
+              >
+                Close Analysis
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
     </>
   );
 };
