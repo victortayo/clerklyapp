@@ -177,7 +177,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
             </div>
 
             {/* Note Content */}
-            <div className="p-6 sm:p-8 overflow-y-auto space-y-8 font-serif leading-relaxed text-slate-800 dark:text-slate-300">
+            <div className="px-6 pb-6 overflow-y-auto space-y-6 text-slate-700 dark:text-slate-300">
               {explanationLoading ? (
                 <div className="flex flex-col items-center justify-center py-20 text-slate-400">
                   <span className="font-mono text-xs animate-pulse">Running analysis...</span>
@@ -185,8 +185,8 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
               ) : explanationData ? (
                 <>
                   {/* Summary */}
-                  <div className="prose prose-slate dark:prose-invert max-w-none">
-                    <p className="text-base sm:text-lg leading-7 my-0 first-letter:float-left first-letter:text-4xl first-letter:pr-2 first-letter:font-bold first-letter:text-indigo-900 dark:first-letter:text-indigo-300">
+                  <div className="text-sm leading-relaxed">
+                    <p>
                       {explanationData.summary.replace(/\*\*/g, '')}
                     </p>
                   </div>
@@ -195,8 +195,8 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
 
                   {/* Findings */}
                   <div>
-                    <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Key Findings</h4>
-                    <ul className="list-disc pl-5 space-y-2 marker:text-emerald-500 text-sm sm:text-base">
+                    <h4 className="font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-2 text-sm">Key Findings</h4>
+                    <ul className="list-disc pl-4 space-y-1 marker:text-emerald-500 text-sm">
                       {explanationData.keyFindings.map((item, i) => (
                         <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
                       ))}
@@ -205,8 +205,8 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
 
                   {/* Management */}
                   <div>
-                    <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Management Plan</h4>
-                    <ol className="list-decimal pl-5 space-y-3 marker:text-indigo-500 marker:font-bold text-sm sm:text-base">
+                    <h4 className="font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-2 text-sm">Management Plan</h4>
+                    <ol className="list-decimal pl-4 space-y-2 marker:text-indigo-500 marker:font-bold text-sm">
                       {explanationData.managementRationale.map((item, i) => (
                         <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
                       ))}
@@ -214,16 +214,16 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                   </div>
 
                   {/* Special Cards: Differentials & Pearls */}
-                  <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                  <div className="grid sm:grid-cols-2 gap-3 pt-2">
 
                     {/* Differentials Card */}
-                    <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30 text-sm">
-                      <h5 className="font-sans text-[10px] font-bold uppercase tracking-wide text-amber-900 dark:text-amber-400 mb-3 flex items-center gap-2">
+                    <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-100 dark:border-amber-800/30 text-xs">
+                      <h5 className="font-bold uppercase tracking-wide text-amber-900 dark:text-amber-400 mb-2 flex items-center gap-2">
                         <i className="fa-solid fa-code-branch"></i> Differential Diagnosis
                       </h5>
-                      <ul className="space-y-1.5 list-none">
+                      <ul className="space-y-1 list-none">
                         {explanationData.differentialDiagnosis?.map((item, i) => (
-                          <li key={i} className="flex gap-2 text-amber-900/80 dark:text-amber-200/80">
+                          <li key={i} className="flex gap-1.5 text-amber-900/80 dark:text-amber-200/80">
                             <span>•</span>
                             <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-amber-900 dark:text-amber-100">$1</span>') }}></span>
                           </li>
@@ -232,11 +232,11 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                     </div>
 
                     {/* Pearls Card */}
-                    <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100 dark:border-slate-800 text-sm">
-                      <h5 className="font-sans text-[10px] font-bold uppercase tracking-wide text-indigo-900 dark:text-indigo-400 mb-3 flex items-center gap-2">
+                    <div className="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg border border-slate-100 dark:border-slate-800 text-xs">
+                      <h5 className="font-bold uppercase tracking-wide text-indigo-900 dark:text-indigo-400 mb-2 flex items-center gap-2">
                         <i className="fa-regular fa-lightbulb"></i> Clinical Pearls
                       </h5>
-                      <div className="space-y-2">
+                      <div className="space-y-1.5">
                         {explanationData.clinicalPearls?.map((item, i) => (
                           <p key={i} className="text-slate-600 dark:text-slate-400 leading-snug">
                             <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-800 dark:text-slate-200">$1</span>') }}></span>
@@ -247,8 +247,16 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
 
                   </div>
 
-                  <div className="text-[10px] text-slate-300 dark:text-slate-600 italic text-center pt-8">
-                    {explanationData.disclaimer}
+                  <div className="pt-6 flex flex-col items-center gap-4 border-t border-slate-100 dark:border-slate-800 mt-2">
+                    <div className="text-[10px] text-slate-300 dark:text-slate-600 italic text-center">
+                      {explanationData.disclaimer}
+                    </div>
+                    <button
+                      onClick={() => setExplanationModalOpen(false)}
+                      className="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-full transition-colors"
+                    >
+                      Close Note
+                    </button>
                   </div>
                 </>
               ) : (
