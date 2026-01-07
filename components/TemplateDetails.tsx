@@ -84,18 +84,18 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
             </div>
             <button
               onClick={handleExplainCase}
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-slate-600 dark:text-slate-300 rounded-full text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group"
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-slate-500 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 rounded-md text-[10px] uppercase tracking-wider font-bold transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50"
               title="Get clinical insights"
             >
-              <i className="fa-regular fa-lightbulb text-yellow-500 text-sm group-hover:animate-pulse"></i>
+              <i className="fa-regular fa-lightbulb text-yellow-500 text-xs"></i>
               <span>Insight</span>
             </button>
             <button
               onClick={handleLocalCopy}
-              className={`p-2.5 rounded-xl transition-all duration-300 ease-out flex items-center justify-center ${copied ? 'bg-emerald-600 text-white shadow-emerald-100' : 'bg-transparent text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/30'} active:scale-95`}
+              className={`p-1.5 rounded-lg transition-all duration-300 ease-out flex items-center justify-center ${copied ? 'text-emerald-600' : 'text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400'} active:scale-95`}
               title={copied ? "Copied" : "Copy Template"}
             >
-              <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
+              <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'} text-xs`}></i>
             </button>
           </div>
           <div className="p-4 sm:p-8">
@@ -125,23 +125,23 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
 
           <button
             onClick={handleExplainCase}
-            className="sm:hidden px-6 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 w-full bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-100"
+            className="sm:hidden px-4 py-2.5 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 w-full bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs"
           >
             <i className="fa-solid fa-lightbulb text-yellow-500"></i>
-            Clinical Insight
+            Insight
           </button>
           <button
             onClick={onToggleBookmark}
-            className={`px-6 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 border w-full sm:w-auto ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+            className={`px-4 py-2.5 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 border w-full sm:w-auto text-xs ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-100 dark:border-indigo-800' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
           >
             <i className={`fa-${isBookmarked ? 'solid' : 'regular'} fa-bookmark`}></i>
-            {isBookmarked ? 'Bookmarked' : 'Bookmark'}
+            {isBookmarked ? 'Saved' : 'Save'}
           </button>
           <button
             onClick={handleLocalCopy}
-            className={`px-8 py-3 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 shadow-xl w-full sm:w-auto ${copied ? 'bg-emerald-600 text-white' : 'bg-indigo-950 dark:bg-indigo-900 text-white hover:bg-black dark:hover:bg-indigo-800'}`}
+            className={`px-5 py-2.5 rounded-xl font-bold active:scale-95 transition-all flex items-center justify-center gap-2 shadow-lg w-full sm:w-auto text-xs ${copied ? 'bg-emerald-600 text-white' : 'bg-indigo-950 dark:bg-indigo-900 text-white hover:bg-black dark:hover:bg-indigo-800'}`}
           >
-            <i className={`fa-solid ${copied ? 'fa-check text-xs' : 'fa-copy text-sm'}`}></i>
+            <i className={`fa-solid ${copied ? 'fa-check' : 'fa-copy'}`}></i>
             {copied ? 'Copied' : 'Copy'}
           </button>
         </div>
@@ -159,123 +159,101 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
       {/* AI Explanation Modal */}
       {explanationModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setExplanationModalOpen(false)}></div>
-          <div className="relative bg-white dark:bg-slate-950 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col animate-in zoom-in-95 duration-300 overflow-hidden">
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] animate-in fade-in duration-300" onClick={() => setExplanationModalOpen(false)}></div>
+          <div className="relative bg-white dark:bg-slate-950 rounded-xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col animate-in zoom-in-95 duration-300 overflow-hidden ring-1 ring-slate-200 dark:ring-slate-800">
 
-            {/* Minimal Header */}
-            <div className="flex items-center justify-between px-8 py-6 bg-white dark:bg-slate-950 sticky top-0 z-10">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-yellow-50 dark:bg-yellow-900/20 flex items-center justify-center text-yellow-500">
-                  <i className="fa-solid fa-lightbulb"></i>
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white font-brand tracking-tight">Clinical Insight</h3>
+            {/* Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-20">
+              <div className="flex items-center gap-2.5">
+                <i className="fa-solid fa-lightbulb text-yellow-500 text-sm"></i>
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wide">Analysis</h3>
               </div>
               <button
                 onClick={() => setExplanationModalOpen(false)}
-                className="w-8 h-8 rounded-full text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all flex items-center justify-center"
+                className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all flex items-center justify-center"
               >
-                <i className="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark text-sm"></i>
               </button>
             </div>
 
-            {/* Content */}
-            <div className="px-8 pb-8 overflow-y-auto">
+            {/* Note Content */}
+            <div className="p-6 sm:p-8 overflow-y-auto space-y-8 font-serif leading-relaxed text-slate-800 dark:text-slate-300">
               {explanationLoading ? (
-                <div className="flex flex-col items-center justify-center py-20 min-h-[400px]">
-                  <i className="fa-solid fa-circle-notch animate-spin text-slate-300 dark:text-slate-700 text-3xl mb-4"></i>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Analyzing case...</p>
+                <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+                  <span className="font-mono text-xs animate-pulse">Running analysis...</span>
                 </div>
               ) : explanationData ? (
-                <div className="grid lg:grid-cols-3 gap-12">
-
-                  {/* Left Column */}
-                  <div className="col-span-2 space-y-10">
-
-                    {/* Summary */}
-                    <div>
-                      <div className="text-lg sm:text-xl text-slate-800 dark:text-slate-200 leading-relaxed font-light">
-                        {explanationData.summary.split('**').map((part, i) =>
-                          i % 2 === 1 ? <strong key={i} className="font-semibold text-slate-900 dark:text-white">{part}</strong> : part
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Key Findings */}
-                    <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">
-                        Key Findings
-                      </h4>
-                      <ul className="grid sm:grid-cols-2 gap-4">
-                        {explanationData.keyFindings.map((item, i) => (
-                          <li key={i} className="text-sm text-slate-600 dark:text-slate-300 flex items-start gap-3 p-3 rounded-lg border border-slate-100 dark:border-slate-800">
-                            <span className="text-emerald-500 mt-0.5">•</span>
-                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100">$1</strong>') }}></span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Management */}
-                    <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">
-                        Management Plan
-                      </h4>
-                      <div className="space-y-4 border-l-2 border-slate-100 dark:border-slate-800 pl-4 ml-1">
-                        {explanationData.managementRationale.map((item, i) => (
-                          <div key={i} className="relative">
-                            <div className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-white dark:border-slate-950"></div>
-                            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"
-                              dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 block mb-1">$1</strong>') }}
-                            ></p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                <>
+                  {/* Summary */}
+                  <div className="prose prose-slate dark:prose-invert max-w-none">
+                    <p className="text-base sm:text-lg leading-7 my-0 first-letter:float-left first-letter:text-4xl first-letter:pr-2 first-letter:font-bold first-letter:text-indigo-900 dark:first-letter:text-indigo-300">
+                      {explanationData.summary.replace(/\*\*/g, '')}
+                    </p>
                   </div>
 
-                  {/* Right Column: Sidebar */}
-                  <div className="space-y-8">
+                  <hr className="border-slate-100 dark:border-slate-800" />
 
-                    {/* Differentials */}
-                    <div>
-                      <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">
-                        Consider Also
-                      </h4>
-                      <ul className="space-y-2">
+                  {/* Findings */}
+                  <div>
+                    <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Key Findings</h4>
+                    <ul className="list-disc pl-5 space-y-2 marker:text-emerald-500 text-sm sm:text-base">
+                      {explanationData.keyFindings.map((item, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Management */}
+                  <div>
+                    <h4 className="font-sans text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Management Plan</h4>
+                    <ol className="list-decimal pl-5 space-y-3 marker:text-indigo-500 marker:font-bold text-sm sm:text-base">
+                      {explanationData.managementRationale.map((item, i) => (
+                        <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
+                      ))}
+                    </ol>
+                  </div>
+
+                  {/* Special Cards: Differentials & Pearls */}
+                  <div className="grid sm:grid-cols-2 gap-4 pt-4">
+
+                    {/* Differentials Card */}
+                    <div className="bg-amber-50 dark:bg-amber-900/20 p-4 rounded-lg border border-amber-100 dark:border-amber-800/30 text-sm">
+                      <h5 className="font-sans text-[10px] font-bold uppercase tracking-wide text-amber-900 dark:text-amber-400 mb-3 flex items-center gap-2">
+                        <i className="fa-solid fa-code-branch"></i> Differential Diagnosis
+                      </h5>
+                      <ul className="space-y-1.5 list-none">
                         {explanationData.differentialDiagnosis?.map((item, i) => (
-                          <li key={i} className="text-sm text-slate-600 dark:text-slate-400 py-1 border-b border-slate-50 dark:border-slate-900 last:border-0">
-                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="text-slate-900 dark:text-slate-200 font-medium block">$1</span>') }}></span>
+                          <li key={i} className="flex gap-2 text-amber-900/80 dark:text-amber-200/80">
+                            <span>•</span>
+                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-amber-900 dark:text-amber-100">$1</span>') }}></span>
                           </li>
-                        )) || <p className="text-sm text-slate-400 italic">No specific differentials.</p>}
+                        ))}
                       </ul>
                     </div>
 
-                    {/* Clinical Pearls */}
-                    <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-5">
-                      <h4 className="text-[11px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 flex items-center gap-2">
-                        <i className="fa-solid fa-lightbulb text-yellow-500"></i> Pearls & Pitfalls
-                      </h4>
-                      <div className="space-y-4">
+                    {/* Pearls Card */}
+                    <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100 dark:border-slate-800 text-sm">
+                      <h5 className="font-sans text-[10px] font-bold uppercase tracking-wide text-indigo-900 dark:text-indigo-400 mb-3 flex items-center gap-2">
+                        <i className="fa-regular fa-lightbulb"></i> Clinical Pearls
+                      </h5>
+                      <div className="space-y-2">
                         {explanationData.clinicalPearls?.map((item, i) => (
-                          <div key={i} className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                            <span dangerouslySetInnerHTML={{ __html: item.replace('⚠️', '').replace('💡', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-700 dark:text-slate-300">$1</strong>') }}></span>
-                          </div>
-                        )) || <p className="text-sm text-slate-400">No pearls available.</p>}
-                      </div>
-                    </div>
-
-                    <div className="pt-8 border-t border-slate-100 dark:border-slate-900">
-                      <div className="text-[10px] text-slate-400 text-center leading-normal mb-4">
-                        {explanationData.disclaimer}
+                          <p key={i} className="text-slate-600 dark:text-slate-400 leading-snug">
+                            <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-800 dark:text-slate-200">$1</span>') }}></span>
+                          </p>
+                        ))}
                       </div>
                     </div>
 
                   </div>
 
-                </div>
+                  <div className="text-[10px] text-slate-300 dark:text-slate-600 italic text-center pt-8">
+                    {explanationData.disclaimer}
+                  </div>
+                </>
               ) : (
-                <div className="text-center py-20 text-slate-500">
-                  <p>Failed to load analysis.</p>
+                <div className="text-center py-20 text-slate-400 font-mono text-xs">
+                  Analysis unavailable.
                 </div>
               )}
             </div>
