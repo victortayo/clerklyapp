@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Template } from '../types';
+import Modal from './Modal';
 
 interface TemplateDetailsProps {
   template: Template;
@@ -157,120 +158,100 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
       </button>
 
       {/* AI Explanation Modal */}
-      {explanationModalOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] animate-in fade-in duration-300" onClick={() => setExplanationModalOpen(false)}></div>
-          <div className="relative bg-white dark:bg-slate-950 rounded-xl shadow-2xl w-full max-w-2xl max-h-[85vh] flex flex-col animate-in zoom-in-95 duration-300 overflow-hidden ring-1 ring-slate-200 dark:ring-slate-800">
-
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-20">
-              <div className="flex items-center gap-2.5">
-                <i className="fa-solid fa-lightbulb text-yellow-500 text-sm"></i>
-                <h3 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wide">Analysis</h3>
+      <Modal
+        isOpen={explanationModalOpen}
+        onClose={() => setExplanationModalOpen(false)}
+        title="Clinical Insight"
+      >
+        <div className="space-y-6">
+          {explanationLoading ? (
+            <div className="flex flex-col items-center justify-center py-12 text-slate-400">
+              <i className="fa-solid fa-circle-notch animate-spin text-2xl mb-3"></i>
+              <span className="font-mono text-xs animate-pulse">Running analysis...</span>
+            </div>
+          ) : explanationData ? (
+            <>
+              {/* Summary */}
+              <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800/50 mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                      <i className="fa-solid fa-wand-magic-sparkles text-indigo-600 dark:text-indigo-300 text-[10px]"></i>
+                    </div>
+                    <span className="text-xs font-bold text-indigo-950 dark:text-indigo-200 uppercase tracking-wider">Analysis</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-indigo-900/80 dark:text-indigo-200/70">
+                    {explanationData.summary.replace(/\*\*/g, '')}
+                  </p>
+                </div>
               </div>
-              <button
-                onClick={() => setExplanationModalOpen(false)}
-                className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-900 transition-all flex items-center justify-center"
-              >
-                <i className="fa-solid fa-xmark text-sm"></i>
-              </button>
-            </div>
 
-            {/* Note Content */}
-            <div className="px-6 pb-6 overflow-y-auto space-y-6 text-slate-700 dark:text-slate-300">
-              {explanationLoading ? (
-                <div className="flex flex-col items-center justify-center py-20 text-slate-400">
-                  <span className="font-mono text-xs animate-pulse">Running analysis...</span>
+              {/* Findings */}
+              <div>
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Key Findings</h4>
+                <ul className="space-y-2">
+                  {explanationData.keyFindings.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                      <i className="fa-solid fa-check text-emerald-500 mt-0.5 text-[10px]"></i>
+                      <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Management */}
+              <div>
+                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Management Plan</h4>
+                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-slate-700 dark:text-slate-300 marker:text-indigo-500 marker:font-bold">
+                  {explanationData.managementRationale.map((item, i) => (
+                    <li key={i} className="pl-1" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Differentials & Pearls */}
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
+                <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-xl border border-amber-100/50 dark:border-amber-900/50">
+                  <h5 className="text-[10px] font-bold uppercase tracking-wide text-amber-900 dark:text-amber-200 mb-2 flex items-center gap-2">
+                    <i className="fa-solid fa-code-branch text-amber-500"></i> Differentials
+                  </h5>
+                  <ul className="space-y-1 list-none">
+                    {explanationData.differentialDiagnosis?.map((item, i) => (
+                      <li key={i} className="text-[10px] sm:text-xs text-amber-900/80 dark:text-amber-200/80 leading-snug">
+                        • <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-amber-900 dark:text-amber-100">$1</span>') }}></span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ) : explanationData ? (
-                <>
-                  {/* Summary */}
-                  <div className="text-sm leading-relaxed">
-                    <p>
-                      {explanationData.summary.replace(/\*\*/g, '')}
-                    </p>
+
+                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
+                  <h5 className="text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-2 flex items-center gap-2">
+                    <i className="fa-regular fa-lightbulb text-indigo-500"></i> Pearls
+                  </h5>
+                  <div className="space-y-1.5">
+                    {explanationData.clinicalPearls?.map((item, i) => (
+                      <p key={i} className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-snug">
+                        <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-700 dark:text-slate-200">$1</span>') }}></span>
+                      </p>
+                    ))}
                   </div>
-
-                  <hr className="border-slate-100 dark:border-slate-800" />
-
-                  {/* Findings */}
-                  <div>
-                    <h4 className="font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-2 text-sm">Key Findings</h4>
-                    <ul className="list-disc pl-4 space-y-1 marker:text-emerald-500 text-sm">
-                      {explanationData.keyFindings.map((item, i) => (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Management */}
-                  <div>
-                    <h4 className="font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 mb-2 text-sm">Management Plan</h4>
-                    <ol className="list-decimal pl-4 space-y-2 marker:text-indigo-500 marker:font-bold text-sm">
-                      {explanationData.managementRationale.map((item, i) => (
-                        <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
-                      ))}
-                    </ol>
-                  </div>
-
-                  {/* Special Cards: Differentials & Pearls */}
-                  <div className="grid sm:grid-cols-2 gap-3 pt-2">
-
-                    {/* Differentials Card */}
-                    <div className="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-100 dark:border-amber-800/30 text-xs">
-                      <h5 className="font-bold uppercase tracking-wide text-amber-900 dark:text-amber-400 mb-2 flex items-center gap-2">
-                        <i className="fa-solid fa-code-branch"></i> Differential Diagnosis
-                      </h5>
-                      <ul className="space-y-1 list-none">
-                        {explanationData.differentialDiagnosis?.map((item, i) => (
-                          <li key={i} className="flex gap-1.5 text-amber-900/80 dark:text-amber-200/80">
-                            <span>•</span>
-                            <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-amber-900 dark:text-amber-100">$1</span>') }}></span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Pearls Card */}
-                    <div className="bg-slate-50 dark:bg-slate-900 p-3 rounded-lg border border-slate-100 dark:border-slate-800 text-xs">
-                      <h5 className="font-bold uppercase tracking-wide text-indigo-900 dark:text-indigo-400 mb-2 flex items-center gap-2">
-                        <i className="fa-regular fa-lightbulb"></i> Clinical Pearls
-                      </h5>
-                      <div className="space-y-1.5">
-                        {explanationData.clinicalPearls?.map((item, i) => (
-                          <p key={i} className="text-slate-600 dark:text-slate-400 leading-snug">
-                            <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-800 dark:text-slate-200">$1</span>') }}></span>
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <div className="pt-6 flex flex-col items-center gap-4 border-t border-slate-100 dark:border-slate-800 mt-2">
-                    <div className="text-[10px] text-slate-300 dark:text-slate-600 italic text-center">
-                      {explanationData.disclaimer}
-                    </div>
-                    <button
-                      onClick={() => setExplanationModalOpen(false)}
-                      className="px-4 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs font-semibold rounded-full transition-colors"
-                    >
-                      Close Note
-                    </button>
-                  </div>
-                </>
-              ) : (
-                <div className="text-center py-20 text-slate-400 font-mono text-xs">
-                  Analysis unavailable.
                 </div>
-              )}
-            </div>
+              </div>
 
-          </div>
+              <div className="text-[10px] text-slate-400 text-center italic border-t border-slate-100 dark:border-slate-800 pt-4">
+                {explanationData.disclaimer}
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-12 text-slate-400 font-mono text-xs">
+              Analysis unavailable.
+            </div>
+          )}
         </div>
-      )}
+      </Modal>
     </>
   );
 };
 
 export default TemplateDetails;
+```
