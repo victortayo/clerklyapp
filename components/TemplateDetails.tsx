@@ -171,74 +171,78 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
             </div>
           ) : explanationData ? (
             <>
-              {/* Summary */}
-              <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                <div className="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800/50 mb-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
-                      <i className="fa-solid fa-wand-magic-sparkles text-indigo-600 dark:text-indigo-300 text-[10px]"></i>
-                    </div>
-                    <span className="text-xs font-bold text-indigo-950 dark:text-indigo-200 uppercase tracking-wider">Analysis</span>
+              {/* Summary Card - Styled exactly like Contribute's Submission Guidelines card */}
+              <div className="bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-900 p-4 rounded-2xl border border-indigo-100 dark:border-slate-700">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 flex items-center justify-center">
+                    <i className="fa-solid fa-lightbulb text-indigo-600 dark:text-indigo-300 text-[10px]"></i>
                   </div>
-                  <p className="text-xs sm:text-sm text-indigo-900/80 dark:text-indigo-200/70">
-                    {explanationData.summary.replace(/\*\*/g, '')}
-                  </p>
+                  <h4 className="text-xs font-bold text-indigo-950 dark:text-indigo-200 uppercase tracking-wider">Clinical Summary</h4>
                 </div>
+                <p className="text-xs sm:text-sm text-indigo-900/80 dark:text-indigo-200/60 leading-relaxed">
+                  {explanationData.summary.replace(/\*\*/g, '')}
+                </p>
               </div>
 
-              {/* Findings */}
+              {/* Key Findings */}
               <div>
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Key Findings</h4>
-                <ul className="space-y-2">
+                <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Key Findings</h4>
+                <ul className="space-y-2.5">
                   {explanationData.keyFindings.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                      <i className="fa-solid fa-check text-emerald-500 mt-0.5 text-[10px]"></i>
-                      <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></span>
+                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                      <i className="fa-solid fa-check text-indigo-500 dark:text-indigo-400 mt-0.5 text-[10px]"></i>
+                      <span className="leading-tight" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 font-semibold">$1</strong>') }}></span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              {/* Management */}
+              {/* Management Plan */}
               <div>
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Management Plan</h4>
-                <ol className="space-y-2 list-decimal list-inside text-xs sm:text-sm text-slate-700 dark:text-slate-300 marker:text-indigo-500 marker:font-bold">
+                <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Management Plan</h4>
+                <div className="space-y-3">
                   {explanationData.managementRationale.map((item, i) => (
-                    <li key={i} className="pl-1" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}></li>
+                    <div key={i} className="flex gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                      <span className="font-bold text-indigo-500 dark:text-indigo-400">{i + 1}.</span>
+                      <span className="leading-tight" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 font-semibold">$1</strong>') }}></span>
+                    </div>
                   ))}
-                </ol>
+                </div>
               </div>
 
-              {/* Differentials & Pearls */}
-              <div className="grid sm:grid-cols-2 gap-3 pt-2">
-                <div className="bg-amber-50 dark:bg-amber-950/30 p-3 rounded-xl border border-amber-100/50 dark:border-amber-900/50">
-                  <h5 className="text-[10px] font-bold uppercase tracking-wide text-amber-900 dark:text-amber-200 mb-2 flex items-center gap-2">
-                    <i className="fa-solid fa-code-branch text-amber-500"></i> Differentials
-                  </h5>
-                  <ul className="space-y-1 list-none">
+              {/* Extras Grid */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                  <div className="flex items-center gap-2 mb-2">
+                    <i className="fa-solid fa-code-branch text-amber-500 text-[10px]"></i>
+                    <h5 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Differentials</h5>
+                  </div>
+                  <ul className="space-y-1.5 list-none">
                     {explanationData.differentialDiagnosis?.map((item, i) => (
-                      <li key={i} className="text-[10px] sm:text-xs text-amber-900/80 dark:text-amber-200/80 leading-snug">
-                        • <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-amber-900 dark:text-amber-100">$1</span>') }}></span>
+                      <li key={i} className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 leading-tight">
+                        • <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-800 dark:text-slate-200">$1</span>') }}></span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-100 dark:border-slate-700">
-                  <h5 className="text-[10px] font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-2 flex items-center gap-2">
-                    <i className="fa-regular fa-lightbulb text-indigo-500"></i> Pearls
-                  </h5>
+                <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                  <div className="flex items-center gap-2 mb-2">
+                    <i className="fa-regular fa-lightbulb text-indigo-500 text-[10px]"></i>
+                    <h5 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Clinical Pearls</h5>
+                  </div>
                   <div className="space-y-1.5">
                     {explanationData.clinicalPearls?.map((item, i) => (
-                      <p key={i} className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-snug">
+                      <div key={i} className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-tight">
                         <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-700 dark:text-slate-200">$1</span>') }}></span>
-                      </p>
+                      </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              <div className="text-[10px] text-slate-400 text-center italic border-t border-slate-100 dark:border-slate-800 pt-4">
+              {/* Disclaimer */}
+              <div className="text-[10px] text-slate-400 dark:text-slate-500 text-center italic border-t border-slate-100 dark:border-slate-800 pt-4 font-medium leading-relaxed">
                 {explanationData.disclaimer}
               </div>
             </>
