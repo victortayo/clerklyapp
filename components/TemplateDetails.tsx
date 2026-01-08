@@ -165,8 +165,8 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
       >
         <div className="space-y-6">
           {explanationLoading ? (
-            <div className="flex flex-col items-center justify-center py-12 text-slate-400">
-              <i className="fa-solid fa-circle-notch animate-spin text-2xl mb-3"></i>
+            <div className="flex flex-col items-center justify-center py-8 text-slate-400">
+              <i className="fa-solid fa-circle-notch animate-spin text-xl mb-3"></i>
               <span className="font-mono text-xs animate-pulse">Running analysis...</span>
             </div>
           ) : explanationData ? (
@@ -179,7 +179,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                   </div>
                   <h4 className="text-xs font-bold text-indigo-950 dark:text-indigo-200 uppercase tracking-wider">Clinical Summary</h4>
                 </div>
-                <p className="text-xs sm:text-sm text-indigo-900/80 dark:text-indigo-200/60 leading-relaxed">
+                <p className="text-xs text-indigo-900/70 dark:text-indigo-200/60 leading-relaxed">
                   {explanationData.summary.replace(/\*\*/g, '')}
                 </p>
               </div>
@@ -189,7 +189,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                 <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Key Findings</h4>
                 <ul className="space-y-2.5">
                   {explanationData.keyFindings.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                    <li key={i} className="flex items-start gap-2 text-xs text-indigo-900 dark:text-slate-300">
                       <i className="fa-solid fa-check text-indigo-500 dark:text-indigo-400 mt-0.5 text-[10px]"></i>
                       <span className="leading-tight" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 font-semibold">$1</strong>') }}></span>
                     </li>
@@ -200,10 +200,10 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
               {/* Management Plan */}
               <div>
                 <h4 className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-3">Management Plan</h4>
-                <div className="space-y-3">
+                <div className="space-y-2.5">
                   {explanationData.managementRationale.map((item, i) => (
-                    <div key={i} className="flex gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-                      <span className="font-bold text-indigo-500 dark:text-indigo-400">{i + 1}.</span>
+                    <div key={i} className="flex gap-2 text-xs text-indigo-900 dark:text-slate-300">
+                      <span className="font-bold text-indigo-500 dark:text-indigo-400 text-[10px]">{i + 1}.</span>
                       <span className="leading-tight" dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 font-semibold">$1</strong>') }}></span>
                     </div>
                   ))}
@@ -211,7 +211,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
               </div>
 
               {/* Extras Grid */}
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
                   <div className="flex items-center gap-2 mb-2">
                     <i className="fa-solid fa-code-branch text-amber-500 text-[10px]"></i>
@@ -219,7 +219,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                   </div>
                   <ul className="space-y-1.5 list-none">
                     {explanationData.differentialDiagnosis?.map((item, i) => (
-                      <li key={i} className="text-[10px] sm:text-xs text-slate-600 dark:text-slate-400 leading-tight">
+                      <li key={i} className="text-[10px] text-slate-600 dark:text-slate-400 leading-tight">
                         • <span dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-800 dark:text-slate-200">$1</span>') }}></span>
                       </li>
                     ))}
@@ -233,7 +233,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
                   </div>
                   <div className="space-y-1.5">
                     {explanationData.clinicalPearls?.map((item, i) => (
-                      <div key={i} className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 leading-tight">
+                      <div key={i} className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight">
                         <span dangerouslySetInnerHTML={{ __html: item.replace(/⚠️|💡/g, '').replace(/\*\*(.*?)\*\*/g, '<span class="font-semibold text-slate-700 dark:text-slate-200">$1</span>') }}></span>
                       </div>
                     ))}
@@ -247,7 +247,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
               </div>
             </>
           ) : (
-            <div className="text-center py-12 text-slate-400 font-mono text-xs">
+            <div className="text-center py-8 text-slate-400 font-mono text-xs">
               Analysis unavailable.
             </div>
           )}
