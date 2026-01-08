@@ -167,7 +167,7 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
           {explanationLoading ? (
             <div className="flex flex-col items-center justify-center py-8 text-slate-400">
               <i className="fa-solid fa-circle-notch animate-spin text-xl mb-3"></i>
-              <span className="font-mono text-xs animate-pulse">Running analysis...</span>
+              <span className="font-mono text-xs animate-pulse">Running clinical insight...</span>
             </div>
           ) : explanationData ? (
             <>
@@ -258,4 +258,4 @@ const TemplateDetails: React.FC<TemplateDetailsProps> = ({
 };
 
 export default TemplateDetails;
-```
+
